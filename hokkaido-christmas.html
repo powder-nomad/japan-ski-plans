@@ -472,6 +472,70 @@
   }
 
   :focus-visible { outline: 2px solid var(--ice); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---------- schematic maps ---------- */
+
+  .mapfig { margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+  .mapfig svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+  .mapfig figcaption {
+    font-size: 0.75rem;
+    line-height: 1.65;
+    color: var(--ink-3);
+    max-width: var(--measure);
+  }
+  .mapfig-narrow { max-width: 34rem; }
+
+  .map-label { font-family: var(--sans); font-size: 11.5px; font-weight: 600; fill: var(--ink); }
+  .map-sub   { font-family: var(--mono); font-size: 9.5px; fill: var(--ink-3); }
+
+  .map-route      { fill: none; stroke: var(--ice); stroke-width: 2.25;
+                    stroke-linecap: round; stroke-linejoin: round; }
+  .map-route-dash { fill: none; stroke: var(--ice); stroke-width: 2;
+                    stroke-dasharray: 5 4; stroke-linecap: round; }
+  .map-ring       { fill: none; stroke: var(--rule-strong); stroke-width: 1; stroke-dasharray: 3 4; }
+  .map-band       { fill: var(--panel-2); stroke: none; }
+
+  .map-dot       { fill: var(--ice); }
+  .map-dot-key   { fill: var(--pine); }
+  .map-dot-air   { fill: var(--ink-3); }
+  .map-dot-ghost { fill: var(--rule-strong); }
+  .map-dot-food  { fill: var(--amber); }
+
+  .map-lift      { stroke: var(--rule-strong); stroke-width: 2; }
+  .map-lift-drop { stroke: var(--rule-strong); stroke-width: 1.25; fill: none; }
+  .map-piste     { stroke: var(--ink-2); stroke-width: 2.5; stroke-linecap: round; }
+
+  .map-dot-rung1 { fill: var(--pine); }
+  .map-dot-rung2 { fill: var(--ice); }
+  .map-dot-rung3 { fill: var(--amber); }
+  .map-line-rung1 { fill: none; stroke: var(--pine); stroke-width: 1.75; opacity: 0.85; }
+  .map-line-rung2 { fill: none; stroke: var(--ice); stroke-width: 1.75; opacity: 0.85; }
+  .map-line-rung3 { fill: none; stroke: var(--amber); stroke-width: 1.75; opacity: 0.85; }
+
+  .maplinks-wrap { display: flex; flex-direction: column; gap: 0.5rem; }
+  .maplinks-head { font-size: 0.78rem; color: var(--ink-3); }
+  .maplinks { display: flex; flex-wrap: wrap; gap: 0.45rem; padding: 0; margin: 0; list-style: none; }
+  .maplinks li { margin: 0; }
+  .maplinks a {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    line-height: 1.5;
+    padding: 0.28rem 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--panel);
+    color: var(--ink-2);
+    text-decoration: none;
+  }
+  .maplinks a:hover, .maplinks a:focus-visible { border-color: var(--ice); color: var(--ice); }
 </style>
 
 <div class="wrap">
@@ -492,6 +556,33 @@
     <div class="section-head">
       <div class="eyebrow">한눈에</div>
       <h2>거점은 하나, 산은 둘</h2>
+    </div>
+
+    <figure class="mapfig">
+    <svg viewBox="0 0 600 260" role="img" aria-label="신치토세 공항과 니세코, 루스츠의 상대 위치 개략도">
+    <path d="M464.8 184.0 L135.2 148.0" class="map-route"/>
+    <path d="M135.2 148.0 L207.7 202.0" class="map-route-dash"/>
+    <circle cx="464.8" cy="184.0" r="4.5" class="map-dot-air"/>
+    <text x="475.8" y="183.0" class="map-label" text-anchor="start">신치토세 공항</text>
+    <text x="475.8" y="196.0" class="map-sub" text-anchor="start">IN / OUT</text>
+    <circle cx="135.2" cy="148.0" r="5.5" class="map-dot-key"/>
+    <text x="146.2" y="147.0" class="map-label" text-anchor="start">니세코</text>
+    <text x="146.2" y="160.0" class="map-sub" text-anchor="start">거점 · 5박</text>
+    <circle cx="207.7" cy="202.0" r="4.5" class="map-dot"/>
+    <text x="218.7" y="201.0" class="map-label" text-anchor="start">루스츠</text>
+    <text x="218.7" y="214.0" class="map-sub" text-anchor="start">당일치기 1일</text>
+    <circle cx="352.7" cy="58.0" r="4.5" class="map-dot-ghost"/>
+    <text x="363.7" y="57.0" class="map-label" text-anchor="start">삿포로</text>
+    </svg>
+    <figcaption>개략도 — 상대 위치만 보여준다. 점선은 루스츠 당일치기 구간이다.</figcaption>
+    </figure>
+
+    <div class="maplinks-wrap">
+      <div class="maplinks-head">공식 코스맵은 각 리조트 사이트에서 최신본을 본다 — 여기 옮겨두면 시즌 바뀔 때 틀린 게 남는다.</div>
+      <ul class="maplinks">
+        <li><a href="https://www.niseko.ne.jp/en/" target="_blank" rel="noopener">니세코 유나이티드 ↗</a></li>
+        <li><a href="https://rusutsu.com/en/" target="_blank" rel="noopener">루스츠 ↗</a></li>
+      </ul>
     </div>
     <div class="compare">
       <div class="card card-a">
@@ -531,6 +622,31 @@
       <p>하나조노 1번 리프트에서 내려 왼쪽으로 빠져 짧게 트래버스하면 나오는 큰 트리런 구역이다. 나무 간격이 넓고 면적이 커서, <strong>처음 타는 사람이 안전하게 배울 수 있는 곳</strong>으로 알려져 있다.</p>
       <p>경험 차이가 있는 팀에 이게 왜 맞는지가 핵심인데, <strong>진입 강도를 각자 고를 수 있기 때문</strong>이다.</p>
     </div>
+
+    <figure class="mapfig">
+    <svg viewBox="0 0 600 300" role="img" aria-label="스트로베리 필즈에서 세 가지 진입 강도가 모두 같은 정설 슬로프로 모이는 구조">
+    <line x1="40" y1="46" x2="560" y2="46" class="map-lift"/>
+    <text x="40.0" y="34.0" class="map-label" text-anchor="start">하나조노 1번 리프트 하차</text>
+    <path d="M150 46 L150 80" class="map-lift-drop"/>
+    <circle cx="150" cy="80" r="5" class="map-dot-rung1"/>
+    <text x="150.0" y="104.0" class="map-label" text-anchor="middle">입문</text>
+    <text x="150.0" y="118.0" class="map-sub" text-anchor="middle">바로 드롭인</text>
+    <path d="M150 126 C 150 196, 300.0 178, 300.0 240" class="map-line-rung1"/>
+    <path d="M310 46 L310 80" class="map-lift-drop"/>
+    <circle cx="310" cy="80" r="5" class="map-dot-rung2"/>
+    <text x="310.0" y="104.0" class="map-label" text-anchor="middle">중급</text>
+    <text x="310.0" y="118.0" class="map-sub" text-anchor="middle">조금 더 걸어 들어간다</text>
+    <path d="M310 126 C 310 196, 300.0 178, 300.0 240" class="map-line-rung2"/>
+    <path d="M470 46 L470 80" class="map-lift-drop"/>
+    <circle cx="470" cy="80" r="5" class="map-dot-rung3"/>
+    <text x="470.0" y="104.0" class="map-label" text-anchor="middle">상급</text>
+    <text x="470.0" y="118.0" class="map-sub" text-anchor="middle">더 멀리 트래버스</text>
+    <path d="M470 126 C 470 196, 300.0 178, 300.0 240" class="map-line-rung3"/>
+    <line x1="40" y1="248" x2="560" y2="248" class="map-piste"/>
+    <text x="300.0" y="270.0" class="map-label" text-anchor="middle">모든 라인이 정설 슬로프로 모인다 — 길을 잃을 수 없다</text>
+    </svg>
+    <figcaption>구조 개략도 — 지형도가 아니라 이 구역을 고른 이유를 그린 것이다. 진입 강도는 각자 고르지만 런아웃은 하나로 모인다.</figcaption>
+    </figure>
 
     <div class="ladder">
       <div class="rung rung-1">

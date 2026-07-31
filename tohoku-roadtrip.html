@@ -585,6 +585,70 @@
   }
 
   :focus-visible { outline: 2px solid var(--ice); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---------- schematic maps ---------- */
+
+  .mapfig { margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+  .mapfig svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+  .mapfig figcaption {
+    font-size: 0.75rem;
+    line-height: 1.65;
+    color: var(--ink-3);
+    max-width: var(--measure);
+  }
+  .mapfig-narrow { max-width: 34rem; }
+
+  .map-label { font-family: var(--sans); font-size: 11.5px; font-weight: 600; fill: var(--ink); }
+  .map-sub   { font-family: var(--mono); font-size: 9.5px; fill: var(--ink-3); }
+
+  .map-route      { fill: none; stroke: var(--ice); stroke-width: 2.25;
+                    stroke-linecap: round; stroke-linejoin: round; }
+  .map-route-dash { fill: none; stroke: var(--ice); stroke-width: 2;
+                    stroke-dasharray: 5 4; stroke-linecap: round; }
+  .map-ring       { fill: none; stroke: var(--rule-strong); stroke-width: 1; stroke-dasharray: 3 4; }
+  .map-band       { fill: var(--panel-2); stroke: none; }
+
+  .map-dot       { fill: var(--ice); }
+  .map-dot-key   { fill: var(--ember); }
+  .map-dot-air   { fill: var(--ink-3); }
+  .map-dot-ghost { fill: var(--rule-strong); }
+  .map-dot-food  { fill: var(--amber); }
+
+  .map-lift      { stroke: var(--rule-strong); stroke-width: 2; }
+  .map-lift-drop { stroke: var(--rule-strong); stroke-width: 1.25; fill: none; }
+  .map-piste     { stroke: var(--ink-2); stroke-width: 2.5; stroke-linecap: round; }
+
+  .map-dot-rung1 { fill: var(--ember); }
+  .map-dot-rung2 { fill: var(--ice); }
+  .map-dot-rung3 { fill: var(--amber); }
+  .map-line-rung1 { fill: none; stroke: var(--ember); stroke-width: 1.75; opacity: 0.85; }
+  .map-line-rung2 { fill: none; stroke: var(--ice); stroke-width: 1.75; opacity: 0.85; }
+  .map-line-rung3 { fill: none; stroke: var(--amber); stroke-width: 1.75; opacity: 0.85; }
+
+  .maplinks-wrap { display: flex; flex-direction: column; gap: 0.5rem; }
+  .maplinks-head { font-size: 0.78rem; color: var(--ink-3); }
+  .maplinks { display: flex; flex-wrap: wrap; gap: 0.45rem; padding: 0; margin: 0; list-style: none; }
+  .maplinks li { margin: 0; }
+  .maplinks a {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    line-height: 1.5;
+    padding: 0.28rem 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--panel);
+    color: var(--ink-2);
+    text-decoration: none;
+  }
+  .maplinks a:hover, .maplinks a:focus-visible { border-color: var(--ice); color: var(--ice); }
 </style>
 
 <div class="wrap">
@@ -676,6 +740,48 @@
       <div class="eyebrow">안 A</div>
       <h2>9일 · 스키 7일 · 종주 성립</h2>
       <span class="plan-tag">센다이 IN / 아오모리 OUT · 약 350km 북상</span>
+    </div>
+
+    <figure class="mapfig">
+    <svg viewBox="0 0 520 560" role="img" aria-label="센다이에서 아오모리까지 북상하는 도호쿠 로드트립 경로 개략도">
+    <rect x="8" y="305.5" width="504" height="-99.8" rx="4" class="map-band"/>
+    <text x="506.0" y="321.5" class="map-sub" text-anchor="end">안 B — 이 구간만</text>
+    <path d="M168.8 514.0 L101.9 510.4 L152.1 331.5 L173.0 179.7 L163.3 60.5 L136.7 46.0" class="map-route"/>
+    <circle cx="168.8" cy="514.0" r="4.5" class="map-dot-air"/>
+    <text x="180.8" y="513.0" class="map-label" text-anchor="start">센다이 공항</text>
+    <text x="180.8" y="526.0" class="map-sub" text-anchor="start">IN</text>
+    <circle cx="101.9" cy="510.4" r="4.5" class="map-dot"/>
+    <text x="113.9" y="509.4" class="map-label" text-anchor="start">자오 온천</text>
+    <text x="113.9" y="522.4" class="map-sub" text-anchor="start">¥7,500</text>
+    <circle cx="152.1" cy="331.5" r="4.5" class="map-dot-key"/>
+    <text x="164.1" y="330.5" class="map-label" text-anchor="start">게토 고원</text>
+    <text x="164.1" y="343.5" class="map-sub" text-anchor="start">¥6,800</text>
+    <circle cx="198.1" cy="280.9" r="3.5" class="map-dot-ghost"/>
+    <text x="210.1" y="279.9" class="map-label" text-anchor="start">하나마키 공항</text>
+    <text x="210.1" y="292.9" class="map-sub" text-anchor="start">안 B 후보</text>
+    <circle cx="173.0" cy="179.7" r="4.5" class="map-dot-key"/>
+    <text x="185.0" y="178.7" class="map-label" text-anchor="start">아피 고원</text>
+    <text x="185.0" y="191.7" class="map-sub" text-anchor="start">¥9,500</text>
+    <circle cx="163.3" cy="60.5" r="4.5" class="map-dot"/>
+    <text x="175.3" y="59.5" class="map-label" text-anchor="start">핫코다</text>
+    <text x="175.3" y="72.5" class="map-sub" text-anchor="start">¥6,400</text>
+    <circle cx="136.7" cy="46.0" r="4.5" class="map-dot-air"/>
+    <text x="148.7" y="45.0" class="map-label" text-anchor="start">아오모리 공항</text>
+    <text x="148.7" y="58.0" class="map-sub" text-anchor="start">OUT</text>
+    <text x="16.0" y="520.0" class="map-label" text-anchor="start">약 350km 북상</text>
+    <text x="16.0" y="536.0" class="map-sub" text-anchor="start">편도 반납료 ¥19,800–30,500</text>
+    </svg>
+    <figcaption>개략도 — 상대 위치와 순서만 보여준다. 실제 도로 거리·주행 시간이 아니다. 리프트권은 운영사 공시값이고, 350km와 편도 반납료는 페이지 안 비용 표와 같은 값이다.</figcaption>
+    </figure>
+
+    <div class="maplinks-wrap">
+      <div class="maplinks-head">공식 코스맵은 각 리조트 사이트에서 최신본을 본다 — 여기 옮겨두면 시즌 바뀔 때 틀린 게 남는다.</div>
+      <ul class="maplinks">
+        <li><a href="https://www.zaoropeway.co.jp/winter/" target="_blank" rel="noopener">자오 ↗</a></li>
+        <li><a href="https://www.geto8.com/" target="_blank" rel="noopener">게토 고원 ↗</a></li>
+        <li><a href="https://www.appi.co.jp/" target="_blank" rel="noopener">아피 고원 ↗</a></li>
+        <li><a href="https://www.hakkoda-ropeway.jp/" target="_blank" rel="noopener">핫코다 로프웨이 ↗</a></li>
+      </ul>
     </div>
 
     <div class="route">

@@ -439,6 +439,71 @@
   }
 
   :focus-visible { outline: 2px solid var(--ice); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---------- schematic maps ---------- */
+
+  .mapfig { margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+  .mapfig svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+  .mapfig figcaption {
+    font-size: 0.75rem;
+    line-height: 1.65;
+    color: var(--ink-3);
+    max-width: var(--measure);
+  }
+  .mapfig-narrow { max-width: 34rem; }
+
+  .map-label { font-family: var(--sans); font-size: 11.5px; font-weight: 600; fill: var(--ink); }
+  .map-sub   { font-family: var(--mono); font-size: 9.5px; fill: var(--ink-3); }
+
+  .map-route      { fill: none; stroke: var(--ice); stroke-width: 2.25;
+                    stroke-linecap: round; stroke-linejoin: round; }
+  .map-route-dash { fill: none; stroke: var(--ice); stroke-width: 2;
+                    stroke-dasharray: 5 4; stroke-linecap: round; }
+  .map-ring       { fill: none; stroke: var(--rule-strong); stroke-width: 1; stroke-dasharray: 3 4; }
+  .map-band       { fill: var(--panel-2); stroke: none; }
+
+  .map-dot       { fill: var(--ice); }
+  .map-dot-key   { fill: var(--crab); }
+  .map-dot-air   { fill: var(--ink-3); }
+  .map-dot-ghost { fill: var(--rule-strong); }
+  .map-dot-food  { fill: var(--amber); }
+
+  .map-leader   { stroke: var(--rule-strong); stroke-width: 0.9; fill: none; }
+  .map-lift      { stroke: var(--rule-strong); stroke-width: 2; }
+  .map-lift-drop { stroke: var(--rule-strong); stroke-width: 1.25; fill: none; }
+  .map-piste     { stroke: var(--ink-2); stroke-width: 2.5; stroke-linecap: round; }
+
+  .map-dot-rung1 { fill: var(--crab); }
+  .map-dot-rung2 { fill: var(--ice); }
+  .map-dot-rung3 { fill: var(--amber); }
+  .map-line-rung1 { fill: none; stroke: var(--crab); stroke-width: 1.75; opacity: 0.85; }
+  .map-line-rung2 { fill: none; stroke: var(--ice); stroke-width: 1.75; opacity: 0.85; }
+  .map-line-rung3 { fill: none; stroke: var(--amber); stroke-width: 1.75; opacity: 0.85; }
+
+  .maplinks-wrap { display: flex; flex-direction: column; gap: 0.5rem; }
+  .maplinks-head { font-size: 0.78rem; color: var(--ink-3); }
+  .maplinks { display: flex; flex-wrap: wrap; gap: 0.45rem; padding: 0; margin: 0; list-style: none; }
+  .maplinks li { margin: 0; }
+  .maplinks a {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    line-height: 1.5;
+    padding: 0.28rem 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--panel);
+    color: var(--ink-2);
+    text-decoration: none;
+  }
+  .maplinks a:hover, .maplinks a:focus-visible { border-color: var(--ice); color: var(--ice); }
 </style>
 
 <div class="wrap">
@@ -561,6 +626,55 @@
     </div>
     <div class="prose">
       <p>렌터카가 확정이라 이 논리가 성립한다. 아라이 바람 위험이 <strong>트립의 위험이 아니라 하루의 위험</strong>으로 내려간다.</p>
+    </div>
+
+    <figure class="mapfig">
+    <svg viewBox="0 0 660 420" role="img" aria-label="아카쿠라 온천을 베이스로 한 묘코 주변 스키장 배치 개략도">
+    <circle cx="369.5" cy="111.2" r="5.5" class="map-dot-key"/>
+    <path d="M369.5 111.2 L381.5 105.2" class="map-leader"/>
+    <text x="381.5" y="104.2" class="map-label" text-anchor="start">아라이</text>
+    <text x="381.5" y="117.2" class="map-sub" text-anchor="start">¥7,500 · 추천</text>
+    <circle cx="341.3" cy="195.9" r="5.5" class="map-dot-key"/>
+    <text x="329.3" y="194.9" class="map-label" text-anchor="end">아카쿠라 온천</text>
+    <text x="329.3" y="207.9" class="map-sub" text-anchor="end">베이스 · ¥6,000</text>
+    <circle cx="358.2" cy="188.8" r="4.5" class="map-dot"/>
+    <path d="M358.2 188.8 L370.2 172.8" class="map-leader"/>
+    <text x="370.2" y="171.8" class="map-label" text-anchor="start">세키 온천</text>
+    <text x="370.2" y="184.8" class="map-sub" text-anchor="start">15–30분</text>
+    <circle cx="352.6" cy="217.1" r="4.5" class="map-dot"/>
+    <path d="M352.6 217.1 L364.6 237.1" class="map-leader"/>
+    <text x="364.6" y="236.1" class="map-label" text-anchor="start">스기노하라</text>
+    <text x="364.6" y="249.1" class="map-sub" text-anchor="start">¥7,000 · 8.5km</text>
+    <circle cx="431.6" cy="217.1" r="4.5" class="map-dot"/>
+    <path d="M431.6 217.1 L443.6 203.1" class="map-leader"/>
+    <text x="443.6" y="202.1" class="map-label" text-anchor="start">마다라오</text>
+    <text x="443.6" y="215.1" class="map-sub" text-anchor="start">¥8,500 · 30분</text>
+    <circle cx="431.6" cy="231.2" r="4.5" class="map-dot"/>
+    <path d="M431.6 231.2 L443.6 251.2" class="map-leader"/>
+    <text x="443.6" y="250.2" class="map-label" text-anchor="start">탕그램</text>
+    <text x="443.6" y="263.2" class="map-sub" text-anchor="start">20–40분</text>
+    <circle cx="493.8" cy="174.7" r="4.5" class="map-dot"/>
+    <text x="505.8" y="173.7" class="map-label" text-anchor="start">노자와 온천</text>
+    <text x="505.8" y="186.7" class="map-sub" text-anchor="start">40분</text>
+    <circle cx="166.2" cy="90.0" r="4.5" class="map-dot-food"/>
+    <text x="154.2" y="89.0" class="map-label" text-anchor="end">이토이가와</text>
+    <text x="154.2" y="102.0" class="map-sub" text-anchor="end">게 · 1–1.5시간</text>
+    <circle cx="166.2" cy="330.0" r="4.5" class="map-dot-ghost"/>
+    <text x="154.2" y="329.0" class="map-label" text-anchor="end">하쿠바</text>
+    <text x="154.2" y="342.0" class="map-sub" text-anchor="end">¥10,400 · 대안</text>
+    </svg>
+    <figcaption>개략도 — 상대 위치만 보여준다. 각 산에 적힌 주행 시간은 본문에 쓴 값과 같고, 리프트권은 운영사 공시값이다. 직선 거리가 아니라 실제 도로 기준이다.</figcaption>
+    </figure>
+
+    <div class="maplinks-wrap">
+      <div class="maplinks-head">공식 코스맵은 각 리조트 사이트에서 최신본을 본다 — 여기 옮겨두면 시즌 바뀔 때 틀린 게 남는다.</div>
+      <ul class="maplinks">
+        <li><a href="https://www.lottearairesort.com/" target="_blank" rel="noopener">롯데 아라이 ↗</a></li>
+        <li><a href="https://akakura-ski.com/" target="_blank" rel="noopener">아카쿠라 온천 ↗</a></li>
+        <li><a href="https://www.princehotels.co.jp/ski/myoko/" target="_blank" rel="noopener">스기노하라 ↗</a></li>
+        <li><a href="https://www.madarao.jp/" target="_blank" rel="noopener">마다라오 ↗</a></li>
+        <li><a href="https://www.hakubavalley.com/" target="_blank" rel="noopener">하쿠바 밸리 ↗</a></li>
+      </ul>
     </div>
     <div class="mtns">
       <div class="mtn mtn-key">
