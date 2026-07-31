@@ -613,7 +613,7 @@
   .map-route-dash { fill: none; stroke: var(--ice); stroke-width: 2;
                     stroke-dasharray: 5 4; stroke-linecap: round; }
   .map-ring       { fill: none; stroke: var(--rule-strong); stroke-width: 1; stroke-dasharray: 3 4; }
-  .map-band       { fill: var(--panel-2); stroke: none; }
+  .map-band       { fill: var(--ember); opacity: 0.13; stroke: none; }
 
   .map-dot       { fill: var(--ice); }
   .map-dot-key   { fill: var(--ember); }
@@ -621,6 +621,10 @@
   .map-dot-ghost { fill: var(--rule-strong); }
   .map-dot-food  { fill: var(--amber); }
 
+  .map-sea    { fill: var(--panel-2); }
+  .map-land   { fill: var(--panel); stroke: var(--rule-strong); stroke-width: 0.9;
+                stroke-linejoin: round; }
+  .map-leader { stroke: var(--rule-strong); stroke-width: 0.9; fill: none; }
   .map-lift      { stroke: var(--rule-strong); stroke-width: 2; }
   .map-lift-drop { stroke: var(--rule-strong); stroke-width: 1.25; fill: none; }
   .map-piste     { stroke: var(--ink-2); stroke-width: 2.5; stroke-linecap: round; }
@@ -649,6 +653,28 @@
     text-decoration: none;
   }
   .maplinks a:hover, .maplinks a:focus-visible { border-color: var(--ice); color: var(--ice); }
+
+  /* ---------- photographs ---------- */
+
+  .photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+  }
+  .photo { margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+  .photo img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--panel-2);
+  }
+  .photo figcaption { font-size: 0.72rem; line-height: 1.55; color: var(--ink-3); }
+  .photo figcaption b { color: var(--ink-2); font-weight: 600; }
+  .photo a { color: var(--ink-3); text-decoration: underline; text-underline-offset: 2px; }
+  .photo a:hover { color: var(--ice); }
 </style>
 
 <div class="wrap">
@@ -722,6 +748,19 @@
       <p>한쪽을 망치는 폭설·강풍이 보통 다른 쪽은 좋게 만든다. 그래서 이 트립은 하루를 통째로 날릴 확률이 구조적으로 낮다.</p>
       <p><strong>날짜도 중순보다 셋째 주가 낫다.</strong> 수빙(樹氷, 스노우몬스터)이 1월 말~2월 중순이 절정이라, 셋째 주면 자오와 핫코다 양쪽에서 만들어지는 과정을 본다. 중순이면 그냥 놓친다.</p>
     </div>
+
+    <div class="photos">
+      <figure class="photo">
+        <img src="assets/zao-juhyo.jpg" width="1280" height="960" loading="lazy" decoding="async"
+             alt="자오 지장산 정상부의 수빙 — 침엽수가 눈과 얼음에 완전히 덮여 사람 키보다 큰 덩어리가 되어 있다">
+        <figcaption><b>자오 · 지장산의 수빙</b> — 사진 <a href="https://commons.wikimedia.org/wiki/File:Mt.Zao(Mt.Jizo)_Juhyo.JPG" target="_blank" rel="noopener">Suz-b</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="assets/hakkoda-juhyo.jpg" width="1280" height="853" loading="lazy" decoding="async"
+             alt="핫코다의 수빙 지대 — 능선을 따라 얼어붙은 나무들이 줄지어 서 있다">
+        <figcaption><b>핫코다의 수빙</b> — 사진 <a href="https://commons.wikimedia.org/wiki/File:Hakkoda_snow_monsters_(51885476927).jpg" target="_blank" rel="noopener">Raita Futo</a>, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></figcaption>
+      </figure>
+    </div>
   </section>
 
   <section class="section">
@@ -743,35 +782,44 @@
     </div>
 
     <figure class="mapfig">
-    <svg viewBox="0 0 520 560" role="img" aria-label="센다이에서 아오모리까지 북상하는 도호쿠 로드트립 경로 개략도">
-    <rect x="8" y="305.5" width="504" height="-99.8" rx="4" class="map-band"/>
-    <text x="506.0" y="321.5" class="map-sub" text-anchor="end">안 B — 이 구간만</text>
-    <path d="M168.8 514.0 L101.9 510.4 L152.1 331.5 L173.0 179.7 L163.3 60.5 L136.7 46.0" class="map-route"/>
-    <circle cx="168.8" cy="514.0" r="4.5" class="map-dot-air"/>
-    <text x="180.8" y="513.0" class="map-label" text-anchor="start">센다이 공항</text>
-    <text x="180.8" y="526.0" class="map-sub" text-anchor="start">IN</text>
-    <circle cx="101.9" cy="510.4" r="4.5" class="map-dot"/>
-    <text x="113.9" y="509.4" class="map-label" text-anchor="start">자오 온천</text>
-    <text x="113.9" y="522.4" class="map-sub" text-anchor="start">¥7,500</text>
-    <circle cx="152.1" cy="331.5" r="4.5" class="map-dot-key"/>
-    <text x="164.1" y="330.5" class="map-label" text-anchor="start">게토 고원</text>
-    <text x="164.1" y="343.5" class="map-sub" text-anchor="start">¥6,800</text>
-    <circle cx="198.1" cy="280.9" r="3.5" class="map-dot-ghost"/>
-    <text x="210.1" y="279.9" class="map-label" text-anchor="start">하나마키 공항</text>
-    <text x="210.1" y="292.9" class="map-sub" text-anchor="start">안 B 후보</text>
-    <circle cx="173.0" cy="179.7" r="4.5" class="map-dot-key"/>
-    <text x="185.0" y="178.7" class="map-label" text-anchor="start">아피 고원</text>
-    <text x="185.0" y="191.7" class="map-sub" text-anchor="start">¥9,500</text>
-    <circle cx="163.3" cy="60.5" r="4.5" class="map-dot"/>
-    <text x="175.3" y="59.5" class="map-label" text-anchor="start">핫코다</text>
-    <text x="175.3" y="72.5" class="map-sub" text-anchor="start">¥6,400</text>
-    <circle cx="136.7" cy="46.0" r="4.5" class="map-dot-air"/>
-    <text x="148.7" y="45.0" class="map-label" text-anchor="start">아오모리 공항</text>
-    <text x="148.7" y="58.0" class="map-sub" text-anchor="start">OUT</text>
-    <text x="16.0" y="520.0" class="map-label" text-anchor="start">약 350km 북상</text>
-    <text x="16.0" y="536.0" class="map-sub" text-anchor="start">편도 반납료 ¥19,800–30,500</text>
+    <svg viewBox="0 0 640 526" role="img" aria-label="센다이에서 아오모리까지 북상하는 도호쿠 로드트립 경로를 실제 해안선 위에 표시한 지도">
+    <rect x="152" y="0" width="336" height="526" class="map-sea"/>
+    <path d="M152.0 526.2 L152.0 467.9 L159.1 464.5 L168.7 457.2 L181.8 441.8 L187.0 405.2 L189.1 399.3 L193.2 391.8 L200.7 372.1 L203.7 367.5 L213.4 358.4 L219.6 348.4 L224.1 331.0 L228.7 318.2 L230.5 308.9 L232.4 304.0 L233.7 291.2 L235.1 285.9 L236.7 282.4 L240.2 280.8 L243.6 276.8 L249.4 251.9 L250.6 220.6 L248.4 214.8 L248.4 211.4 L247.1 207.0 L244.6 203.3 L240.5 199.2 L235.6 196.7 L230.8 197.4 L227.2 201.8 L218.1 202.3 L212.6 193.0 L212.1 190.1 L213.7 189.1 L211.7 187.9 L211.7 181.6 L216.3 184.9 L222.5 187.7 L224.8 187.9 L229.7 184.6 L233.7 179.9 L241.7 164.8 L243.4 158.6 L242.9 155.6 L245.3 149.4 L246.8 132.6 L238.3 123.6 L237.9 106.0 L236.6 104.6 L236.4 102.3 L234.9 100.2 L230.7 100.5 L228.6 99.6 L229.0 97.0 L233.3 92.3 L236.1 91.7 L237.5 88.4 L239.7 87.3 L243.9 78.3 L249.1 74.7 L251.6 75.0 L255.8 78.0 L257.4 77.9 L259.3 77.2 L265.6 72.1 L267.9 73.2 L270.2 72.5 L273.5 68.4 L276.3 59.8 L278.4 48.5 L279.0 38.2 L281.1 41.4 L284.2 44.1 L285.6 43.7 L284.2 39.1 L285.9 38.0 L288.3 38.5 L287.4 36.6 L282.1 36.6 L281.1 35.1 L279.6 36.3 L279.0 30.5 L276.7 26.5 L271.0 24.8 L270.7 23.3 L271.9 22.6 L277.1 22.9 L278.9 21.1 L279.8 17.9 L280.2 8.8 L281.1 7.5 L281.2 4.8 L286.6 8.4 L291.4 14.3 L294.2 16.3 L296.6 16.4 L299.5 14.4 L301.0 11.2 L303.6 10.3 L308.5 11.2 L312.7 14.8 L313.8 18.0 L312.5 27.3 L313.6 36.3 L315.1 40.9 L317.1 56.7 L320.3 62.7 L325.7 65.2 L330.8 64.7 L336.5 58.4 L338.5 54.0 L337.7 51.4 L338.5 49.8 L336.6 49.8 L335.2 48.7 L337.5 48.1 L337.5 46.0 L338.5 45.2 L338.3 44.3 L340.4 40.6 L342.0 40.8 L343.2 42.6 L347.0 43.4 L350.5 47.7 L349.8 50.8 L357.6 54.1 L358.8 53.8 L361.6 58.0 L364.6 60.0 L368.5 59.1 L372.6 54.6 L377.1 43.9 L378.1 39.9 L379.2 27.1 L382.0 22.9 L382.6 20.3 L381.8 16.1 L378.0 8.7 L372.4 3.2 L370.0 3.0 L367.4 7.5 L368.1 8.2 L369.8 6.1 L368.4 8.9 L364.8 12.0 L362.8 12.6 L358.8 16.4 L350.1 14.5 L346.7 17.8 L342.5 17.7 L340.7 19.1 L337.6 19.1 L333.9 21.6 L332.4 24.1 L330.6 24.1 L327.1 21.7 L327.1 16.2 L327.1 14.6 L328.5 13.1 L329.2 9.1 L328.7 6.7 L330.7 0.0 L398.1 0.0 L394.9 19.5 L395.7 24.1 L394.4 37.8 L394.8 51.4 L396.5 67.8 L399.9 88.4 L403.5 99.1 L405.8 103.5 L410.2 107.8 L414.9 106.3 L416.4 109.2 L420.1 112.1 L427.4 120.3 L430.5 124.5 L431.2 127.2 L433.1 128.5 L436.9 138.1 L442.5 147.2 L443.8 150.7 L440.9 153.9 L440.7 156.7 L446.3 160.0 L447.6 162.9 L444.4 166.3 L443.3 169.1 L443.8 172.5 L445.2 174.7 L452.2 181.2 L455.4 182.9 L456.7 188.9 L454.6 193.0 L457.9 198.8 L458.6 205.0 L461.4 214.3 L461.9 217.1 L460.0 220.2 L458.5 231.8 L456.6 236.9 L457.3 238.8 L462.3 233.5 L464.8 233.1 L464.0 235.3 L464.8 236.9 L463.9 239.3 L464.2 240.8 L468.5 245.5 L467.0 248.9 L462.5 254.2 L457.3 256.6 L455.8 258.1 L457.7 260.5 L460.5 260.2 L463.0 258.3 L464.8 254.8 L467.2 257.3 L465.2 258.9 L465.0 263.2 L464.3 264.2 L458.8 264.9 L454.3 268.7 L457.0 270.0 L455.9 271.9 L450.6 276.4 L452.7 277.1 L455.1 276.4 L458.8 273.5 L459.1 276.8 L457.0 278.9 L451.7 281.3 L453.6 284.1 L450.0 284.1 L450.0 287.9 L455.2 287.7 L455.4 290.7 L453.3 292.9 L450.3 294.1 L447.8 293.6 L448.1 295.7 L449.4 296.5 L452.9 296.5 L451.8 298.9 L449.5 300.4 L444.0 301.3 L451.0 307.3 L451.5 309.0 L449.0 310.2 L443.1 308.1 L441.1 310.0 L447.0 313.9 L441.7 314.8 L441.7 315.8 L445.3 319.1 L444.4 319.6 L439.9 318.6 L433.3 319.0 L431.4 317.6 L431.4 319.7 L433.6 324.4 L431.3 324.5 L429.8 326.3 L431.5 326.9 L432.1 328.3 L431.7 329.6 L430.2 330.2 L428.8 329.7 L426.2 326.8 L425.5 325.4 L427.7 323.4 L423.1 323.2 L421.7 324.8 L422.5 333.5 L425.5 343.5 L423.2 341.8 L421.5 338.0 L416.3 339.2 L415.8 343.1 L416.1 348.1 L410.0 353.5 L409.1 355.3 L414.0 360.8 L414.6 362.2 L413.9 364.3 L413.2 364.9 L411.4 363.8 L408.4 367.0 L402.7 370.2 L403.9 372.5 L410.2 373.5 L410.5 374.4 L407.9 379.2 L403.1 383.1 L408.3 388.0 L409.9 386.0 L411.9 390.3 L411.4 395.5 L409.3 394.3 L408.3 391.8 L406.2 398.4 L407.6 400.4 L403.6 401.9 L403.5 402.8 L404.3 406.7 L405.4 408.0 L408.7 406.6 L410.8 407.2 L412.0 409.0 L408.9 408.2 L407.7 409.0 L406.8 410.9 L409.4 412.5 L409.9 418.4 L411.4 420.6 L409.5 425.5 L405.8 422.0 L402.7 421.1 L402.4 420.1 L403.1 417.7 L398.6 414.8 L400.2 410.9 L398.9 409.7 L395.7 410.0 L388.6 405.6 L385.5 405.8 L374.5 408.9 L372.1 411.0 L371.2 414.3 L371.5 417.5 L370.9 417.7 L369.0 417.7 L366.8 410.9 L364.9 411.9 L363.1 410.9 L361.1 412.4 L358.4 416.9 L357.8 419.6 L361.1 419.3 L361.2 421.7 L358.2 423.9 L354.4 428.7 L348.9 439.1 L344.5 456.1 L343.7 462.0 L343.8 467.9 L345.3 478.6 L351.8 491.1 L353.4 498.1 L354.9 501.4 L354.9 504.2 L353.4 508.1 L355.6 512.4 L356.1 526.2 Z" class="map-land"/>
+    <path d="M343.5 443.4 L291.8 440.6 L330.8 301.7 L347.1 183.8 L339.0 91.2 L319.0 79.3" class="map-route"/>
+    <rect x="152" y="277.7" width="336" height="-69.9" class="map-band"/>
+    <text x="480" y="271.7" class="map-sub" text-anchor="end">안 B — 이 구간만</text>
+    <path d="M343.5 443.4 L498.0 457.4" class="map-leader"/>
+    <circle cx="343.5" cy="443.4" r="4.5" class="map-dot-air"/>
+    <text x="498.0" y="456.4" class="map-label" text-anchor="start">센다이 공항</text>
+    <text x="498.0" y="469.4" class="map-sub" text-anchor="start">IN</text>
+    <path d="M291.8 440.6 L142.0 440.6" class="map-leader"/>
+    <circle cx="291.8" cy="440.6" r="4.5" class="map-dot"/>
+    <text x="142.0" y="439.6" class="map-label" text-anchor="end">자오 온천</text>
+    <text x="142.0" y="452.6" class="map-sub" text-anchor="end">¥7,500</text>
+    <path d="M330.8 301.7 L142.0 301.7" class="map-leader"/>
+    <circle cx="330.8" cy="301.7" r="5.5" class="map-dot-key"/>
+    <text x="142.0" y="300.7" class="map-label" text-anchor="end">게토 고원</text>
+    <text x="142.0" y="313.7" class="map-sub" text-anchor="end">¥6,800</text>
+    <path d="M367.1 262.5 L498.0 272.5" class="map-leader"/>
+    <circle cx="367.1" cy="262.5" r="4.5" class="map-dot-ghost"/>
+    <text x="498.0" y="271.5" class="map-label" text-anchor="start">하나마키 공항</text>
+    <text x="498.0" y="284.5" class="map-sub" text-anchor="start">안 B 후보</text>
+    <path d="M347.1 183.8 L498.0 173.8" class="map-leader"/>
+    <circle cx="347.1" cy="183.8" r="5.5" class="map-dot-key"/>
+    <text x="498.0" y="172.8" class="map-label" text-anchor="start">아피 고원</text>
+    <text x="498.0" y="185.8" class="map-sub" text-anchor="start">¥9,500</text>
+    <path d="M339.0 91.2 L498.0 109.2" class="map-leader"/>
+    <circle cx="339.0" cy="91.2" r="4.5" class="map-dot"/>
+    <text x="498.0" y="108.2" class="map-label" text-anchor="start">핫코다</text>
+    <text x="498.0" y="121.2" class="map-sub" text-anchor="start">¥6,400</text>
+    <path d="M319.0 79.3 L142.0 73.3" class="map-leader"/>
+    <circle cx="319.0" cy="79.3" r="4.5" class="map-dot-air"/>
+    <text x="142.0" y="72.3" class="map-label" text-anchor="end">아오모리 공항</text>
+    <text x="142.0" y="85.3" class="map-sub" text-anchor="end">OUT</text>
+    <text x="160" y="504" class="map-label">약 350km 북상</text>
+    <text x="160" y="518" class="map-sub">편도 반납료 ¥19,800–30,500</text>
     </svg>
-    <figcaption>개략도 — 상대 위치와 순서만 보여준다. 실제 도로 거리·주행 시간이 아니다. 리프트권은 운영사 공시값이고, 350km와 편도 반납료는 페이지 안 비용 표와 같은 값이다.</figcaption>
+    <figcaption>해안선은 Natural Earth 1:10m 데이터(퍼블릭 도메인)를 그대로 투영한 것이고, 리조트와 공항은 실제 좌표에 찍혀 있다. 파란 선은 <strong>이동 순서</strong>지 실제 주행 경로가 아니다 — 도로는 산을 돌아간다. 350km와 편도 반납료는 아래 비용 표와 같은 값이다.</figcaption>
     </figure>
 
     <div class="maplinks-wrap">
