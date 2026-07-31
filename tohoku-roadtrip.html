@@ -1,0 +1,1113 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>도호쿠 스키 로드트립 — 안 A / 안 B</title>
+
+<style>
+  :root {
+    --ground: #F1F5F9;
+    --panel: #FFFFFF;
+    --panel-2: #E7EEF5;
+    --ink: #0F1A24;
+    --ink-2: #3C4E5E;
+    --ink-3: #6A7D8D;
+    --rule: #D2DDE7;
+    --rule-strong: #B6C6D4;
+    --ice: #1B6BAE;
+    --ice-soft: #E1EDF8;
+    --ember: #A34C38;
+    --ember-soft: #F7E8E3;
+    --amber: #83600F;
+    --amber-soft: #FAEFD6;
+
+    --sans: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo",
+            "Noto Sans KR", "Malgun Gothic", "맑은 고딕", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+
+    --measure: 60ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0A121A;
+      --panel: #101B25;
+      --panel-2: #16232F;
+      --ink: #E7EFF6;
+      --ink-2: #AABDCC;
+      --ink-3: #7B8E9D;
+      --rule: #21313E;
+      --rule-strong: #2F4553;
+      --ice: #63B1EA;
+      --ice-soft: #10293C;
+      --ember: #DC8C74;
+      --ember-soft: #2A1B16;
+      --amber: #DAB059;
+      --amber-soft: #292113;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0A121A;
+    --panel: #101B25;
+    --panel-2: #16232F;
+    --ink: #E7EFF6;
+    --ink-2: #AABDCC;
+    --ink-3: #7B8E9D;
+    --rule: #21313E;
+    --rule-strong: #2F4553;
+    --ice: #63B1EA;
+    --ice-soft: #10293C;
+    --ember: #DC8C74;
+    --ember-soft: #2A1B16;
+    --amber: #DAB059;
+    --amber-soft: #292113;
+  }
+
+  :root[data-theme="light"] {
+    --ground: #F1F5F9;
+    --panel: #FFFFFF;
+    --panel-2: #E7EEF5;
+    --ink: #0F1A24;
+    --ink-2: #3C4E5E;
+    --ink-3: #6A7D8D;
+    --rule: #D2DDE7;
+    --rule-strong: #B6C6D4;
+    --ice: #1B6BAE;
+    --ice-soft: #E1EDF8;
+    --ember: #A34C38;
+    --ember-soft: #F7E8E3;
+    --amber: #83600F;
+    --amber-soft: #FAEFD6;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
+  .wrap {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 4.5rem) clamp(1.1rem, 4vw, 2.5rem) 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 6vw, 4.75rem);
+  }
+
+  /* ---------- type roles ---------- */
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 5.5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: clamp(1.35rem, 3.4vw, 1.85rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.3;
+    text-wrap: balance;
+  }
+
+  h3 {
+    font-size: 1.03rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.45;
+  }
+
+  p { max-width: var(--measure); color: var(--ink-2); }
+  p strong, li strong { color: var(--ink); font-weight: 700; }
+  em { font-style: normal; color: var(--ice); font-weight: 600; }
+
+  .lede { font-size: 1.06rem; color: var(--ink-2); }
+
+  /* ---------- masthead ---------- */
+
+  .mast { display: flex; flex-direction: column; gap: 1.4rem; }
+
+  .mast-rule {
+    height: 3px;
+    background: linear-gradient(90deg, var(--ice) 0%, var(--ice) 62%, var(--ember) 62%, var(--ember) 100%);
+    border-radius: 2px;
+  }
+
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2.1rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+  }
+  .facts b { color: var(--ink-2); font-weight: 600; }
+
+  /* ---------- section ---------- */
+
+  .section { display: flex; flex-direction: column; gap: 1.15rem; }
+  .section-head { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .prose { display: flex; flex-direction: column; gap: 0.9rem; }
+
+  /* ---------- summary compare ---------- */
+
+  .compare {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .card-a { border-top: 3px solid var(--ice); }
+  .card-b { border-top: 3px solid var(--ember); }
+
+  .card-title { display: flex; align-items: baseline; gap: 0.6rem; }
+  .card-a .card-title .eyebrow { color: var(--ice); }
+  .card-b .card-title .eyebrow { color: var(--ember); }
+
+  .metrics {
+    display: flex;
+    gap: 1.6rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .metric { display: flex; flex-direction: column; gap: 0.1rem; }
+  .metric-n {
+    font-family: var(--mono);
+    font-size: 1.45rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .metric-l { font-size: 0.72rem; color: var(--ink-3); letter-spacing: 0.01em; }
+  .card p { font-size: 0.9rem; margin: 0; }
+
+  /* ---------- climate split diagram ---------- */
+
+  .climate {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--panel);
+  }
+  .climate-cell { padding: 1.15rem 1.25rem; display: flex; flex-direction: column; gap: 0.35rem; }
+  .climate-west {
+    background-image:
+      radial-gradient(circle at 50% 50%, var(--rule-strong) 1.1px, transparent 1.2px);
+    background-size: 9px 9px;
+    border-right: 1px solid var(--rule);
+  }
+  .climate-east {
+    background-image:
+      radial-gradient(circle at 50% 50%, var(--rule-strong) 1px, transparent 1.1px);
+    background-size: 26px 26px;
+  }
+  .climate-cell h3 { font-size: 0.92rem; }
+  .climate-cell span { font-size: 0.82rem; color: var(--ink-2); line-height: 1.6; }
+  .climate-cell .eyebrow { font-size: 0.63rem; }
+
+  /* ---------- plan panel ---------- */
+
+  .plan { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .plan-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.9rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 2px solid var(--rule-strong);
+  }
+  .plan-a .plan-head { border-bottom-color: var(--ice); }
+  .plan-b .plan-head { border-bottom-color: var(--ember); }
+  .plan-a .plan-head .eyebrow { color: var(--ice); }
+  .plan-b .plan-head .eyebrow { color: var(--ember); }
+  .plan-tag { font-size: 0.82rem; color: var(--ink-3); font-family: var(--mono); }
+
+  /* ---------- route spine ---------- */
+
+  .route { display: flex; flex-direction: column; }
+
+  .leg { display: flex; flex-direction: column; }
+
+  .leg-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    padding: 0.55rem 0 0.55rem 2.15rem;
+    position: relative;
+  }
+  .leg-head::before {
+    content: "";
+    position: absolute;
+    left: 0.34rem;
+    top: 1.05rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--ground);
+    border: 2.5px solid var(--rule-strong);
+  }
+  .plan-a .leg-head::before { border-color: var(--ice); }
+  .plan-b .leg-head::before { border-color: var(--ember); }
+
+  .leg-name { font-size: 0.97rem; font-weight: 700; letter-spacing: -0.015em; }
+  .leg-nights {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+  }
+
+  .day {
+    display: grid;
+    grid-template-columns: 3.4rem 1fr auto;
+    gap: 0.9rem;
+    align-items: baseline;
+    padding: 0.62rem 0 0.62rem 2.15rem;
+    border-top: 1px solid var(--rule);
+    position: relative;
+  }
+  .day::before {
+    content: "";
+    position: absolute;
+    left: 0.74rem;
+    top: 0;
+    bottom: 0;
+    width: 1.5px;
+    background: var(--rule);
+  }
+  .leg:last-child .day:last-child::before { bottom: 50%; }
+
+  .day-n {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--ink-3);
+    letter-spacing: 0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  .day-body { font-size: 0.92rem; color: var(--ink-2); line-height: 1.6; }
+  .day-body b { color: var(--ink); font-weight: 700; }
+  .day-drive {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .day-move .day-drive { color: var(--ink); font-weight: 600; }
+  .day-move .day-body::after {
+    content: "이동";
+    display: inline-block;
+    margin-inline-start: 0.45rem;
+    padding: 0.05rem 0.34rem;
+    border-radius: 2px;
+    font-size: 0.66rem;
+    font-family: var(--mono);
+    letter-spacing: 0.04em;
+    background: var(--panel-2);
+    color: var(--ink-3);
+    vertical-align: 0.09em;
+  }
+
+  @media (max-width: 30rem) {
+    .day { grid-template-columns: 3rem 1fr; }
+    .day-drive { grid-column: 2; }
+  }
+
+  .note {
+    font-size: 0.87rem;
+    color: var(--ink-3);
+    padding-inline-start: 2.15rem;
+    padding-top: 0.9rem;
+    max-width: var(--measure);
+  }
+  /* the 2.15rem indent aligns with the route spine; outside it, don't indent */
+  .prose .note { padding-inline-start: 0; }
+
+  /* ---------- anchor detail cards ---------- */
+
+  .anchors { display: flex; flex-direction: column; gap: 0.9rem; }
+
+  .anchor {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--rule-strong);
+    border-radius: 3px;
+    padding: 1.15rem 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .anchor-key { border-left-color: var(--ice); }
+  .anchor h3 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.55rem; }
+  .anchor h3 .leg-nights { font-weight: 400; }
+  .anchor p { font-size: 0.9rem; margin: 0; }
+
+  .swap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 0.7rem;
+    margin-top: 0.15rem;
+  }
+  .swap-item {
+    background: var(--panel-2);
+    border-radius: 3px;
+    padding: 0.8rem 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .swap-item .eyebrow { font-size: 0.64rem; color: var(--ice); }
+  .swap-item span { font-size: 0.85rem; color: var(--ink-2); line-height: 1.6; }
+
+  /* ---------- callouts ---------- */
+
+  .callout {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.3rem 1.45rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .callout p { max-width: 58ch; font-size: 0.93rem; margin: 0; }
+  .callout-warn {
+    background: var(--amber-soft);
+    border-color: color-mix(in srgb, var(--amber) 38%, transparent);
+  }
+  .callout-warn .eyebrow { color: var(--amber); }
+  .callout-warn strong { color: var(--ink); }
+
+  .callout-risk {
+    background: var(--ember-soft);
+    border-color: color-mix(in srgb, var(--ember) 32%, transparent);
+  }
+  .callout-risk .eyebrow { color: var(--ember); }
+
+  /* ---------- two-up ---------- */
+
+  .duo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+  }
+
+  /* ---------- lists ---------- */
+
+  /* List items hold mixed inline content (<strong> plus bare text). Grid would
+     make each bare text run its own anonymous item, so the marker is absolutely
+     positioned instead — immune to whatever the content is made of. */
+
+  .rules {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .rules li {
+    position: relative;
+    padding-left: 1.05rem;
+    font-size: 0.93rem;
+    color: var(--ink-2);
+    max-width: var(--measure);
+    line-height: 1.7;
+  }
+  .rules li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.68rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--rule-strong);
+  }
+  .rules-warn li::before { background: var(--ember); }
+
+  .checks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    list-style: none;
+    counter-reset: c;
+    padding: 0;
+    margin: 0;
+  }
+  .checks li {
+    position: relative;
+    padding: 0.7rem 0 0.7rem 2.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.93rem;
+    color: var(--ink-2);
+  }
+  .checks li::before {
+    counter-increment: c;
+    content: counter(c, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    line-height: 1.7;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+  }
+  .checks li:first-child { border-top: none; }
+  .checks .hot { color: var(--ink); font-weight: 600; }
+
+  /* ---------- money tables ---------- */
+
+  .tbl { overflow-x: auto; border: 1px solid var(--rule); border-radius: 4px; background: var(--panel); }
+  table { border-collapse: collapse; width: 100%; min-width: 34rem; }
+  caption {
+    text-align: left;
+    padding: 0.95rem 1.1rem 0;
+    font-size: 0.84rem;
+    color: var(--ink-3);
+  }
+  th, td {
+    padding: 0.6rem 1.1rem;
+    text-align: right;
+    font-size: 0.87rem;
+    border-top: 1px solid var(--rule);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  th:first-child, td:first-child {
+    text-align: left;
+    white-space: normal;
+    min-width: 11rem;
+  }
+  thead th {
+    border-top: none;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+    padding-top: 0.85rem;
+  }
+  tbody th { font-weight: 700; color: var(--ink); }
+  td { color: var(--ink-2); font-family: var(--mono); font-size: 0.83rem; }
+  tbody tr.pick th, tbody tr.pick td { background: var(--ice-soft); color: var(--ink); }
+  tfoot td, tfoot th { border-top: 2px solid var(--rule-strong); color: var(--ink); font-weight: 700; }
+
+  /* ---------- source standing ---------- */
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.4rem;
+    border-radius: 2px;
+    vertical-align: 0.1em;
+    font-weight: 600;
+  }
+  .tag-quoted { background: var(--ice-soft); color: var(--ice); }
+  .tag-derived { background: var(--amber-soft); color: var(--amber); }
+  .tag-band { background: var(--ember-soft); color: var(--ember); }
+
+  /* ---------- share-of-total bars ---------- */
+
+  .shares { display: flex; flex-direction: column; gap: 0.55rem; }
+  .share { display: grid; grid-template-columns: 6.6rem 1fr 6.6rem; gap: 0.7rem; align-items: center; }
+  .share-l { font-size: 0.85rem; color: var(--ink-2); }
+  /* display is explicit rather than relying on grid blockifying a <span> */
+  .share-track { display: block; height: 7px; border-radius: 4px; background: var(--panel-2); overflow: hidden; }
+  .share-fill { display: block; height: 100%; border-radius: 4px; background: var(--ice); }
+  .share-v {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--ink-3);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .share-flight .share-fill { background: var(--ember); }
+
+  .share-total {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.5rem;
+    margin-top: 0.15rem;
+  }
+  .share-total .share-l { color: var(--ink); font-weight: 700; }
+  .share-total .share-v { color: var(--ink); font-weight: 700; font-size: 0.79rem; }
+  .share-total .share-track { background: none; }
+
+  @media (max-width: 34rem) {
+    .share { grid-template-columns: 1fr auto; }
+    .share-track { grid-column: 1 / -1; grid-row: 2; }
+  }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.3rem;
+    font-size: 0.79rem;
+    color: var(--ink-3);
+    font-family: var(--mono);
+    letter-spacing: 0.02em;
+    line-height: 1.8;
+  }
+
+  :focus-visible { outline: 2px solid var(--ice); outline-offset: 3px; border-radius: 2px; }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">Tohoku · Japan · 1월 셋째 주</div>
+    <h1>센다이에서 아오모리까지,<br>눈이 골라주는 일주일</h1>
+    <div class="mast-rule"></div>
+    <div class="facts">
+      <span>출발 <b>인천(ICN)</b></span>
+      <span>이동 <b>렌터카 4WD</b></span>
+      <span>인원 <b>현재 2명 · 모집 중</b></span>
+      <span>안 <b>A / B</b></span>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">한눈에</div>
+      <h2>휴가가 며칠 나오냐에 따라 트립이 갈린다</h2>
+    </div>
+    <div class="compare">
+      <div class="card card-a">
+        <div class="card-title">
+          <div class="eyebrow">안 A</div>
+          <h3>3거점 로드트립</h3>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="metric-n">9</span><span class="metric-l">일</span></div>
+          <div class="metric"><span class="metric-n">7</span><span class="metric-l">스키 가능일</span></div>
+          <div class="metric"><span class="metric-n">3</span><span class="metric-l">거점</span></div>
+        </div>
+        <p>센다이 IN → 아오모리 OUT. 자오 · 게토+아피 · 핫코다를 북상하며 2박씩.</p>
+      </div>
+      <div class="card card-b">
+        <div class="card-title">
+          <div class="eyebrow">안 B</div>
+          <h3>단일 거점</h3>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="metric-n">5</span><span class="metric-l">일 (토~수)</span></div>
+          <div class="metric"><span class="metric-n">3</span><span class="metric-l">스키 가능일</span></div>
+          <div class="metric"><span class="metric-n">1</span><span class="metric-l">거점</span></div>
+        </div>
+        <p>이와테 한 곳에 눌러앉아 게토와 아피만. 종주는 포기, 이동일 0.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">이 라인을 고른 이유</div>
+      <h2>날씨 헤지가 코스에 내장되어 있다</h2>
+    </div>
+    <div class="prose">
+      <p>센다이 → 아오모리 라인의 핵심은 거리가 아니라, 이 코스가 <strong>눈 기후가 다른 두 지역을 가로지른다</strong>는 데 있다.</p>
+    </div>
+    <div class="climate">
+      <div class="climate-cell climate-west">
+        <div class="eyebrow">West · 동해 쪽</div>
+        <h3>아오모리 · 아키타 · 야마가타</h3>
+        <span>강설량이 압도적. 도호쿠에서 제일 깊은 파우더. 대신 바람과 시야.</span>
+      </div>
+      <div class="climate-cell climate-east">
+        <div class="eyebrow">East · 태평양 쪽</div>
+        <h3>미야기 · 이와테</h3>
+        <span>맑은 날이 많고 설질이 단단하며 정설 상태가 좋다.</span>
+      </div>
+    </div>
+    <div class="prose">
+      <p>한쪽을 망치는 폭설·강풍이 보통 다른 쪽은 좋게 만든다. 그래서 이 트립은 하루를 통째로 날릴 확률이 구조적으로 낮다.</p>
+      <p><strong>날짜도 중순보다 셋째 주가 낫다.</strong> 수빙(樹氷, 스노우몬스터)이 1월 말~2월 중순이 절정이라, 셋째 주면 자오와 핫코다 양쪽에서 만들어지는 과정을 본다. 중순이면 그냥 놓친다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">중요</div>
+      <h2>두 안은 같은 일정의 길고 짧은 버전이 아니다</h2>
+    </div>
+    <div class="prose">
+      <p>비행 시간이 짧아도 아주 이른·늦은 스케줄이 없어서 <strong>첫날과 마지막 날은 통째로 날아간다.</strong> 그래서 9일은 스키 7일이 되고, 토~수는 스키 <strong>3일</strong>이 된다.</p>
+      <p>스키 3일짜리 일정에 센다이→아오모리 종주를 욱여넣으면 긴 이동 두 번에 그 3일의 대부분을 쓴다. 그래서 안 B는 안 A를 줄인 게 아니라 <strong>다른 트립</strong>이다. 줄이는 게 아니라 아예 포기하는 쪽이 맞다.</p>
+    </div>
+  </section>
+
+  <section class="section plan plan-a">
+    <div class="plan-head">
+      <div class="eyebrow">안 A</div>
+      <h2>9일 · 스키 7일 · 종주 성립</h2>
+      <span class="plan-tag">센다이 IN / 아오모리 OUT · 약 350km 북상</span>
+    </div>
+
+    <div class="route">
+      <div class="leg">
+        <div class="leg-head">
+          <span class="leg-name">자오온천</span>
+          <span class="leg-nights">야마가타 · 2박</span>
+        </div>
+        <div class="day">
+          <span class="day-n">토 01</span>
+          <span class="day-body">센다이 입국 · 렌터카 수령 → <b>자오</b>. 도착 후 온천.</span>
+          <span class="day-drive">1.5h</span>
+        </div>
+        <div class="day">
+          <span class="day-n">일 02</span>
+          <span class="day-body">자오 스키</span>
+          <span class="day-drive">—</span>
+        </div>
+        <div class="day day-move">
+          <span class="day-n">월 03</span>
+          <span class="day-body">오전 자오 → 북상, 기타카미/모리오카 체크인</span>
+          <span class="day-drive">2.5h</span>
+        </div>
+      </div>
+
+      <div class="leg">
+        <div class="leg-head">
+          <span class="leg-name">게토 + 아피</span>
+          <span class="leg-nights">이와테 · 3박 · 거점 하나</span>
+        </div>
+        <div class="day">
+          <span class="day-n">화 04</span>
+          <span class="day-body"><b>게토 or 아피</b> — 날씨가 결정</span>
+          <span class="day-drive">1h</span>
+        </div>
+        <div class="day">
+          <span class="day-n">수 05</span>
+          <span class="day-body">나머지 하나</span>
+          <span class="day-drive">1h</span>
+        </div>
+        <div class="day day-move">
+          <span class="day-n">목 06</span>
+          <span class="day-body">둘 중 좋았던 쪽 한 번 더 → 오후에 아오모리로</span>
+          <span class="day-drive">2h</span>
+        </div>
+      </div>
+
+      <div class="leg">
+        <div class="leg-head">
+          <span class="leg-name">핫코다</span>
+          <span class="leg-nights">아오모리 · 2박</span>
+        </div>
+        <div class="day">
+          <span class="day-n">금 07</span>
+          <span class="day-body"><b>핫코다</b> 가이드 동반. 바람 불면 아오모리 스프링으로 전환</span>
+          <span class="day-drive">—</span>
+        </div>
+        <div class="day">
+          <span class="day-n">토 08</span>
+          <span class="day-body">핫코다 / 아오모리 스프링</span>
+          <span class="day-drive">—</span>
+        </div>
+        <div class="day">
+          <span class="day-n">일 09</span>
+          <span class="day-body">아오모리 공항 출국</span>
+          <span class="day-drive">1h</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">게토/아피 블록을 <strong>화~목</strong>에 둔 건 의도적이다. 일본 스키장은 주말이 훨씬 붐빈다.</p>
+
+    <div class="anchors">
+      <div class="anchor">
+        <h3>자오온천 <span class="leg-nights">센다이에서 1.5h</span></h3>
+        <p>넓은 지형에 온천 마을, 그리고 수빙. 다만 수빙 절정은 1월 말~2월 중순이라 셋째 주는 “형성 중”을 보는 정도다. 절정은 아니라는 걸 알고 가는 게 낫다.</p>
+      </div>
+
+      <div class="anchor anchor-key">
+        <h3>게토 고원 + 아피 고원 <span class="leg-nights">이 트립의 핵심</span></h3>
+        <p>거점 하나에 산 두 개, 그리고 두 산이 <strong>서로의 날씨 보험</strong>이다. 현지에서 통하는 공식이 정확히 이 스왑이다 — <em>해안에 폭설이 때리면 게토, 바람이 심해지면 아피.</em></p>
+        <div class="swap">
+          <div class="swap-item">
+            <div class="eyebrow">Powder — 게토</div>
+            <span>강설량이 극단적이다. 성수기 5m+, 약한 겨울에도 눈이 온다. 트리런 16개 존, 약 55ha.</span>
+          </div>
+          <div class="swap-item">
+            <div class="eyebrow">Bluebird — 아피</div>
+            <span>매우 건조한 파우더에 긴 정설 슬로프. 모글 코스와 비정설·트리 존이 있어 상급자용도 된다.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="anchor">
+        <h3>핫코다 <span class="leg-nights">공항까지 1h</span></h3>
+        <p>로프웨이로 접근하는 투어 루트, 그리고 자오보다 거칠고 사람 적은 수빙.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section plan plan-b">
+    <div class="plan-head">
+      <div class="eyebrow">안 B</div>
+      <h2>토~수 · 스키 3일 · 거점 하나</h2>
+      <span class="plan-tag">종주 없음 · 이동일 0</span>
+    </div>
+
+    <div class="route">
+      <div class="leg">
+        <div class="leg-head">
+          <span class="leg-name">이와테 단일 거점</span>
+          <span class="leg-nights">기타카미 또는 모리오카 · 4박</span>
+        </div>
+        <div class="day">
+          <span class="day-n">토 01</span>
+          <span class="day-body">입국(센다이 또는 하나마키) · 렌터카 → 거점 체크인</span>
+          <span class="day-drive">1~2h</span>
+        </div>
+        <div class="day">
+          <span class="day-n">일 02</span>
+          <span class="day-body"><b>게토 or 아피</b> — 날씨가 결정</span>
+          <span class="day-drive">1h</span>
+        </div>
+        <div class="day">
+          <span class="day-n">월 03</span>
+          <span class="day-body">나머지 하나</span>
+          <span class="day-drive">1h</span>
+        </div>
+        <div class="day">
+          <span class="day-n">화 04</span>
+          <span class="day-body">좋았던 쪽 한 번 더</span>
+          <span class="day-drive">1h</span>
+        </div>
+        <div class="day">
+          <span class="day-n">수 05</span>
+          <span class="day-body">출국</span>
+          <span class="day-drive">1~2h</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">자오와 핫코다는 버린다. 게토+아피만 남기는 이유가 분명한데, 이 페어의 가치가 “날씨가 둘 중 하나를 골라준다”는 것이고 그건 <strong>3일밖에 없어서 하루도 날릴 수 없을 때</strong> 정확히 필요한 성질이기 때문이다.</p>
+  </section>
+
+  <section class="section">
+    <div class="callout callout-warn">
+      <div class="eyebrow">⚠ 확정 전 확인 — 안 A 전체가 여기 걸려 있음</div>
+      <h3>인천–아오모리 노선이 얇다</h3>
+      <p>인천→아오모리 직항은 <strong>대한항공이 유일</strong>하고 <strong>주 5회</strong> 정도, 약 2시간 30분. 주 5회는 매일 뜨지 않는다는 뜻이라, “토 아웃 / 일 인” 형태가 그 요일이 실제로 있어야 성립한다.</p>
+      <p><strong>일요일 편이 없으면 출국 공항이 센다이로 돌아가고, 북상 논리 전체가 뒤집힌다.</strong> 그러니 안 A에서 다른 걸 확정하기 전에 이것부터 본다.</p>
+      <p>센다이는 서울에서 훨씬 잘 연결된다. 안 B는 게토/아피에 제일 가까운 하나마키 공항이 쓸 만한 요일에 있는지 볼 가치가 있고, 안 되면 센다이 + 조금 긴 드라이브가 안전한 대안이다.</p>
+    </div>
+  </section>
+
+  <div class="duo">
+    <div class="card">
+      <div class="eyebrow">투어링 — 처음인 사람 기준</div>
+      <h3>전용 하루는 빼고, 맛만 본다</h3>
+      <p>투어링 전용 하루는 트립 시간을 너무 많이 먹는다. <strong>하치만타이 고원 투어링 데이는 뺀다.</strong> 대신 핫코다의 가이드 투어 루트는 로프웨이로 올라가서 시작하기 때문에, 스킨 붙이고 하루 종일 걷지 않고도 투어링 지형을 경험한다.</p>
+      <p>다만 <strong>핫코다는 가이드를 반드시 붙인다.</strong> 판단을 잘못했을 때 “아쉬운” 게 아니라 “위험한” 유일한 장소다.</p>
+    </div>
+    <div class="callout callout-risk">
+      <div class="eyebrow">리스크 — 핫코다</div>
+      <h3>좋은 날씨가 기본값이 아니다</h3>
+      <p>핫코다는 1~2월에 블리자드와 강풍 운휴로 악명이 높다. 그러니 아오모리 계획을 핫코다 하나로 두지 않는다.</p>
+      <p>근처 <strong>아오모리 스프링(아자라)</strong>을 리프트가 도는 바람 대비책으로 붙여둔다. 게토/아피와 정확히 같은 패턴이다.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">숙소</div>
+      <h2>인원이 안 정해졌을 때의 규칙</h2>
+    </div>
+    <div class="prose">
+      <p>지금 확정 2명에 추가 모집 중이라, 이게 이 트립의 진짜 로지스틱 문제다. 해법은 단순하다.</p>
+    </div>
+    <ul class="rules">
+      <li><strong>도시에 비즈니스호텔로 잡는다</strong> — 야마가타/자오 마을, 기타카미 또는 모리오카, 아오모리 시내. 방을 한 개씩 추가할 수 있고 무료 취소가 된다.</li>
+      <li><strong>인원 추정해서 통짜 렌탈하우스나 펜션 하나를 잡지 않는다.</strong> 전부 아니면 전무라서, 인원이 바뀔 때 돈이 진짜로 나가는 지점이 거기다.</li>
+      <li><strong>렌터카와 확정 2인분은 지금 잡고</strong>, 나머지는 2주 전까지 전부 무료 취소로 유지하다가 인원이 확정될 때마다 방을 추가한다.</li>
+      <li><strong>감수할 트레이드오프</strong> — 도시 거점은 편도 30~50분이 더 걸리고 스키인/스키아웃을 포기해야 한다. 차가 있고 인원이 유동적인 로드트립에서는 이게 맞는 교환이다.</li>
+    </ul>
+    <ul class="rules rules-warn">
+      <li><strong>렌터카는 윈터타이어만 확인하지 말고 4WD를 명시적으로 확인.</strong> 그리고 센다이 → 아오모리 <strong>편도 반납료</strong>를 형태 확정 전에 견적받는다. 이게 비싸면 안 A에서도 센다이 인/아웃 왕복이 더 쌀 수 있다.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">비용</div>
+      <h2>1인당 얼마 드는가</h2>
+    </div>
+    <div class="prose">
+      <p>리프트권·통행료·기름값은 <strong>운영사가 공시한 가격</strong>이라 그대로 쓰면 되고, 숙소와 항공은 날짜에 따라 움직이니 <strong>구간</strong>으로 둔다. 그래서 아래 숫자는 전부 “얼마에서 얼마”다. 하나로 뭉뚱그리면 없는 정밀도를 만들어내게 된다.</p>
+      <p><strong>수하물은 이 표에 없다.</strong> 항공 라인은 항공권 값만이고, 스키 트립에서 수하물은 별도로 다룰 만큼 크다 — 바로 다음 섹션이 그 얘기다.</p>
+    </div>
+
+    <div class="tbl">
+      <table>
+        <caption>1인당 총액 · 지상비는 ¥100 = ₩945 환산 · 2027년 1월 셋째 주</caption>
+        <thead>
+          <tr>
+            <th scope="col">안</th>
+            <th scope="col">2명</th>
+            <th scope="col">4명</th>
+            <th scope="col">6명</th>
+            <th scope="col">스키 1일당 (4명)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pick">
+            <th scope="row">안 A · 9일 · 스키 7일</th>
+            <td>243–339만</td>
+            <td>215–296만</td>
+            <td>205–282만</td>
+            <td>30.7–42.3만</td>
+          </tr>
+          <tr>
+            <th scope="row">안 A-왕복 · 센다이 인/아웃 · 스키 6일</th>
+            <td>222–308만</td>
+            <td>196–269만</td>
+            <td>187–256만</td>
+            <td>32.6–44.9만</td>
+          </tr>
+          <tr>
+            <th scope="row">안 B · 토~수 · 스키 3일</th>
+            <td>127–182만</td>
+            <td>114–162만</td>
+            <td>109–156만</td>
+            <td>37.9–54.2만</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose">
+      <p><strong>안 B가 싼 게 아니라 짧은 것이다.</strong> 총액만 보면 절반이지만 스키 하루당으로 환산하면 안 B가 <em>더 비싸다</em>. 왕복 항공권과 렌터카 픽업 같은 고정비를 3일에 나누느냐 7일에 나누느냐의 차이다. 그러니 안 B는 “돈이 부족해서”가 아니라 <strong>“휴가가 5일밖에 안 나와서”</strong> 고르는 안이다. 예산으로 정당화하면 판단을 틀리게 한다.</p>
+      <p class="note">아래 두 카드의 막대는 <strong>같은 축</strong>이다. 카드별로 100%를 다시 잡지 않았으니, 안 A의 식비 막대와 안 B의 항공 막대 길이를 그대로 비교해도 된다.</p>
+    </div>
+
+    <div class="duo">
+      <div class="card">
+        <div class="eyebrow">안 A · 9일 · 4명 기준</div>
+        <h3>돈이 어디로 가나</h3>
+        <div class="shares">
+          <div class="share">
+            <span class="share-l">리프트 + 가이드</span>
+            <span class="share-track"><span class="share-fill" style="width:88%"></span></span>
+            <span class="share-v">53.7–58.6만</span>
+          </div>
+          <div class="share">
+            <span class="share-l">숙소</span>
+            <span class="share-track"><span class="share-fill" style="width:74%"></span></span>
+            <span class="share-v">41.6–52.9만</span>
+          </div>
+          <div class="share">
+            <span class="share-l">렌터카 분담</span>
+            <span class="share-track"><span class="share-fill" style="width:56%"></span></span>
+            <span class="share-v">28.6–42.9만</span>
+          </div>
+          <div class="share">
+            <span class="share-l">식비 + 잡비</span>
+            <span class="share-track"><span class="share-fill" style="width:100%"></span></span>
+            <span class="share-v">51.0–76.5만</span>
+          </div>
+          <div class="share share-flight">
+            <span class="share-l">항공</span>
+            <span class="share-track"><span class="share-fill" style="width:82%"></span></span>
+            <span class="share-v">40.0–65.0만</span>
+          </div>
+          <div class="share share-total">
+            <span class="share-l">합계</span>
+            <span class="share-track"></span>
+            <span class="share-v">215–296만</span>
+          </div>
+        </div>
+        <p>어느 한 항목도 지배적이지 않다. <strong>제일 큰 게 식비</strong>라는 게 이 트립의 성격을 말해준다 — “한 군데서 아끼기”로는 총액이 안 줄고, 인원을 늘리는 쪽이 훨씬 크게 먹힌다.</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow">안 B · 5일 · 4명 기준</div>
+        <h3>짧을수록 항공이 지배한다</h3>
+        <div class="shares">
+          <div class="share">
+            <span class="share-l">리프트 + 가이드</span>
+            <span class="share-track"><span class="share-fill" style="width:36%"></span></span>
+            <span class="share-v">21.4–24.4만</span>
+          </div>
+          <div class="share">
+            <span class="share-l">숙소</span>
+            <span class="share-track"><span class="share-fill" style="width:37%"></span></span>
+            <span class="share-v">20.8–26.5만</span>
+          </div>
+          <div class="share">
+            <span class="share-l">렌터카 분담</span>
+            <span class="share-track"><span class="share-fill" style="width:25%"></span></span>
+            <span class="share-v">13.2–19.1만</span>
+          </div>
+          <div class="share">
+            <span class="share-l">식비 + 잡비</span>
+            <span class="share-track"><span class="share-fill" style="width:56%"></span></span>
+            <span class="share-v">28.4–42.5만</span>
+          </div>
+          <div class="share share-flight">
+            <span class="share-l">항공</span>
+            <span class="share-track"><span class="share-fill" style="width:63%"></span></span>
+            <span class="share-v">30.0–50.0만</span>
+          </div>
+          <div class="share share-total">
+            <span class="share-l">합계</span>
+            <span class="share-track"></span>
+            <span class="share-v">114–162만</span>
+          </div>
+        </div>
+        <p>여기선 <strong>항공이 제일 크다.</strong> 나머지가 전부 절반 이하로 줄어드는데 왕복 항공권만 그대로이기 때문이다. 짧은 트립일수록 항공권을 잘 사는 게 전부에 가까워진다.</p>
+      </div>
+    </div>
+
+    <ul class="rules">
+      <li><strong>인원이 제일 큰 레버다.</strong> 2명 → 4명이면 안 A에서 1인당 <strong>약 28.6만원</strong>이 빠진다. 차값 전체(¥12–18만)를 몇 명이 나누느냐가 그대로 반영되기 때문이다. 어떤 할인보다 크다.</li>
+      <li><strong>편도 반납료는 결정 요인이 아니었다.</strong> ¥19,800–30,500으로 계산됐는데, 센다이 왕복으로 되돌리면 4명 기준 1인당 9–12만원 아끼는 대신 <strong>스키 하루</strong>를 잃는다. 그 하루가 30만원짜리다. 편도가 맞다.</li>
+      <li><strong>식비가 리프트권보다 크다.</strong> 하루 ¥6,000–9,000으로 잡았는데 9일이면 이게 최대 항목이 된다. 줄이고 싶으면 여기가 실제로 손댈 수 있는 곳이다.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">항공 — LCC vs 대형사</div>
+      <h2>스키 트립에서는 운임표보다 수하물 정책이 중요하다</h2>
+    </div>
+    <div class="prose">
+      <p>스키 트립은 <strong>가방이 두 개인 여행</strong>이다. 스키/보드 백 하나와 평범한 캐리어 하나. 그리고 항공사들은 이걸 <strong>완전히 다른 두 방식</strong>으로 계산한다.</p>
+      <p><strong>무게로 매기는 곳</strong>(제주항공·티웨이)은 총 중량이 기준선을 넘는 순간 킬로마다 받는다. <strong>개수로 매기는 곳</strong>(피치·대한항공·아시아나)은 가방이 무거워도 개수만 맞으면 신경 쓰지 않는다. 스키 장비는 정확히 “무겁지만 개수는 적은” 짐이라, 이 차이가 그대로 돈이 된다.</p>
+    </div>
+
+    <div class="tbl">
+      <table>
+        <caption>1인 왕복 · 스키백 12–15kg + 캐리어 12–17kg = 총 24–32kg 기준 (안 A)</caption>
+        <thead>
+          <tr>
+            <th scope="col">항공사</th>
+            <th scope="col">과금 방식</th>
+            <th scope="col">항공권</th>
+            <th scope="col">수하물 (왕복)</th>
+            <th scope="col">합계</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">제주항공 · 티웨이</th>
+            <td>무게</td>
+            <td>25–42만</td>
+            <td>21.0–40.6만</td>
+            <td>46–83만</td>
+          </tr>
+          <tr class="pick">
+            <th scope="row">피치</th>
+            <td>개수</td>
+            <td>25–42만</td>
+            <td>13.8–17.2만</td>
+            <td>39–59만</td>
+          </tr>
+          <tr>
+            <th scope="row">대한항공 · 아시아나</th>
+            <td>개수</td>
+            <td>38–60만</td>
+            <td>14.0만</td>
+            <td>52–74만</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-warn">
+      <div class="eyebrow">⚠ 이게 핵심</div>
+      <h3>LCC 두 곳 사이의 차이가, LCC와 대형사 사이의 차이보다 크다</h3>
+      <p>피해야 할 건 저비용 항공사가 아니라 <strong>무게 과금</strong>이다. 제주항공 기준으로 스탠다드 운임 무료 15kg를 넘는 순간 10kg 블록이 9만원, 그 위로는 <strong>kg당 1.4만원</strong>이다. 스키백 때문에 13–17kg가 초과되니 편도에만 10.5–20.3만원이 붙는다.</p>
+      <p>그리고 아직 무료 수하물이 있는 <strong>스탠다드</strong> 기준이다. 검색에 제일 먼저 뜨는 <strong>베이직 운임은 무료 수하물이 0kg</strong>이라, 그 싼 운임을 고르면 상황이 더 나빠진다.</p>
+    </div>
+
+    <ul class="rules">
+      <li><strong>안 A는 한 항공사로 통일이 안 된다.</strong> 아오모리는 대한항공 단독 취항이라, 센다이 IN을 피치로 잡아도 아오모리 OUT은 대한항공이다. 이 조합의 수하물이 왕복 <strong>13.9–15.6만원</strong>. 오픈조가 둘 중 한 구간에서 싼 항공사를 포기하게 만든다.</li>
+      <li><strong>대한항공의 “스키백 무료” 조건은 생각보다 빡빡하다.</strong> 스키백과 캐리어를 <strong>합쳐서 23kg 이내</strong>일 때만 한 개로 쳐준다. 9일치 짐으로 이걸 맞추는 건 사실상 불가능해서, 실제로는 편도 7만원짜리 추가 수하물을 내는 쪽으로 봐야 한다. 안 B(22–29kg)는 아주 가볍게 싸면 걸칠 여지가 있다.</li>
+      <li><strong>이 라인은 총액표에 안 들어가 있다.</strong> 안 A 4명 기준에 수하물을 얹으면 <strong>229–312만원</strong>이 된다. 안 B는 피치로 127–180만, 제주·티웨이로 135–195만 — <strong>항공사 선택만으로 1인당 15만원 차이</strong>다.</li>
+    </ul>
+
+    <div class="prose">
+      <p class="note">이전 메모에 “LCC 스키백 편도 6만원쯤”이라고 적어둔 게 있는데, <strong>틀렸다.</strong> 무게로 매기는 항공사에서는 2–3배다. 그때는 공시 요금표를 안 보고 어림한 값이었다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">숫자의 출처</div>
+      <h2>어떤 숫자는 사실이고 어떤 숫자는 추정이다</h2>
+    </div>
+    <div class="prose">
+      <p>같은 표에 있다고 같은 무게가 아니라서, 항목마다 출처의 성격을 붙여둔다.</p>
+    </div>
+    <ul class="rules">
+      <li><span class="tag tag-quoted">공시</span> 운영사 페이지에서 직접 읽은 값. 자오 ¥7,500(1/5–2/9 정규 시즌이라 셋째 주가 여기 들어간다) · 게토 ¥6,800 · 아피 ¥9,500(사전 ¥9,000) · 핫코다 로프웨이 6회권 ¥6,400 · 아오모리 스프링 ¥7,800 · 핫코다 가이드 ¥5,000–7,000 · 센다이–아오모리 통행료 ¥7,690 / 347.1km · 휘발유 ¥170.0/L(경제산업성, 7/21) · 제주항공 수하물 요금표.</li>
+      <li><span class="tag tag-derived">산출</span> 공시값으로 계산한 값. 편도 반납료 ¥19,800–30,500은 닛폰 렌터카 공시 <strong>10km당 ¥880</strong>과 토요타 표에서 역산한 ~¥570을 347km에 적용한 것. 기름값은 km ÷ 11km/L × ¥170.</li>
+      <li><span class="tag tag-band">구간</span> 날짜와 재고에 따라 실제로 변하는 값. 비즈니스호텔 1인 1박 ¥5,500–7,000 · 4WD 렌터카 1일 ¥9,000–14,000 · <strong>항공권</strong>. 항공권이 제일 느슨하고, 그래서 실제 가격을 찾으면 제일 먼저 갈아끼워야 할 라인이다.</li>
+      <li><span class="tag tag-band">2차</span> 대한항공·아시아나 수하물 규정(1개 23kg, 추가 1개 7만원, 스키백 합산 23kg 면제)은 항공사 사이트가 자동 조회를 막아서 <strong>중개 사이트 기준</strong>이다. 발권 전에 직접 확인할 것.</li>
+    </ul>
+    <div class="prose">
+      <p class="note">겨울철 스터드리스 타이어는 12/1–3/31 기본 장착이라 추가금이 없다. 그래서 렌터카에서 확인할 건 타이어가 아니라 <strong>4WD 여부</strong>다.<br>
+      포함 안 된 것: 스키·보드 렌탈(1일 ¥5,000–7,000), 여행자보험, 기념품, 자오 료칸 옵션.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">다음 단계 — 우선순위 순</div>
+      <h2>지금 확인해야 할 것</h2>
+    </div>
+    <ol class="checks">
+      <li><span class="hot">대한항공 인천–아오모리 운항 요일과 실제 운임</span> — 안 A 전체가 여기 걸려 있고, 이제는 <strong>안 A vs 안 A-왕복</strong>을 가르는 숫자이기도 하다. 편도 반납료는 계산해보니 결정 요인이 아니었고, 남은 건 아오모리가 센다이보다 얼마나 비싸냐다</li>
+      <li>인천–센다이 <strong>피치 운항 요일</strong> — 개수 과금이라 스키 짐에 제일 유리한데, 실제로 쓸 만한 요일에 뜨는지</li>
+      <li>인천–하나마키 노선 유무와 요일 (안 B용)</li>
+      <li>자오를 넣을지 뺄지 — 수빙이 절정이 아니라는 걸 감안하고</li>
+      <li>숙소 견적 — 2명 / 4명 / 6명 각각. 라쿠텐 API는 제품 형태가 정해진 뒤로 미뤘으니 당분간 수동</li>
+    </ol>
+    <div class="prose">
+      <p class="note">빠진 항목: <strong>센다이 → 아오모리 편도 반납료</strong>. 닛폰 렌터카 공시 요금(10km당 ¥880)으로 계산이 되면서 확인 목록에서 내려왔다 — ¥19,800–30,500, 그리고 안의 형태를 바꿀 만큼 크지 않다.</p>
+    </div>
+  </section>
+
+  <footer>
+    도호쿠 스키 로드트립 · 2027년 1월 셋째 주 · 안 A / 안 B<br>
+    리프트권·통행료·유가·수하물 요금은 운영사 공시 기준 (2026-07-29 조회)<br>
+    항공 운임과 숙박비는 구간 추정 · 항공 스케줄 미확인 · 일정은 확정 아님
+  </footer>
+
+</div>

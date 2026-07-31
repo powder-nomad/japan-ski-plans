@@ -1,0 +1,760 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>홋카이도 크리스마스 — 니세코 + 루스츠</title>
+
+<style>
+  :root {
+    --ground: #F1F5F9;
+    --panel: #FFFFFF;
+    --panel-2: #E7EEF5;
+    --ink: #0F1A24;
+    --ink-2: #3C4E5E;
+    --ink-3: #6A7D8D;
+    --rule: #D2DDE7;
+    --rule-strong: #B6C6D4;
+    --ice: #1B6BAE;
+    --ice-soft: #E1EDF8;
+    --ember: #A34C38;
+    --ember-soft: #F7E8E3;
+    --amber: #83600F;
+    --amber-soft: #FAEFD6;
+    --pine: #2F6B4F;
+    --pine-soft: #E0EFE7;
+
+    --sans: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo",
+            "Noto Sans KR", "Malgun Gothic", "맑은 고딕", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+
+    --measure: 60ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0A121A;
+      --panel: #101B25;
+      --panel-2: #16232F;
+      --ink: #E7EFF6;
+      --ink-2: #AABDCC;
+      --ink-3: #7B8E9D;
+      --rule: #21313E;
+      --rule-strong: #2F4553;
+      --ice: #63B1EA;
+      --ice-soft: #10293C;
+      --ember: #DC8C74;
+      --ember-soft: #2A1B16;
+      --amber: #DAB059;
+      --amber-soft: #292113;
+      --pine: #6FBE95;
+      --pine-soft: #12261C;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0A121A;
+    --panel: #101B25;
+    --panel-2: #16232F;
+    --ink: #E7EFF6;
+    --ink-2: #AABDCC;
+    --ink-3: #7B8E9D;
+    --rule: #21313E;
+    --rule-strong: #2F4553;
+    --ice: #63B1EA;
+    --ice-soft: #10293C;
+    --ember: #DC8C74;
+    --ember-soft: #2A1B16;
+    --amber: #DAB059;
+    --amber-soft: #292113;
+    --pine: #6FBE95;
+    --pine-soft: #12261C;
+  }
+
+  :root[data-theme="light"] {
+    --ground: #F1F5F9;
+    --panel: #FFFFFF;
+    --panel-2: #E7EEF5;
+    --ink: #0F1A24;
+    --ink-2: #3C4E5E;
+    --ink-3: #6A7D8D;
+    --rule: #D2DDE7;
+    --rule-strong: #B6C6D4;
+    --ice: #1B6BAE;
+    --ice-soft: #E1EDF8;
+    --ember: #A34C38;
+    --ember-soft: #F7E8E3;
+    --amber: #83600F;
+    --amber-soft: #FAEFD6;
+    --pine: #2F6B4F;
+    --pine-soft: #E0EFE7;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    margin: 0;
+  }
+
+  .wrap {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 4.5rem) clamp(1.1rem, 4vw, 2.5rem) 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 6vw, 4.75rem);
+  }
+
+  /* ---------- type roles ---------- */
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 5.5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: clamp(1.35rem, 3.4vw, 1.85rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.3;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 1.03rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  p { max-width: var(--measure); color: var(--ink-2); margin: 0; }
+  p strong, li strong { color: var(--ink); font-weight: 700; }
+  em { font-style: normal; color: var(--ice); font-weight: 600; }
+
+  /* ---------- masthead ---------- */
+
+  .mast { display: flex; flex-direction: column; gap: 1.4rem; }
+
+  .mast-rule {
+    height: 3px;
+    background: linear-gradient(90deg, var(--ice) 0%, var(--ice) 70%, var(--pine) 70%, var(--pine) 100%);
+    border-radius: 2px;
+  }
+
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2.1rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+  }
+  .facts b { color: var(--ink-2); font-weight: 600; }
+
+  /* ---------- section ---------- */
+
+  .section { display: flex; flex-direction: column; gap: 1.15rem; }
+  .section-head { display: flex; flex-direction: column; gap: 0.4rem; }
+  .prose { display: flex; flex-direction: column; gap: 0.9rem; }
+
+  .compare {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .card-a { border-top: 3px solid var(--ice); }
+  .card-b { border-top: 3px solid var(--pine); }
+  .card-title { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
+  .card-a .card-title .eyebrow { color: var(--ice); }
+  .card-b .card-title .eyebrow { color: var(--pine); }
+
+  .metrics { display: flex; gap: 1.6rem; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .metric { display: flex; flex-direction: column; gap: 0.1rem; }
+  .metric-n {
+    font-family: var(--mono);
+    font-size: 1.45rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .metric-l { font-size: 0.72rem; color: var(--ink-3); }
+  .card p { font-size: 0.9rem; }
+
+  /* ---------- terrain commitment ladder ---------- */
+
+  .ladder {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--panel);
+    overflow: hidden;
+  }
+  .rung {
+    display: grid;
+    grid-template-columns: 4.6rem 1fr;
+    gap: 1rem;
+    padding: 0.95rem 1.25rem;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+  }
+  .rung:first-child { border-top: none; }
+  .rung-tag {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.15rem 0.4rem;
+    border-radius: 2px;
+    text-align: center;
+  }
+  .rung-1 .rung-tag { background: var(--pine-soft); color: var(--pine); }
+  .rung-2 .rung-tag { background: var(--ice-soft); color: var(--ice); }
+  .rung-3 .rung-tag { background: var(--amber-soft); color: var(--amber); }
+  .rung-body { display: flex; flex-direction: column; gap: 0.25rem; }
+  .rung-body b { font-size: 0.93rem; color: var(--ink); }
+  .rung-body span { font-size: 0.87rem; color: var(--ink-2); line-height: 1.6; }
+
+  .funnel {
+    background: var(--pine-soft);
+    border-top: 1px solid var(--rule);
+    padding: 0.95rem 1.25rem;
+    font-size: 0.89rem;
+    color: var(--ink-2);
+    line-height: 1.65;
+  }
+  .funnel b { color: var(--ink); }
+
+  /* ---------- route spine ---------- */
+
+  .route { display: flex; flex-direction: column; }
+  .day {
+    display: grid;
+    grid-template-columns: 3.4rem 1fr auto;
+    gap: 0.9rem;
+    align-items: baseline;
+    padding: 0.62rem 0 0.62rem 2.15rem;
+    border-top: 1px solid var(--rule);
+    position: relative;
+  }
+  .day::before {
+    content: "";
+    position: absolute;
+    left: 0.74rem;
+    top: 0;
+    bottom: 0;
+    width: 1.5px;
+    background: var(--rule);
+  }
+  .day:last-child::before { bottom: 50%; }
+  .day:first-child::before { top: 50%; }
+  .day-n {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--ink-3);
+    letter-spacing: 0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  .day-body { font-size: 0.92rem; color: var(--ink-2); line-height: 1.6; }
+  .day-body b { color: var(--ink); font-weight: 700; }
+  .day-drive {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .day-key .day-body b { color: var(--pine); }
+
+  @media (max-width: 30rem) {
+    .day { grid-template-columns: 3rem 1fr; }
+    .day-drive { grid-column: 2; }
+  }
+
+  .note {
+    font-size: 0.87rem;
+    color: var(--ink-3);
+    padding-top: 0.9rem;
+    max-width: var(--measure);
+  }
+
+  /* ---------- callouts ---------- */
+
+  .callout {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.3rem 1.45rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .callout p { max-width: 58ch; font-size: 0.93rem; }
+  .callout-warn {
+    background: var(--amber-soft);
+    border-color: color-mix(in srgb, var(--amber) 38%, transparent);
+  }
+  .callout-warn .eyebrow { color: var(--amber); }
+  .callout-risk {
+    background: var(--ember-soft);
+    border-color: color-mix(in srgb, var(--ember) 32%, transparent);
+  }
+  .callout-risk .eyebrow { color: var(--ember); }
+
+  .duo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+  }
+
+  /* ---------- lists ---------- */
+
+  .rules {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .rules li {
+    position: relative;
+    padding-left: 1.05rem;
+    font-size: 0.93rem;
+    color: var(--ink-2);
+    max-width: var(--measure);
+    line-height: 1.7;
+  }
+  .rules li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.68rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--rule-strong);
+  }
+  .rules-warn li::before { background: var(--ember); }
+
+  .checks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    list-style: none;
+    counter-reset: c;
+    padding: 0;
+    margin: 0;
+  }
+  .checks li {
+    position: relative;
+    padding: 0.7rem 0 0.7rem 2.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.93rem;
+    color: var(--ink-2);
+  }
+  .checks li::before {
+    counter-increment: c;
+    content: counter(c, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    line-height: 1.7;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+  }
+  .checks li:first-child { border-top: none; }
+  .checks .hot { color: var(--ink); font-weight: 600; }
+
+  /* ---------- money table ---------- */
+
+  .tbl { overflow-x: auto; border: 1px solid var(--rule); border-radius: 4px; background: var(--panel); }
+  table { border-collapse: collapse; width: 100%; min-width: 32rem; }
+  caption { text-align: left; padding: 0.95rem 1.1rem 0; font-size: 0.84rem; color: var(--ink-3); }
+  th, td {
+    padding: 0.6rem 1.1rem;
+    text-align: right;
+    font-size: 0.87rem;
+    border-top: 1px solid var(--rule);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  th:first-child, td:first-child { text-align: left; white-space: normal; min-width: 10rem; }
+  thead th {
+    border-top: none;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+    padding-top: 0.85rem;
+  }
+  tbody th { font-weight: 700; color: var(--ink); }
+  td { color: var(--ink-2); font-family: var(--mono); font-size: 0.83rem; }
+  tfoot td, tfoot th { border-top: 2px solid var(--rule-strong); color: var(--ink); font-weight: 700; }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.4rem;
+    border-radius: 2px;
+    vertical-align: 0.1em;
+    font-weight: 600;
+  }
+  .tag-quoted { background: var(--ice-soft); color: var(--ice); }
+  .tag-band { background: var(--ember-soft); color: var(--ember); }
+
+  /* ---------- FAQ ---------- */
+
+  .faq { display: flex; flex-direction: column; gap: 0.9rem; }
+  .qa {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--ice);
+    border-radius: 3px;
+    padding: 1.05rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .qa-q {
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.5;
+  }
+  .qa p { font-size: 0.9rem; max-width: 62ch; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.3rem;
+    font-size: 0.79rem;
+    color: var(--ink-3);
+    font-family: var(--mono);
+    letter-spacing: 0.02em;
+    line-height: 1.8;
+  }
+
+  :focus-visible { outline: 2px solid var(--ice); outline-offset: 3px; border-radius: 2px; }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">Hokkaido · Japan · 크리스마스 주간</div>
+    <h1>니세코에 자리 잡고,<br>루스츠로 하루 다녀온다</h1>
+    <div class="mast-rule"></div>
+    <div class="facts">
+      <span>출발 <b>인천(ICN) → 신치토세(CTS)</b></span>
+      <span>인원 <b>4명</b></span>
+      <span>구성 <b>4인 · 경험 폭 넓음</b></span>
+      <span>베이스 <b>니세코 1곳</b></span>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">한눈에</div>
+      <h2>거점은 하나, 산은 둘</h2>
+    </div>
+    <div class="compare">
+      <div class="card card-a">
+        <div class="card-title">
+          <div class="eyebrow">베이스</div>
+          <h3>니세코</h3>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="metric-n">3–4</span><span class="metric-l">스키 일수</span></div>
+          <div class="metric"><span class="metric-n">12월</span><span class="metric-l">눈이 제일 확실</span></div>
+        </div>
+        <p>크리스마스에 눈이 확실한 유일한 후보. 그리고 <strong>스트로베리 필즈</strong>라는, 트리런이 처음이어도 실제로 탈 수 있는 구역이 있다.</p>
+      </div>
+      <div class="card card-b">
+        <div class="card-title">
+          <div class="eyebrow">당일치기</div>
+          <h3>루스츠</h3>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="metric-n">1</span><span class="metric-l">스키 일수</span></div>
+          <div class="metric"><span class="metric-n">~1h</span><span class="metric-l">니세코에서</span></div>
+        </div>
+        <p>트리런 <em>상품</em> 자체는 루스츠가 더 낫다. 홋카이도에서 입문용 글레이드는 여기가 최고다. 다만 눈은 니세코보다 덜 온다.</p>
+      </div>
+    </div>
+    <div class="prose">
+      <p>그래서 <strong>눈이 확실한 곳에 자리를 잡고, 트리런이 제일 좋은 곳은 하루 다녀오는</strong> 구성이다. 반대로 하면 12월에 눈이 부족할 위험을 트립 내내 떠안게 된다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">이 트립의 핵심</div>
+      <h2>스트로베리 필즈 — 같은 구역에서 각자 다른 강도로 탄다</h2>
+    </div>
+    <div class="prose">
+      <p>하나조노 1번 리프트에서 내려 왼쪽으로 빠져 짧게 트래버스하면 나오는 큰 트리런 구역이다. 나무 간격이 넓고 면적이 커서, <strong>처음 타는 사람이 안전하게 배울 수 있는 곳</strong>으로 알려져 있다.</p>
+      <p>경험 차이가 있는 팀에 이게 왜 맞는지가 핵심인데, <strong>진입 강도를 각자 고를 수 있기 때문</strong>이다.</p>
+    </div>
+
+    <div class="ladder">
+      <div class="rung rung-1">
+        <span class="rung-tag">입문</span>
+        <span class="rung-body">
+          <b>바로 드롭인</b>
+          <span>리프트에서 내려 짧게 트래버스한 뒤 곧장 진입. 완만한 라인, 넓은 나무 간격.</span>
+        </span>
+      </div>
+      <div class="rung rung-2">
+        <span class="rung-tag">중급</span>
+        <span class="rung-body">
+          <b>조금 더 걸어 들어간다</b>
+          <span>같은 구역 안에서 경사가 붙는 지점까지 이동. 여전히 같은 리프트로 돌아온다.</span>
+        </span>
+      </div>
+      <div class="rung rung-3">
+        <span class="rung-tag">상급</span>
+        <span class="rung-body">
+          <b>더 멀리 트래버스</b>
+          <span>필로우 라인이 있는 급경사까지. 형·동생은 아래에서 각자 속도로 내려오면 된다.</span>
+        </span>
+      </div>
+      <div class="funnel">
+        <b>그리고 모든 라인이 결국 정설 슬로프로 모인다.</b> 길을 잃는 게 사실상 불가능하고, 내려오면 바로 리프트다 — 경험 차이가 있는 팀에는 이 “가둬주는” 성질이 어떤 지형 스펙보다 중요하다.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="callout callout-warn">
+      <div class="eyebrow">⚠ 솔직하게 — 니세코를 고르면 같이 오는 것</div>
+      <h3>크리스마스 주간은 일본 스키 시즌에서 제일 붐비고 제일 비싸다</h3>
+      <p>그리고 니세코가 그 타격을 가장 크게 받는 곳이다. 성수기 초급 슬로프는 “사람 슬라럼”이라는 말이 나올 정도다.</p>
+      <p>다만 <strong>스트로베리 필즈는 그 메인 초급 동선에서 비켜나 있고</strong>, 강습을 안 넣기로 한 이상 “크리스마스엔 강습 자리가 없다”는 제일 큰 문제는 애초에 해당이 없다. 남는 건 리프트 줄과 가격인데, 이건 실재한다.</p>
+      <p><strong>대안:</strong> 12월 예보가 괜찮고 사람 많은 걸 정 못 견디겠으면 베이스를 루스츠로 바꾸는 스왑이 가능하다. 눈의 확실성을 조금 내주고 한산함을 사는 교환이다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">제외한 후보</div>
+      <h2>후라노와 키로로가 빠진 이유</h2>
+    </div>
+    <ul class="rules">
+      <li><strong>후라노 — 규정 때문에 빠졌다.</strong> 정설 슬로프를 벗어나려면 베이스 사무실에서 <strong>스키 패트롤에 신고</strong>해야 하고, 지정된 5개 진입 지점으로만 들어갈 수 있으며 경계 단속이 엄격하다. 리프트 아래 뻥 뚫려 보이는 곳도 금지다. 결정적으로 <strong>후라노의 나무 간격은 대체로 매우 좁다.</strong> 좁은 나무 + 허가제 조합은 첫 파우더를 타보려는 사람에게 거의 최악이다.</li>
+      <li><strong>키로로 — 곤돌라 운휴 때문에 빠졌다.</strong> 트리런 지형은 좋지만, 바람으로 곤돌라가 멈추면 산이 통째로 잠긴다. 이번 트립에서 제일 피하고 싶은 실패 방식이 정확히 그것이다.</li>
+    </ul>
+    <p class="note">후라노는 “가격”이나 “눈”이 아니라 <strong>접근 정책</strong> 때문에 탈락했다. 어떤 예약 사이트에도 안 나오는 정보다.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">일정 — 5박 6일 기준</div>
+      <h2>날짜가 아니라 순서가 중요하다</h2>
+    </div>
+    <div class="route">
+      <div class="day">
+        <span class="day-n">01</span>
+        <span class="day-body">신치토세 도착 → <b>니세코</b> 이동, 체크인. 장비 렌탈 맞춰두기.</span>
+        <span class="day-drive">2~3h</span>
+      </div>
+      <div class="day">
+        <span class="day-n">02</span>
+        <span class="day-body">니세코 정설 슬로프로 몸 풀기. 다 같이 감 잡는 날.</span>
+        <span class="day-drive">—</span>
+      </div>
+      <div class="day day-key">
+        <span class="day-n">03</span>
+        <span class="day-body"><b>스트로베리 필즈</b> — 눈 온 다음 날로 맞출 수 있으면 이 날을 옮긴다</span>
+        <span class="day-drive">—</span>
+      </div>
+      <div class="day">
+        <span class="day-n">04</span>
+        <span class="day-body"><b>루스츠</b> 당일치기. 글레이드 위주로 하루.</span>
+        <span class="day-drive">1h</span>
+      </div>
+      <div class="day">
+        <span class="day-n">05</span>
+        <span class="day-body">니세코 마지막 날 — 컨디션 좋았던 쪽으로 다시</span>
+        <span class="day-drive">—</span>
+      </div>
+      <div class="day">
+        <span class="day-n">06</span>
+        <span class="day-body">신치토세 출국</span>
+        <span class="day-drive">2~3h</span>
+      </div>
+    </div>
+    <p class="note"><strong>3일차와 4일차는 고정이 아니다.</strong> 눈 온 다음 날을 스트로베리 필즈에 쓰고, 맑고 단단한 날을 루스츠에 쓰는 게 맞다. 아침에 정하면 된다. 5박 6일은 제안이고, 휴가 일수에 따라 스키 일수만 늘리거나 줄이면 된다.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">비용</div>
+      <h2>확실한 숫자와, 아직 아닌 숫자</h2>
+    </div>
+    <div class="prose">
+      <p>리프트권은 공시 가격이라 그대로 쓰면 되고, <strong>숙소와 항공은 아직 견적을 안 받았다.</strong> 그런데 크리스마스 홋카이도에서는 그 두 개가 총액을 지배한다 — 그래서 아래를 “총액”이 아니라 <strong>“지금 아는 것”</strong>으로 읽는 게 맞다.</p>
+    </div>
+
+    <div class="tbl">
+      <table>
+        <caption>1인 기준 · 4명 · 5박 6일 · 스키 4일 · ¥100 = ₩945</caption>
+        <thead>
+          <tr>
+            <th scope="col">항목</th>
+            <th scope="col">엔</th>
+            <th scope="col">원</th>
+            <th scope="col">출처</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">니세코 리프트권 × 3일</th>
+            <td>¥40,500</td>
+            <td>38.3만</td>
+            <td><span class="tag tag-quoted">공시</span></td>
+          </tr>
+          <tr>
+            <th scope="row">루스츠 리프트권 × 1일</th>
+            <td>¥9,700</td>
+            <td>9.2만</td>
+            <td><span class="tag tag-quoted">공시</span></td>
+          </tr>
+          <tr>
+            <th scope="row">식비 + 잡비 (6일)</th>
+            <td>¥48,000–72,000</td>
+            <td>45–68만</td>
+            <td><span class="tag tag-band">구간</span></td>
+          </tr>
+          <tr>
+            <th scope="row">장비 렌탈 (선택, 4일)</th>
+            <td>¥20,000–28,000</td>
+            <td>19–26만</td>
+            <td><span class="tag tag-band">구간</span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row">숙소 · 항공</th>
+            <td>—</td>
+            <td>미견적</td>
+            <td><span class="tag tag-band">미정</span></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <ul class="rules">
+      <li><strong>니세코 리프트권은 하루 ¥13,500이다.</strong> 성수기 구간이 <strong>2026년 12월 24일 ~ 2027년 2월 28일</strong>이라, 크리스마스 주간은 정확히 그 첫날부터 들어간다. 12월 23일까지는 ¥12,600이니, <strong>하루만 앞당겨도 사람과 가격이 같이 내려간다</strong> — 날짜를 조금이라도 움직일 수 있으면 이게 제일 큰 레버다.</li>
+      <li><strong>루스츠는 온라인이 ¥9,700, 현장이 ¥11,500이다.</strong> 당일치기 하루짜리니 미리 사두면 그냥 이득이다. (2025-26 가격 기준, 26-27은 아직 미발표)</li>
+      <li><strong>숙소가 이 트립의 진짜 변수다.</strong> 크리스마스~신정 성수기는 보통 <strong>12월 21일 ~ 1월 2일</strong>로 잡히고, 니세코는 이 구간에 가격이 몇 배로 뛴다. 지금 견적을 안 낸 건 게을러서가 아니라, <strong>지금 잡느냐 아니냐로 숫자 자체가 달라지기</strong> 때문이다.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="callout callout-risk">
+      <div class="eyebrow">지금 해야 할 일 — 이 트립만 유일하게 급하다</div>
+      <h3>크리스마스 홋카이도 숙소는 지금 잡아야 한다</h3>
+      <p>세 트립 중에서 <strong>예약 급한 건 이것 하나</strong>다. 1월 트립과 2월 트립은 아직 시간이 있지만, 크리스마스 주간 니세코 숙소는 훨씬 일찍 마감되고 <strong>지금 이미 7월 말</strong>이다.</p>
+      <p>순서는 <strong>숙소 → 항공 → 나머지 전부</strong>다. 리프트권이나 렌탈은 언제든 살 수 있지만, 4명이 들어갈 방은 그렇지 않다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">자주 나올 질문</div>
+      <h2>FAQ</h2>
+    </div>
+    <div class="faq">
+      <div class="qa">
+        <div class="qa-q">나무 사이를 타는 게 위험하지 않나?</div>
+        <p>스트로베리 필즈는 나무 간격이 넓고 면적이 커서 처음 배우기 좋은 곳으로 알려진 구역이다. 그리고 <strong>모든 라인이 정설 슬로프로 모여서</strong> 길을 잃을 수가 없다. 다만 트리런은 혼자 들어가지 않는 게 원칙이라, 항상 둘씩 붙어 다니는 걸로 한다.</p>
+      </div>
+      <div class="qa">
+        <div class="qa-q">스키를 거의 못 타는데 강습을 받아야 하나?</div>
+        <p>강습은 이번 트립 요구사항이 아니다. 그래서 리조트도 “강습 자리가 있느냐”가 아니라 “<strong>눈이 확실하고, 처음이어도 탈 만한 트리런이 있느냐</strong>”로 골랐다. 물론 원하면 따로 예약할 수 있지만, 크리스마스 주간은 강습 자리가 빨리 마감된다는 점만 알아두면 된다.</p>
+      </div>
+      <div class="qa">
+        <div class="qa-q">사람이 그렇게 많다면서 왜 니세코인가?</div>
+        <p><strong>12월에 눈이 확실한 곳이기 때문이다.</strong> 니세코는 12월 내내 꾸준히 눈이 쌓여서 크리스마스면 대부분의 코스가 열린다. 다른 후보들은 트리런은 더 좋아도 12월 적설이 덜 확실한데, 눈이 안 오면 트리런 자체가 성립을 안 한다. 붐비는 건 참을 수 있지만 눈이 없는 건 못 참는다.</p>
+      </div>
+      <div class="qa">
+        <div class="qa-q">루스츠가 트리런이 더 좋다면서 왜 하루만 가나?</div>
+        <p>루스츠는 <strong>맑은 날이 더 많고 그만큼 눈이 덜 온다.</strong> 12월은 적설량이 불확실한 유일한 달이라, 베이스를 루스츠로 잡으면 트립 전체가 그 도박 위에 놓인다. 하루 다녀오는 건 위험 없이 좋은 부분만 가져오는 방법이다. (덧붙여, 형은 루스츠를 이미 타봤다.)</p>
+      </div>
+      <div class="qa">
+        <div class="qa-q">렌터카가 필요한가?</div>
+        <p>필수는 아니다. 신치토세–니세코는 공항 셔틀이 잘 다니고, 니세코 안에서는 마을 셔틀로 충분하다. <strong>루스츠 당일치기 하루만</strong> 차나 셔틀이 필요한데, 니세코–루스츠 셔틀 상품이 따로 있어서 그걸 쓰면 겨울 운전을 아예 안 해도 된다. 홋카이도 겨울 도로에 자신 없으면 이 쪽이 낫다.</p>
+      </div>
+      <div class="qa">
+        <div class="qa-q">장비는 가져가나, 빌리나?</div>
+        <p>장비가 없는 쪽은 <strong>현지 렌탈이 낫다.</strong> 니세코 렌탈 품질은 좋고, 항공 수하물에서 스키백 하나가 사람당 10~20만원씩 붙는 걸 피할 수 있다. 자기 장비가 확실히 편한 사람만 가져가면 된다.</p>
+      </div>
+      <div class="qa">
+        <div class="qa-q">스키 안 타는 사람은 뭘 하나?</div>
+        <p>니세코 마을에 온천이 있고, 히라후 쪽은 식당과 상점이 모여 있어서 반나절 정도는 충분히 보낸다. 하루를 통째로 비운다면 오타루 당일치기가 무난하다.</p>
+      </div>
+      <div class="qa">
+        <div class="qa-q">며칠짜리로 잡는 게 맞나?</div>
+        <p>위 일정은 <strong>5박 6일 제안</strong>이고 확정이 아니다. 이동에 첫날과 마지막 날이 통으로 들어가서 스키는 4일 남는다. 휴가가 더 되면 니세코 날을 늘리는 게 맞다 — 루스츠를 두 번 가는 것보다 눈 좋은 날을 더 많이 확보하는 쪽이 낫다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">다음 단계 — 우선순위 순</div>
+      <h2>확정해야 할 것</h2>
+    </div>
+    <ol class="checks">
+      <li><span class="hot">니세코 숙소 4인 — 지금</span> 무료 취소 조건으로 일단 잡아둔다. 이게 늦으면 나머지가 다 의미 없어진다</li>
+      <li><span class="hot">날짜를 12월 23일 이전으로 당길 수 있는지</span> — 리프트권이 ¥900 싸지고, 성수기 진입 자체를 하루 피한다</li>
+      <li>인천–신치토세 항공 4석 — 크리스마스 주간이라 좌석 블록이 관건</li>
+      <li>총 일수 확정 (위는 5박 6일 가정)</li>
+      <li>루스츠 이동 방법 — 셔틀 상품 vs 렌터카</li>
+      <li>렌탈 장비 예약 — 필요한 인원 확인</li>
+    </ol>
+  </section>
+
+  <footer>
+    홋카이도 크리스마스 트립 · 니세코 베이스 + 루스츠 당일치기 · 4명<br>
+    리프트권은 운영사 공시 기준 (2026-07-29 조회) · 니세코 2026-27 시즌, 루스츠 2025-26 시즌<br>
+    숙소·항공 미견적 · 일정은 확정 아님
+  </footer>
+
+</div>
