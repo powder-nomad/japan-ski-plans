@@ -625,6 +625,7 @@
   .map-land   { fill: var(--panel); stroke: var(--rule-strong); stroke-width: 0.9;
                 stroke-linejoin: round; }
   .map-leader { stroke: var(--rule-strong); stroke-width: 0.9; fill: none; }
+  .map-scale  { stroke: var(--ink-3); stroke-width: 1.1; fill: none; }
   .map-lift      { stroke: var(--rule-strong); stroke-width: 2; }
   .map-lift-drop { stroke: var(--rule-strong); stroke-width: 1.25; fill: none; }
   .map-piste     { stroke: var(--ink-2); stroke-width: 2.5; stroke-linecap: round; }
@@ -816,6 +817,10 @@
     <circle cx="319.0" cy="79.3" r="4.5" class="map-dot-air"/>
     <text x="142.0" y="72.3" class="map-label" text-anchor="end">아오모리 공항</text>
     <text x="142.0" y="85.3" class="map-sub" text-anchor="end">OUT</text>
+    <path d="M410.8 486.0 L474.0 486.0" class="map-scale"/>
+    <path d="M410.8 482.0 L410.8 490.0" class="map-scale"/>
+    <path d="M474.0 482.0 L474.0 490.0" class="map-scale"/>
+    <text x="442.4" y="479.0" class="map-sub" text-anchor="middle">50km</text>
     <text x="160" y="504" class="map-label">약 350km 북상</text>
     <text x="160" y="518" class="map-sub">편도 반납료 ¥19,800–30,500</text>
     </svg>
