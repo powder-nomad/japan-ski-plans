@@ -1,3 +1,4 @@
+<html lang="ko" data-lang="ko">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
@@ -108,6 +109,37 @@
     flex-direction: column;
     gap: clamp(3rem, 6vw, 4.75rem);
   }
+
+  /* ---------- bilingual switching ---------- */
+
+  /* The page ships as data-lang="ko" so it is readable with no JS at all.
+     The inline script only ever narrows it to the reader's own language. */
+  :root[data-lang="ko"] .en { display: none; }
+  :root[data-lang="en"] .ko { display: none; }
+
+  .langbar { display: flex; justify-content: flex-end; margin-bottom: -0.6rem; }
+  .langtog {
+    display: inline-flex;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--panel);
+  }
+  .langtog button {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border: none;
+    background: transparent;
+    color: var(--ink-3);
+    cursor: pointer;
+    line-height: 1.7;
+  }
+  .langtog button + button { border-left: 1px solid var(--rule); }
+  .langtog button[aria-pressed="true"] { background: var(--ice-soft); color: var(--ice); }
+  .langtog button:hover { color: var(--ink); }
 
   /* ---------- type roles ---------- */
 
@@ -394,7 +426,8 @@
     color: var(--ink-3);
     letter-spacing: 0.04em;
   }
-  .checks li:first-child { border-top: none; }
+  /* Items come in ko/en pairs, so the first two children are the same item. */
+  .checks li:first-child, .checks li:nth-child(2) { border-top: none; }
   .checks .hot { color: var(--ink); font-weight: 600; }
 
   /* ---------- money table ---------- */
@@ -566,362 +599,544 @@
   .photo a:hover { color: var(--ice); }
 </style>
 
+<script>
+(function () {
+  "use strict";
+
+  var TITLE = {
+    ko: "홋카이도 크리스마스 — 니세코 + 루스츠",
+    en: "Hokkaido at Christmas — Niseko + Rusutsu"
+  };
+  var KEY = "trip-lang";
+  var root = document.documentElement;
+
+  function swapAttr(selector, target, prefix, lang) {
+    var nodes = document.querySelectorAll(selector);
+    for (var i = 0; i < nodes.length; i++) {
+      var v = nodes[i].getAttribute(prefix + lang) || nodes[i].getAttribute(prefix + "ko");
+      if (v) nodes[i].setAttribute(target, v);
+    }
+  }
+
+  function paint(lang) {
+    root.setAttribute("data-lang", lang);
+    root.setAttribute("lang", lang);
+    document.title = TITLE[lang] || TITLE.ko;
+    // Text that lives in an attribute cannot be duplicated as a sibling node.
+    swapAttr("[data-alt-en]", "alt", "data-alt-", lang);
+    swapAttr("[data-aria-en]", "aria-label", "data-aria-", lang);
+    var btns = document.querySelectorAll("[data-setlang]");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].setAttribute("aria-pressed", btns[i].getAttribute("data-setlang") === lang ? "true" : "false");
+    }
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  if (saved !== "ko" && saved !== "en") saved = null;
+
+  var nav = (navigator.languages && navigator.languages[0]) || navigator.language || "ko";
+  // An explicit choice always beats the browser's guess.
+  paint(saved || (/^ko/i.test(nav) ? "ko" : "en"));
+
+  document.addEventListener("click", function (e) {
+    var btn = e.target && e.target.closest ? e.target.closest("[data-setlang]") : null;
+    if (!btn) return;
+    var lang = btn.getAttribute("data-setlang");
+    try { localStorage.setItem(KEY, lang); } catch (err) {}
+    paint(lang);
+  });
+
+  // The head runs before any of the above nodes exist; re-apply once they do.
+  document.addEventListener("DOMContentLoaded", function () {
+    paint(root.getAttribute("data-lang") || "ko");
+  });
+})();
+</script>
+
 <div class="wrap">
 
   <header class="mast">
-    <div class="eyebrow">Hokkaido · Japan · 크리스마스 주간</div>
-    <h1>니세코에 자리 잡고,<br>루스츠로 하루 다녀온다</h1>
+    <div class="langbar">
+      <div class="langtog" role="group" aria-label="Language / 언어">
+        <button type="button" data-setlang="ko" aria-pressed="true">KO</button>
+        <button type="button" data-setlang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+    <div class="eyebrow ko">Hokkaido · Japan · 크리스마스 주간</div>
+    <div class="eyebrow en" lang="en">Hokkaido · Japan · Christmas week</div>
+    <h1 class="ko">니세코에 자리 잡고,<br>루스츠로 하루 다녀온다</h1>
+    <h1 class="en" lang="en">Base in Niseko,<br>day-trip to Rusutsu</h1>
     <div class="mast-rule"></div>
     <div class="facts">
-      <span>출발 <b>인천(ICN) → 신치토세(CTS)</b></span>
-      <span>인원 <b>4명</b></span>
-      <span>구성 <b>4인 · 경험 폭 넓음</b></span>
-      <span>베이스 <b>니세코 1곳</b></span>
+      <span class="ko">출발 <b>인천(ICN) → 신치토세(CTS)</b></span>
+      <span class="en" lang="en">Route <b>ICN → CTS</b></span>
+      <span class="ko">인원 <b>4명</b></span>
+      <span class="en" lang="en">Party <b>4</b></span>
+      <span class="ko">구성 <b>파우더 경험 2 · 정설 상급 2</b></span>
+      <span class="en" lang="en">Mix <b>2 with powder time · 2 piste-strong</b></span>
+      <span class="ko">베이스 <b>니세코 1곳</b></span>
+      <span class="en" lang="en">Base <b>Niseko, one place</b></span>
     </div>
   </header>
 
   <section class="section">
     <div class="section-head">
-      <div class="eyebrow">한눈에</div>
-      <h2>거점은 하나, 산은 둘</h2>
+      <div class="eyebrow ko">한눈에</div>
+      <div class="eyebrow en" lang="en">At a glance</div>
+      <h2 class="ko">거점은 하나, 산은 둘</h2>
+      <h2 class="en" lang="en">One base, two mountains</h2>
     </div>
 
     <figure class="mapfig">
-    <svg viewBox="0 0 620 303" role="img" aria-label="신치토세 공항과 니세코, 루스츠의 위치를 홋카이도 남서부 실제 해안선 위에 표시한 지도">
+    <svg viewBox="0 0 620 303" role="img" aria-label="신치토세 공항과 니세코, 루스츠의 위치를 홋카이도 남서부 실제 해안선 위에 표시한 지도" data-aria-ko="신치토세 공항과 니세코, 루스츠의 위치를 홋카이도 남서부 실제 해안선 위에 표시한 지도" data-aria-en="A map placing New Chitose Airport, Niseko and Rusutsu on the real coastline of southwest Hokkaido">
     <rect x="134" y="0" width="352" height="303" class="map-sea"/>
     <path d="M486.0 0.0 L486.0 233.6 L474.8 222.8 L467.0 213.4 L451.9 211.2 L440.2 203.5 L432.3 194.1 L429.9 192.7 L426.8 191.9 L416.6 186.0 L403.5 182.6 L390.7 182.9 L378.2 185.7 L360.7 192.9 L336.9 211.7 L332.9 213.6 L330.1 216.4 L323.5 218.6 L312.4 226.7 L301.6 241.5 L297.8 244.4 L294.2 244.6 L291.4 242.7 L289.4 239.0 L290.0 238.3 L295.7 239.5 L296.9 239.0 L297.3 236.9 L291.6 234.3 L287.4 230.5 L285.1 221.0 L261.0 193.0 L254.2 190.0 L241.4 191.5 L231.1 189.7 L227.5 190.0 L221.3 192.9 L215.5 198.1 L210.3 204.5 L202.3 218.7 L199.2 226.5 L197.0 234.8 L196.0 243.7 L197.5 252.6 L201.8 257.6 L216.5 265.7 L221.1 269.5 L231.7 281.5 L234.4 282.7 L243.2 280.4 L252.4 279.5 L258.1 277.3 L266.7 283.4 L269.0 288.8 L275.8 298.8 L281.3 303.4 L173.5 303.4 L171.6 301.2 L164.3 287.7 L159.5 282.7 L145.1 276.2 L142.5 272.7 L138.8 265.2 L134.0 262.9 L134.0 179.3 L137.9 173.5 L143.7 170.8 L157.6 170.0 L163.3 167.5 L169.3 159.8 L175.1 157.1 L181.9 144.8 L184.3 144.0 L187.6 146.5 L193.0 154.4 L196.0 155.2 L199.1 152.7 L200.3 143.7 L201.4 141.7 L204.0 140.1 L209.7 128.4 L221.8 115.7 L227.8 111.6 L230.4 108.4 L231.3 104.6 L227.7 98.7 L225.6 91.5 L218.7 81.4 L208.4 71.8 L204.1 66.4 L202.9 58.6 L207.3 44.0 L217.9 43.4 L220.6 41.3 L222.4 35.6 L223.6 34.5 L225.5 34.8 L244.8 48.7 L251.6 56.7 L254.6 59.0 L264.9 63.9 L269.9 69.4 L271.9 70.0 L286.7 67.7 L297.5 63.2 L300.8 62.8 L302.4 63.9 L299.9 69.9 L302.4 73.4 L309.3 74.6 L318.7 77.8 L321.7 79.7 L328.1 79.5 L342.9 69.0 L352.5 58.6 L356.3 52.9 L360.0 45.4 L362.5 36.9 L362.4 27.8 L360.6 22.6 L352.5 10.3 L350.9 5.2 L352.0 0.0 Z" class="map-land"/>
     <path d="M398.7 151.7 L254.7 135.1" class="map-route"/>
     <path d="M254.7 135.1 L285.9 157.6" class="map-route-dash"/>
     <path d="M254.7 135.1 L124.0 135.1" class="map-leader"/>
     <circle cx="254.7" cy="135.1" r="5.5" class="map-dot-key"/>
-    <text x="124.0" y="134.1" class="map-label" text-anchor="end">니세코</text>
-    <text x="124.0" y="147.1" class="map-sub" text-anchor="end">거점 · 5박</text>
+    <text x="124.0" y="134.1" class="map-label ko" text-anchor="end">니세코</text>
+    <text x="124.0" y="134.1" class="map-label en" text-anchor="end">Niseko</text>
+    <text x="124.0" y="147.1" class="map-sub ko" text-anchor="end">거점 · 5박</text>
+    <text x="124.0" y="147.1" class="map-sub en" text-anchor="end">Base · 5 nights</text>
     <path d="M285.9 157.6 L124.0 191.6" class="map-leader"/>
     <circle cx="285.9" cy="157.6" r="4.5" class="map-dot"/>
-    <text x="124.0" y="190.6" class="map-label" text-anchor="end">루스츠</text>
-    <text x="124.0" y="203.6" class="map-sub" text-anchor="end">당일치기 1일</text>
+    <text x="124.0" y="190.6" class="map-label ko" text-anchor="end">루스츠</text>
+    <text x="124.0" y="190.6" class="map-label en" text-anchor="end">Rusutsu</text>
+    <text x="124.0" y="203.6" class="map-sub ko" text-anchor="end">당일치기 1일</text>
+    <text x="124.0" y="203.6" class="map-sub en" text-anchor="end">Day trip · 1 day</text>
     <path d="M398.7 151.7 L496.0 167.7" class="map-leader"/>
     <circle cx="398.7" cy="151.7" r="4.5" class="map-dot-air"/>
-    <text x="496.0" y="166.7" class="map-label" text-anchor="start">신치토세 공항</text>
+    <text x="496.0" y="166.7" class="map-label ko" text-anchor="start">신치토세 공항</text>
+    <text x="496.0" y="166.7" class="map-label en" text-anchor="start">New Chitose</text>
     <text x="496.0" y="179.7" class="map-sub" text-anchor="start">IN / OUT</text>
     <path d="M350.2 95.6 L496.0 87.6" class="map-leader"/>
     <circle cx="350.2" cy="95.6" r="4.5" class="map-dot-ghost"/>
-    <text x="496.0" y="86.6" class="map-label" text-anchor="start">삿포로</text>
+    <text x="496.0" y="86.6" class="map-label ko" text-anchor="start">삿포로</text>
+    <text x="496.0" y="86.6" class="map-label en" text-anchor="start">Sapporo</text>
     <path d="M383.8 287.0 L472.0 287.0" class="map-scale"/>
     <path d="M383.8 283.0 L383.8 291.0" class="map-scale"/>
     <path d="M472.0 283.0 L472.0 291.0" class="map-scale"/>
     <text x="427.9" y="280.0" class="map-sub" text-anchor="middle">50km</text>
     </svg>
-    <figcaption>해안선은 Natural Earth 1:10m 데이터(퍼블릭 도메인)를 그대로 투영한 것이고, 리조트와 공항은 실제 좌표에 찍혀 있다. 실선은 공항에서 거점으로 들어가는 <strong>이동 순서</strong>고, 점선은 루스츠 당일치기다 — 실제 주행 경로가 아니라 어디서 어디로 가는지다. 축척 막대는 투영에서 그대로 나온 값이라 거리는 재도 된다.</figcaption>
+    <figcaption class="ko">해안선은 Natural Earth 1:10m 데이터(퍼블릭 도메인)를 그대로 투영한 것이고, 리조트와 공항은 실제 좌표에 찍혀 있다. 실선은 공항에서 거점으로 들어가는 <strong>이동 순서</strong>고, 점선은 루스츠 당일치기다 — 실제 주행 경로가 아니라 어디서 어디로 가는지다. 축척 막대는 투영에서 그대로 나온 값이라 거리는 재도 된다.</figcaption>
+    <figcaption class="en" lang="en">The coastline is Natural Earth 1:10m data (public domain) projected as-is, and the resorts and airport sit on their real coordinates. The solid line is the <strong>order of travel</strong> from the airport to the base and the dashed line is the Rusutsu day trip — not actual driving routes, just what connects to what. The scale bar falls straight out of the projection, so distances are safe to measure off it.</figcaption>
     </figure>
 
     <div class="maplinks-wrap">
-      <div class="maplinks-head">공식 코스맵은 각 리조트 사이트에서 최신본을 본다 — 여기 옮겨두면 시즌 바뀔 때 틀린 게 남는다.</div>
+      <div class="maplinks-head ko">공식 코스맵은 각 리조트 사이트에서 최신본을 본다 — 여기 옮겨두면 시즌 바뀔 때 틀린 게 남는다.</div>
+      <div class="maplinks-head en" lang="en">Get the official course maps from each resort's own site — copying them in here just leaves something wrong behind when the season changes.</div>
       <ul class="maplinks">
-        <li><a href="https://www.niseko.ne.jp/en/" target="_blank" rel="noopener">니세코 유나이티드 ↗</a></li>
-        <li><a href="https://rusutsu.com/en/" target="_blank" rel="noopener">루스츠 ↗</a></li>
+        <li><a href="https://www.niseko.ne.jp/en/" target="_blank" rel="noopener"><span class="ko">니세코 유나이티드 ↗</span><span class="en" lang="en">Niseko United ↗</span></a></li>
+        <li><a href="https://rusutsu.com/en/" target="_blank" rel="noopener"><span class="ko">루스츠 ↗</span><span class="en" lang="en">Rusutsu ↗</span></a></li>
       </ul>
     </div>
     <div class="compare">
       <div class="card card-a">
         <div class="card-title">
-          <div class="eyebrow">베이스</div>
-          <h3>니세코</h3>
+          <div class="eyebrow ko">베이스</div>
+          <div class="eyebrow en" lang="en">Base</div>
+          <h3 class="ko">니세코</h3>
+          <h3 class="en" lang="en">Niseko</h3>
         </div>
         <div class="metrics">
-          <div class="metric"><span class="metric-n">3–4</span><span class="metric-l">스키 일수</span></div>
-          <div class="metric"><span class="metric-n">12월</span><span class="metric-l">눈이 제일 확실</span></div>
+          <div class="metric ko"><span class="metric-n">3–4</span><span class="metric-l">스키 일수</span></div>
+          <div class="metric en" lang="en"><span class="metric-n">3–4</span><span class="metric-l">ski days</span></div>
+          <div class="metric ko"><span class="metric-n">12월</span><span class="metric-l">눈이 제일 확실</span></div>
+          <div class="metric en" lang="en"><span class="metric-n">Dec</span><span class="metric-l">most reliable snow</span></div>
         </div>
-        <p>크리스마스에 눈이 확실한 유일한 후보. 그리고 <strong>스트로베리 필즈</strong>라는, 트리런이 처음이어도 실제로 탈 수 있는 구역이 있다.</p>
+        <p class="ko">크리스마스에 눈이 확실한 유일한 후보. 그리고 <strong>스트로베리 필즈</strong>라는, 트리런이 처음이어도 실제로 탈 수 있는 구역이 있다.</p>
+        <p class="en" lang="en">The only candidate where the snow is a safe bet at Christmas. And it has <strong>Strawberry Fields</strong> — a zone you can actually ride the first time you ski trees.</p>
       </div>
       <div class="card card-b">
         <div class="card-title">
-          <div class="eyebrow">당일치기</div>
-          <h3>루스츠</h3>
+          <div class="eyebrow ko">당일치기</div>
+          <div class="eyebrow en" lang="en">Day trip</div>
+          <h3 class="ko">루스츠</h3>
+          <h3 class="en" lang="en">Rusutsu</h3>
         </div>
         <div class="metrics">
-          <div class="metric"><span class="metric-n">1</span><span class="metric-l">스키 일수</span></div>
-          <div class="metric"><span class="metric-n">~1h</span><span class="metric-l">니세코에서</span></div>
+          <div class="metric ko"><span class="metric-n">1</span><span class="metric-l">스키 일수</span></div>
+          <div class="metric en" lang="en"><span class="metric-n">1</span><span class="metric-l">ski day</span></div>
+          <div class="metric ko"><span class="metric-n">~1h</span><span class="metric-l">니세코에서</span></div>
+          <div class="metric en" lang="en"><span class="metric-n">~1h</span><span class="metric-l">from Niseko</span></div>
         </div>
-        <p>트리런 <em>상품</em> 자체는 루스츠가 더 낫다. 홋카이도에서 입문용 글레이드는 여기가 최고다. 다만 눈은 니세코보다 덜 온다.</p>
+        <p class="ko">트리런 <em>상품</em> 자체는 루스츠가 더 낫다. 홋카이도에서 입문용 글레이드는 여기가 최고다. 다만 눈은 니세코보다 덜 온다.</p>
+        <p class="en" lang="en">The tree skiing <em>itself</em> is better at Rusutsu. Its glades are the best introduction in Hokkaido. It just gets less snow than Niseko.</p>
       </div>
     </div>
     <div class="prose">
-      <p>그래서 <strong>눈이 확실한 곳에 자리를 잡고, 트리런이 제일 좋은 곳은 하루 다녀오는</strong> 구성이다. 반대로 하면 12월에 눈이 부족할 위험을 트립 내내 떠안게 된다.</p>
+      <p class="ko">그래서 <strong>눈이 확실한 곳에 자리를 잡고, 트리런이 제일 좋은 곳은 하루 다녀오는</strong> 구성이다. 반대로 하면 12월에 눈이 부족할 위험을 트립 내내 떠안게 된다.</p>
+      <p class="en" lang="en">So the shape is: <strong>base where the snow is certain, day-trip to where the trees are best.</strong> Do it the other way round and you carry December's snow risk for the whole trip.</p>
     </div>
 
     <div class="photos">
       <figure class="photo">
         <img src="assets/niseko-yotei.jpg" width="1280" height="960" loading="lazy" decoding="async"
-             alt="니세코로 들어가는 국도에서 본 요테이산 — 산 전체가 눈에 덮여 있고 길가에는 제설한 눈이 사람 키만큼 쌓여 있다">
-        <figcaption><b>니세코 가는 길의 요테이산</b> — 사진 <a href="https://commons.wikimedia.org/wiki/File:Mt._Yotei_in_snow_(53370261284).jpg" target="_blank" rel="noopener">Raita Futo</a>, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></figcaption>
+             alt="니세코로 들어가는 국도에서 본 요테이산 — 산 전체가 눈에 덮여 있고 길가에는 제설한 눈이 사람 키만큼 쌓여 있다"
+             data-alt-ko="니세코로 들어가는 국도에서 본 요테이산 — 산 전체가 눈에 덮여 있고 길가에는 제설한 눈이 사람 키만큼 쌓여 있다"
+             data-alt-en="Mt Yotei seen from the road into Niseko — the whole mountain under snow, with ploughed banks head-high along the roadside">
+        <figcaption><b class="ko">니세코 가는 길의 요테이산</b><b class="en" lang="en">Mt Yotei on the road into Niseko</b> — <span class="ko">사진</span><span class="en" lang="en">photo</span> <a href="https://commons.wikimedia.org/wiki/File:Mt._Yotei_in_snow_(53370261284).jpg" target="_blank" rel="noopener">Raita Futo</a>, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></figcaption>
       </figure>
       <figure class="photo">
         <img src="assets/rusutsu.jpg" width="640" height="426" loading="lazy" decoding="async"
-             alt="요테이산을 배경으로 한 루스츠 웨스트 마운틴 — 정설된 슬로프와 리조트 건물이 보인다">
-        <figcaption><b>루스츠 웨스트 마운틴</b> — 사진 <a href="https://commons.wikimedia.org/wiki/File:Rusutsu_WestMt(200703).jpg" target="_blank" rel="noopener">E-190</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></figcaption>
+             alt="요테이산을 배경으로 한 루스츠 웨스트 마운틴 — 정설된 슬로프와 리조트 건물이 보인다"
+             data-alt-ko="요테이산을 배경으로 한 루스츠 웨스트 마운틴 — 정설된 슬로프와 리조트 건물이 보인다"
+             data-alt-en="Rusutsu West Mountain with Mt Yotei behind it — groomed pistes and the resort buildings in view">
+        <figcaption><b class="ko">루스츠 웨스트 마운틴</b><b class="en" lang="en">Rusutsu West Mountain</b> — <span class="ko">사진</span><span class="en" lang="en">photo</span> <a href="https://commons.wikimedia.org/wiki/File:Rusutsu_WestMt(200703).jpg" target="_blank" rel="noopener">E-190</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></figcaption>
       </figure>
     </div>
   </section>
 
   <section class="section">
     <div class="section-head">
-      <div class="eyebrow">이 트립의 핵심</div>
-      <h2>스트로베리 필즈 — 같은 구역에서 각자 다른 강도로 탄다</h2>
+      <div class="eyebrow ko">이 트립의 핵심</div>
+      <div class="eyebrow en" lang="en">The core of this trip</div>
+      <h2 class="ko">스트로베리 필즈 — 같은 구역에서 각자 다른 강도로 탄다</h2>
+      <h2 class="en" lang="en">Strawberry Fields — one zone, everyone picks their own intensity</h2>
     </div>
     <div class="prose">
-      <p>하나조노 1번 리프트에서 내려 왼쪽으로 빠져 짧게 트래버스하면 나오는 큰 트리런 구역이다. 나무 간격이 넓고 면적이 커서, <strong>처음 타는 사람이 안전하게 배울 수 있는 곳</strong>으로 알려져 있다.</p>
-      <p>경험 차이가 있는 팀에 이게 왜 맞는지가 핵심인데, <strong>진입 강도를 각자 고를 수 있기 때문</strong>이다.</p>
+      <p class="ko">하나조노 1번 리프트에서 내려 왼쪽으로 빠져 짧게 트래버스하면 나오는 큰 트리런 구역이다. 나무 간격이 넓고 면적이 커서, <strong>처음 타는 사람이 안전하게 배울 수 있는 곳</strong>으로 알려져 있다.</p>
+      <p class="en" lang="en">It's the big tree zone you reach by getting off Hanazono Lift #1, cutting left and traversing a short way. The trees are widely spaced and the area is large, which is why it has a reputation as <strong>a place you can safely learn in</strong>.</p>
+      <p class="ko">이 팀에 이게 맞는 이유는 <strong>실력 차이 때문이 아니다.</strong> 넷 다 정설은 충분히 타고, 두 명은 파우더가 처음일 뿐이다. 스트로베리 필즈는 <strong>같은 리프트를 쓰면서 진입 강도만 각자 고르는</strong> 구조라, 하루 종일 따로 놀 필요가 없다.</p>
+      <p class="en" lang="en">This fits the group <strong>not because of a skill gap.</strong> All four ski groomers fine; two of them simply have no powder mileage yet. Strawberry Fields lets everyone <strong>share one lift and choose only how far in they go</strong>, so nobody spends the day skiing alone.</p>
     </div>
 
     <figure class="mapfig">
-    <svg viewBox="0 0 600 300" role="img" aria-label="스트로베리 필즈에서 세 가지 진입 강도가 모두 같은 정설 슬로프로 모이는 구조">
+    <svg viewBox="0 0 600 300" role="img" aria-label="스트로베리 필즈에서 세 가지 진입 강도가 모두 같은 정설 슬로프로 모이는 구조" data-aria-ko="스트로베리 필즈에서 세 가지 진입 강도가 모두 같은 정설 슬로프로 모이는 구조" data-aria-en="A diagram showing three entry lines into Strawberry Fields all funnelling back to the same groomed run">
     <line x1="40" y1="46" x2="560" y2="46" class="map-lift"/>
-    <text x="40.0" y="34.0" class="map-label" text-anchor="start">하나조노 1번 리프트 하차</text>
+    <text x="40.0" y="34.0" class="map-label ko" text-anchor="start">하나조노 1번 리프트 하차</text>
+    <text x="40.0" y="34.0" class="map-label en" text-anchor="start">Off Hanazono Lift #1</text>
     <path d="M150 46 L150 80" class="map-lift-drop"/>
     <circle cx="150" cy="80" r="5" class="map-dot-rung1"/>
-    <text x="150.0" y="104.0" class="map-label" text-anchor="middle">입문</text>
-    <text x="150.0" y="118.0" class="map-sub" text-anchor="middle">바로 드롭인</text>
+    <text x="150.0" y="104.0" class="map-label ko" text-anchor="middle">완만</text>
+    <text x="150.0" y="104.0" class="map-label en" text-anchor="middle">Gentle</text>
+    <text x="150.0" y="118.0" class="map-sub ko" text-anchor="middle">바로 드롭인</text>
+    <text x="150.0" y="118.0" class="map-sub en" text-anchor="middle">drop in right away</text>
     <path d="M150 126 C 150 196, 300.0 178, 300.0 240" class="map-line-rung1"/>
     <path d="M310 46 L310 80" class="map-lift-drop"/>
     <circle cx="310" cy="80" r="5" class="map-dot-rung2"/>
-    <text x="310.0" y="104.0" class="map-label" text-anchor="middle">중급</text>
-    <text x="310.0" y="118.0" class="map-sub" text-anchor="middle">조금 더 걸어 들어간다</text>
+    <text x="310.0" y="104.0" class="map-label ko" text-anchor="middle">중간</text>
+    <text x="310.0" y="104.0" class="map-label en" text-anchor="middle">Steeper</text>
+    <text x="310.0" y="118.0" class="map-sub ko" text-anchor="middle">조금 더 걸어 들어간다</text>
+    <text x="310.0" y="118.0" class="map-sub en" text-anchor="middle">walk in a bit further</text>
     <path d="M310 126 C 310 196, 300.0 178, 300.0 240" class="map-line-rung2"/>
     <path d="M470 46 L470 80" class="map-lift-drop"/>
     <circle cx="470" cy="80" r="5" class="map-dot-rung3"/>
-    <text x="470.0" y="104.0" class="map-label" text-anchor="middle">상급</text>
-    <text x="470.0" y="118.0" class="map-sub" text-anchor="middle">더 멀리 트래버스</text>
+    <text x="470.0" y="104.0" class="map-label ko" text-anchor="middle">급경사</text>
+    <text x="470.0" y="104.0" class="map-label en" text-anchor="middle">Steep</text>
+    <text x="470.0" y="118.0" class="map-sub ko" text-anchor="middle">더 멀리 트래버스</text>
+    <text x="470.0" y="118.0" class="map-sub en" text-anchor="middle">traverse further out</text>
     <path d="M470 126 C 470 196, 300.0 178, 300.0 240" class="map-line-rung3"/>
     <line x1="40" y1="248" x2="560" y2="248" class="map-piste"/>
-    <text x="300.0" y="270.0" class="map-label" text-anchor="middle">모든 라인이 정설 슬로프로 모인다 — 길을 잃을 수 없다</text>
+    <text x="300.0" y="270.0" class="map-label ko" text-anchor="middle">모든 라인이 정설 슬로프로 모인다 — 길을 잃을 수 없다</text>
+    <text x="300.0" y="270.0" class="map-label en" text-anchor="middle">Every line funnels back to the groomer — you can't get lost</text>
     </svg>
-    <figcaption>구조 개략도 — 지형도가 아니라 이 구역을 고른 이유를 그린 것이다. 진입 강도는 각자 고르지만 런아웃은 하나로 모인다.</figcaption>
+    <figcaption class="ko">구조 개략도 — 지형도가 아니라 이 구역을 고른 이유를 그린 것이다. 진입 강도는 각자 고르지만 런아웃은 하나로 모인다.</figcaption>
+    <figcaption class="en" lang="en">A schematic of the structure, not a topo map — it draws the reason this zone was chosen. Entry intensity is individual; the runout is shared.</figcaption>
     </figure>
 
     <div class="ladder">
       <div class="rung rung-1">
-        <span class="rung-tag">입문</span>
-        <span class="rung-body">
+        <span class="rung-tag ko">완만</span>
+        <span class="rung-tag en" lang="en">Gentle</span>
+        <span class="rung-body ko">
           <b>바로 드롭인</b>
           <span>리프트에서 내려 짧게 트래버스한 뒤 곧장 진입. 완만한 라인, 넓은 나무 간격.</span>
         </span>
+        <span class="rung-body en" lang="en">
+          <b>Drop in right away</b>
+          <span>Off the lift, a short traverse, straight in. Mellow lines, wide tree spacing.</span>
+        </span>
       </div>
       <div class="rung rung-2">
-        <span class="rung-tag">중급</span>
-        <span class="rung-body">
+        <span class="rung-tag ko">중간</span>
+        <span class="rung-tag en" lang="en">Steeper</span>
+        <span class="rung-body ko">
           <b>조금 더 걸어 들어간다</b>
           <span>같은 구역 안에서 경사가 붙는 지점까지 이동. 여전히 같은 리프트로 돌아온다.</span>
         </span>
+        <span class="rung-body en" lang="en">
+          <b>Walk in a bit further</b>
+          <span>Move to where the pitch picks up, still inside the same zone. Still comes back to the same lift.</span>
+        </span>
       </div>
       <div class="rung rung-3">
-        <span class="rung-tag">상급</span>
-        <span class="rung-body">
+        <span class="rung-tag ko">급경사</span>
+        <span class="rung-tag en" lang="en">Steep</span>
+        <span class="rung-body ko">
           <b>더 멀리 트래버스</b>
           <span>필로우 라인이 있는 급경사까지. 나머지는 아래에서 각자 속도로 내려오면 된다.</span>
         </span>
+        <span class="rung-body en" lang="en">
+          <b>Traverse further out</b>
+          <span>Out to the steeper ground with the pillow lines. Everyone else comes down below at their own pace.</span>
+        </span>
       </div>
-      <div class="funnel">
-        <b>그리고 모든 라인이 결국 정설 슬로프로 모인다.</b> 길을 잃는 게 사실상 불가능하고, 내려오면 바로 리프트다 — 경험 차이가 있는 팀에는 이 “가둬주는” 성질이 어떤 지형 스펙보다 중요하다.
+      <div class="funnel ko">
+        <b>그리고 모든 라인이 결국 정설 슬로프로 모인다.</b> 길을 잃는 게 사실상 불가능하고, 내려오면 바로 리프트다 — 파우더가 처음인 사람이 섞인 팀에는 이 “가둬주는” 성질이 어떤 지형 스펙보다 중요하다.
+      </div>
+      <div class="funnel en" lang="en">
+        <b>And every line eventually funnels back to the groomed slope.</b> Getting lost is effectively impossible, and the bottom drops you straight back on the lift — for a group where two people are new to powder, that containment matters more than any terrain spec.
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="callout callout-warn">
-      <div class="eyebrow">⚠ 솔직하게 — 니세코를 고르면 같이 오는 것</div>
-      <h3>크리스마스 주간은 일본 스키 시즌에서 제일 붐비고 제일 비싸다</h3>
-      <p>그리고 니세코가 그 타격을 가장 크게 받는 곳이다. 성수기 초급 슬로프는 “사람 슬라럼”이라는 말이 나올 정도다.</p>
-      <p>다만 <strong>스트로베리 필즈는 그 메인 초급 동선에서 비켜나 있고</strong>, 강습을 안 넣기로 한 이상 “크리스마스엔 강습 자리가 없다”는 제일 큰 문제는 애초에 해당이 없다. 남는 건 리프트 줄과 가격인데, 이건 실재한다.</p>
-      <p><strong>대안:</strong> 12월 예보가 괜찮고 사람 많은 걸 정 못 견디겠으면 베이스를 루스츠로 바꾸는 스왑이 가능하다. 눈의 확실성을 조금 내주고 한산함을 사는 교환이다.</p>
+      <div class="eyebrow ko">⚠ 솔직하게 — 니세코를 고르면 같이 오는 것</div>
+      <div class="eyebrow en" lang="en">⚠ Straight up — what comes with choosing Niseko</div>
+      <h3 class="ko">크리스마스 주간은 일본 스키 시즌에서 제일 붐비고 제일 비싸다</h3>
+      <h3 class="en" lang="en">Christmas week is the busiest and most expensive week of the Japanese ski season</h3>
+      <p class="ko">그리고 니세코가 그 타격을 가장 크게 받는 곳이다. 성수기 초급 슬로프는 “사람 슬라럼”이라는 말이 나올 정도다.</p>
+      <p class="en" lang="en">And Niseko takes that hit harder than anywhere else. Peak-season beginner slopes get called a “human slalom”.</p>
+      <p class="ko">다만 <strong>스트로베리 필즈는 그 메인 초급 동선에서 비켜나 있고</strong>, 강습을 안 넣기로 한 이상 “크리스마스엔 강습 자리가 없다”는 제일 큰 문제는 애초에 해당이 없다. 남는 건 리프트 줄과 가격인데, 이건 실재한다.</p>
+      <p class="en" lang="en">That said, <strong>Strawberry Fields sits off the main beginner traffic</strong>, and since lessons were never part of this plan, the single biggest peak-week problem — no lesson slots at Christmas — doesn't apply here. What's left is lift queues and price, and those are real.</p>
+      <p class="ko"><strong>대안:</strong> 12월 예보가 괜찮고 사람 많은 걸 정 못 견디겠으면 베이스를 루스츠로 바꾸는 스왑이 가능하다. 눈의 확실성을 조금 내주고 한산함을 사는 교환이다.</p>
+      <p class="en" lang="en"><strong>Alternative:</strong> if the December forecast looks fine and the crowds are a dealbreaker, swapping the base to Rusutsu is possible. You trade a little snow certainty for quiet.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="section-head">
-      <div class="eyebrow">제외한 후보</div>
-      <h2>후라노와 키로로가 빠진 이유</h2>
+      <div class="eyebrow ko">제외한 후보</div>
+      <div class="eyebrow en" lang="en">Ruled out</div>
+      <h2 class="ko">후라노와 키로로가 빠진 이유</h2>
+      <h2 class="en" lang="en">Why Furano and Kiroro are out</h2>
     </div>
     <ul class="rules">
-      <li><strong>후라노 — 규정 때문에 빠졌다.</strong> 정설 슬로프를 벗어나려면 베이스 사무실에서 <strong>스키 패트롤에 신고</strong>해야 하고, 지정된 5개 진입 지점으로만 들어갈 수 있으며 경계 단속이 엄격하다. 리프트 아래 뻥 뚫려 보이는 곳도 금지다. 결정적으로 <strong>후라노의 나무 간격은 대체로 매우 좁다.</strong> 좁은 나무 + 허가제 조합은 첫 파우더를 타보려는 사람에게 거의 최악이다.</li>
-      <li><strong>키로로 — 곤돌라 운휴 때문에 빠졌다.</strong> 트리런 지형은 좋지만, 바람으로 곤돌라가 멈추면 산이 통째로 잠긴다. 이번 트립에서 제일 피하고 싶은 실패 방식이 정확히 그것이다.</li>
+      <li class="ko"><strong>후라노 — 규정 때문에 빠졌다.</strong> 정설 슬로프를 벗어나려면 베이스 사무실에서 <strong>스키 패트롤에 신고</strong>해야 하고, 지정된 5개 진입 지점으로만 들어갈 수 있으며 경계 단속이 엄격하다. 리프트 아래 뻥 뚫려 보이는 곳도 금지다. 결정적으로 <strong>후라노의 나무 간격은 대체로 매우 좁다.</strong> 좁은 나무 + 허가제 조합은 첫 파우더를 타보려는 사람에게 거의 최악이다.</li>
+      <li class="en" lang="en"><strong>Furano — out on regulations.</strong> To leave the groomed runs you have to <strong>register with ski patrol</strong> at the base office, you may only enter through five designated gates, and the boundary is enforced strictly. Even the wide-open-looking ground under the lifts is off limits. And decisively, <strong>Furano's trees are mostly very tightly spaced.</strong> Tight trees plus a permit system is close to the worst combination for someone riding powder for the first time.</li>
+      <li class="ko"><strong>키로로 — 곤돌라 운휴 때문에 빠졌다.</strong> 트리런 지형은 좋지만, 바람으로 곤돌라가 멈추면 산이 통째로 잠긴다. 이번 트립에서 제일 피하고 싶은 실패 방식이 정확히 그것이다.</li>
+      <li class="en" lang="en"><strong>Kiroro — out on gondola closures.</strong> The tree terrain is good, but when wind stops the gondola the whole mountain locks up. That is exactly the failure mode this trip most wants to avoid.</li>
     </ul>
-    <p class="note">후라노는 “가격”이나 “눈”이 아니라 <strong>접근 정책</strong> 때문에 탈락했다. 어떤 예약 사이트에도 안 나오는 정보다.</p>
+    <p class="note ko">후라노는 “가격”이나 “눈”이 아니라 <strong>접근 정책</strong> 때문에 탈락했다. 어떤 예약 사이트에도 안 나오는 정보다.</p>
+    <p class="note en" lang="en">Furano didn't lose on price or on snow — it lost on <strong>access policy</strong>. That's on no booking site anywhere.</p>
   </section>
 
   <section class="section">
     <div class="section-head">
-      <div class="eyebrow">일정 — 5박 6일 기준</div>
-      <h2>날짜가 아니라 순서가 중요하다</h2>
+      <div class="eyebrow ko">일정 — 5박 6일 기준</div>
+      <div class="eyebrow en" lang="en">Itinerary — based on 5 nights / 6 days</div>
+      <h2 class="ko">날짜가 아니라 순서가 중요하다</h2>
+      <h2 class="en" lang="en">The order matters, not the dates</h2>
     </div>
     <div class="route">
       <div class="day">
         <span class="day-n">01</span>
-        <span class="day-body">신치토세 도착 → <b>니세코</b> 이동, 체크인. 장비 렌탈 맞춰두기.</span>
+        <span class="day-body ko">신치토세 도착 → <b>니세코</b> 이동, 체크인. 장비 렌탈 맞춰두기.</span>
+        <span class="day-body en" lang="en">Land at New Chitose → transfer to <b>Niseko</b>, check in. Get rentals fitted.</span>
         <span class="day-drive">2~3h</span>
       </div>
       <div class="day">
         <span class="day-n">02</span>
-        <span class="day-body">니세코 정설 슬로프로 몸 풀기. 다 같이 감 잡는 날.</span>
+        <span class="day-body ko">니세코 정설 슬로프로 몸 풀기. 다 같이 감 잡는 날.</span>
+        <span class="day-body en" lang="en">Warm up on Niseko's groomers. A day for everyone to find their feet.</span>
         <span class="day-drive">—</span>
       </div>
       <div class="day day-key">
         <span class="day-n">03</span>
-        <span class="day-body"><b>스트로베리 필즈</b> — 눈 온 다음 날로 맞출 수 있으면 이 날을 옮긴다</span>
+        <span class="day-body ko"><b>스트로베리 필즈</b> — 눈 온 다음 날로 맞출 수 있으면 이 날을 옮긴다</span>
+        <span class="day-body en" lang="en"><b>Strawberry Fields</b> — move this day if you can land it the day after a snowfall</span>
         <span class="day-drive">—</span>
       </div>
       <div class="day">
         <span class="day-n">04</span>
-        <span class="day-body"><b>루스츠</b> 당일치기. 글레이드 위주로 하루.</span>
+        <span class="day-body ko"><b>루스츠</b> 당일치기. 글레이드 위주로 하루.</span>
+        <span class="day-body en" lang="en"><b>Rusutsu</b> day trip. A day built around the glades.</span>
         <span class="day-drive">1h</span>
       </div>
       <div class="day">
         <span class="day-n">05</span>
-        <span class="day-body">니세코 마지막 날 — 컨디션 좋았던 쪽으로 다시</span>
+        <span class="day-body ko">니세코 마지막 날 — 컨디션 좋았던 쪽으로 다시</span>
+        <span class="day-body en" lang="en">Last day in Niseko — go back to whichever side was working</span>
         <span class="day-drive">—</span>
       </div>
       <div class="day">
         <span class="day-n">06</span>
-        <span class="day-body">신치토세 출국</span>
+        <span class="day-body ko">신치토세 출국</span>
+        <span class="day-body en" lang="en">Fly out of New Chitose</span>
         <span class="day-drive">2~3h</span>
       </div>
     </div>
-    <p class="note"><strong>3일차와 4일차는 고정이 아니다.</strong> 눈 온 다음 날을 스트로베리 필즈에 쓰고, 맑고 단단한 날을 루스츠에 쓰는 게 맞다. 아침에 정하면 된다. 5박 6일은 제안이고, 휴가 일수에 따라 스키 일수만 늘리거나 줄이면 된다.</p>
+    <p class="note ko"><strong>3일차와 4일차는 고정이 아니다.</strong> 눈 온 다음 날을 스트로베리 필즈에 쓰고, 맑고 단단한 날을 루스츠에 쓰는 게 맞다. 아침에 정하면 된다. 5박 6일은 제안이고, 휴가 일수에 따라 스키 일수만 늘리거나 줄이면 된다.</p>
+    <p class="note en" lang="en"><strong>Days 3 and 4 are not fixed.</strong> Spend the day after a snowfall on Strawberry Fields and a clear, firm day on Rusutsu. Decide it in the morning. 5 nights / 6 days is a proposal — stretch or shrink the ski days to fit the leave you actually have.</p>
   </section>
 
   <section class="section">
     <div class="section-head">
-      <div class="eyebrow">비용</div>
-      <h2>확실한 숫자와, 아직 아닌 숫자</h2>
+      <div class="eyebrow ko">비용</div>
+      <div class="eyebrow en" lang="en">Cost</div>
+      <h2 class="ko">확실한 숫자와, 아직 아닌 숫자</h2>
+      <h2 class="en" lang="en">The numbers that are solid, and the ones that aren't</h2>
     </div>
     <div class="prose">
-      <p>리프트권은 공시 가격이라 그대로 쓰면 되고, <strong>숙소와 항공은 아직 견적을 안 받았다.</strong> 그런데 크리스마스 홋카이도에서는 그 두 개가 총액을 지배한다 — 그래서 아래를 “총액”이 아니라 <strong>“지금 아는 것”</strong>으로 읽는 게 맞다.</p>
+      <p class="ko">리프트권은 공시 가격이라 그대로 쓰면 되고, <strong>숙소와 항공은 아직 견적을 안 받았다.</strong> 그런데 크리스마스 홋카이도에서는 그 두 개가 총액을 지배한다 — 그래서 아래를 “총액”이 아니라 <strong>“지금 아는 것”</strong>으로 읽는 게 맞다.</p>
+      <p class="en" lang="en">Lift passes are published prices, so those go straight in. <strong>Lodging and flights have not been quoted yet.</strong> And in Hokkaido at Christmas those two dominate the total — so read the table below not as a total but as <strong>what is known right now</strong>.</p>
     </div>
 
     <div class="tbl">
       <table>
-        <caption>1인 기준 · 4명 · 5박 6일 · 스키 4일 · ¥100 = ₩945</caption>
+        <caption><span class="ko">1인 기준 · 4명 · 5박 6일 · 스키 4일 · ¥100 = ₩945</span><span class="en" lang="en">Per person · party of 4 · 5 nights / 6 days · 4 ski days · ¥100 = ₩945</span></caption>
         <thead>
           <tr>
-            <th scope="col">항목</th>
-            <th scope="col">엔</th>
-            <th scope="col">원</th>
-            <th scope="col">출처</th>
+            <th scope="col"><span class="ko">항목</span><span class="en" lang="en">Item</span></th>
+            <th scope="col"><span class="ko">엔</span><span class="en" lang="en">JPY</span></th>
+            <th scope="col"><span class="ko">원</span><span class="en" lang="en">KRW</span></th>
+            <th scope="col"><span class="ko">출처</span><span class="en" lang="en">Source</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">니세코 리프트권 × 3일</th>
+            <th scope="row"><span class="ko">니세코 리프트권 × 3일</span><span class="en" lang="en">Niseko lift pass × 3 days</span></th>
             <td>¥40,500</td>
-            <td>38.3만</td>
-            <td><span class="tag tag-quoted">공시</span></td>
+            <td><span class="ko">38.3만</span><span class="en" lang="en">383k</span></td>
+            <td><span class="tag tag-quoted ko">공시</span><span class="tag tag-quoted en" lang="en">Published</span></td>
           </tr>
           <tr>
-            <th scope="row">루스츠 리프트권 × 1일</th>
+            <th scope="row"><span class="ko">루스츠 리프트권 × 1일</span><span class="en" lang="en">Rusutsu lift pass × 1 day</span></th>
             <td>¥9,700</td>
-            <td>9.2만</td>
-            <td><span class="tag tag-quoted">공시</span></td>
+            <td><span class="ko">9.2만</span><span class="en" lang="en">92k</span></td>
+            <td><span class="tag tag-quoted ko">공시</span><span class="tag tag-quoted en" lang="en">Published</span></td>
           </tr>
           <tr>
-            <th scope="row">식비 + 잡비 (6일)</th>
+            <th scope="row"><span class="ko">식비 + 잡비 (6일)</span><span class="en" lang="en">Food + incidentals (6 days)</span></th>
             <td>¥48,000–72,000</td>
-            <td>45–68만</td>
-            <td><span class="tag tag-band">구간</span></td>
+            <td><span class="ko">45–68만</span><span class="en" lang="en">450–680k</span></td>
+            <td><span class="tag tag-band ko">구간</span><span class="tag tag-band en" lang="en">Range</span></td>
           </tr>
           <tr>
-            <th scope="row">장비 렌탈 (선택, 4일)</th>
+            <th scope="row"><span class="ko">장비 렌탈 (4일 · 파우더 폭 권장)</span><span class="en" lang="en">Equipment rental (4 days · wide skis advised)</span></th>
             <td>¥20,000–28,000</td>
-            <td>19–26만</td>
-            <td><span class="tag tag-band">구간</span></td>
+            <td><span class="ko">19–26만</span><span class="en" lang="en">190–260k</span></td>
+            <td><span class="tag tag-band ko">구간</span><span class="tag tag-band en" lang="en">Range</span></td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
-            <th scope="row">숙소 · 항공</th>
+            <th scope="row"><span class="ko">숙소 · 항공</span><span class="en" lang="en">Lodging · flights</span></th>
             <td>—</td>
-            <td>미견적</td>
-            <td><span class="tag tag-band">미정</span></td>
+            <td><span class="ko">미견적</span><span class="en" lang="en">not quoted</span></td>
+            <td><span class="tag tag-band ko">미정</span><span class="tag tag-band en" lang="en">TBD</span></td>
           </tr>
         </tfoot>
       </table>
     </div>
 
     <ul class="rules">
-      <li><strong>니세코 리프트권은 하루 ¥13,500이다.</strong> 성수기 구간이 <strong>2026년 12월 24일 ~ 2027년 2월 28일</strong>이라, 크리스마스 주간은 정확히 그 첫날부터 들어간다. 12월 23일까지는 ¥12,600이니, <strong>하루만 앞당겨도 사람과 가격이 같이 내려간다</strong> — 날짜를 조금이라도 움직일 수 있으면 이게 제일 큰 레버다.</li>
-      <li><strong>루스츠는 온라인이 ¥9,700, 현장이 ¥11,500이다.</strong> 당일치기 하루짜리니 미리 사두면 그냥 이득이다. (2025-26 가격 기준, 26-27은 아직 미발표)</li>
-      <li><strong>숙소가 이 트립의 진짜 변수다.</strong> 크리스마스~신정 성수기는 보통 <strong>12월 21일 ~ 1월 2일</strong>로 잡히고, 니세코는 이 구간에 가격이 몇 배로 뛴다. 지금 견적을 안 낸 건 게을러서가 아니라, <strong>지금 잡느냐 아니냐로 숫자 자체가 달라지기</strong> 때문이다.</li>
+      <li class="ko"><strong>니세코 리프트권은 하루 ¥13,500이다.</strong> 성수기 구간이 <strong>2026년 12월 24일 ~ 2027년 2월 28일</strong>이라, 크리스마스 주간은 정확히 그 첫날부터 들어간다. 12월 23일까지는 ¥12,600이니, <strong>하루만 앞당겨도 사람과 가격이 같이 내려간다</strong> — 날짜를 조금이라도 움직일 수 있으면 이게 제일 큰 레버다.</li>
+      <li class="en" lang="en"><strong>The Niseko pass is ¥13,500 a day.</strong> The peak band runs <strong>24 Dec 2026 – 28 Feb 2027</strong>, so Christmas week starts on precisely the first day of it. Through 23 Dec it is ¥12,600 — <strong>moving a single day earlier takes the crowds and the price down together.</strong> If the dates can move at all, this is the biggest lever there is.</li>
+      <li class="ko"><strong>루스츠는 온라인이 ¥9,700, 현장이 ¥11,500이다.</strong> 당일치기 하루짜리니 미리 사두면 그냥 이득이다. (2025-26 가격 기준, 26-27은 아직 미발표)</li>
+      <li class="en" lang="en"><strong>Rusutsu is ¥9,700 online and ¥11,500 at the window.</strong> It's a single day trip, so buying ahead is free money. (2025-26 pricing; 26-27 isn't published yet.)</li>
+      <li class="ko"><strong>숙소가 이 트립의 진짜 변수다.</strong> 크리스마스~신정 성수기는 보통 <strong>12월 21일 ~ 1월 2일</strong>로 잡히고, 니세코는 이 구간에 가격이 몇 배로 뛴다. 지금 견적을 안 낸 건 게을러서가 아니라, <strong>지금 잡느냐 아니냐로 숫자 자체가 달라지기</strong> 때문이다.</li>
+      <li class="en" lang="en"><strong>Lodging is the real variable on this trip.</strong> The Christmas–New Year peak is usually set at <strong>21 Dec – 2 Jan</strong>, and Niseko prices multiply across that window. Not quoting it yet isn't laziness — <strong>the number itself depends on whether you book now.</strong></li>
     </ul>
   </section>
 
   <section class="section">
     <div class="callout callout-risk">
-      <div class="eyebrow">지금 해야 할 일 — 이 트립만 유일하게 급하다</div>
-      <h3>크리스마스 홋카이도 숙소는 지금 잡아야 한다</h3>
-      <p>세 트립 중에서 <strong>예약 급한 건 이것 하나</strong>다. 1월 트립과 2월 트립은 아직 시간이 있지만, 크리스마스 주간 니세코 숙소는 훨씬 일찍 마감되고 <strong>지금 이미 7월 말</strong>이다.</p>
-      <p>순서는 <strong>숙소 → 항공 → 나머지 전부</strong>다. 리프트권이나 렌탈은 언제든 살 수 있지만, 4명이 들어갈 방은 그렇지 않다.</p>
+      <div class="eyebrow ko">지금 해야 할 일 — 이 트립만 유일하게 급하다</div>
+      <div class="eyebrow en" lang="en">What to do now — this is the only urgent trip</div>
+      <h3 class="ko">크리스마스 홋카이도 숙소는 지금 잡아야 한다</h3>
+      <h3 class="en" lang="en">Book the Hokkaido Christmas lodging now</h3>
+      <p class="ko">세 트립 중에서 <strong>예약 급한 건 이것 하나</strong>다. 1월 트립과 2월 트립은 아직 시간이 있지만, 크리스마스 주간 니세코 숙소는 훨씬 일찍 마감되고 <strong>지금 이미 8월</strong>이다.</p>
+      <p class="en" lang="en">Of the three trips, <strong>this is the only one where booking is urgent.</strong> January and February still have room, but Christmas-week Niseko lodging closes out far earlier, and <strong>it is already August.</strong></p>
+      <p class="ko">순서는 <strong>숙소 → 항공 → 나머지 전부</strong>다. 리프트권이나 렌탈은 언제든 살 수 있지만, 4명이 들어갈 방은 그렇지 않다.</p>
+      <p class="en" lang="en">The order is <strong>lodging → flights → everything else.</strong> Lift passes and rentals can be bought any time; a room that sleeps four cannot.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="section-head">
-      <div class="eyebrow">자주 나올 질문</div>
-      <h2>FAQ</h2>
+      <div class="eyebrow ko">자주 나올 질문</div>
+      <div class="eyebrow en" lang="en">Questions that will come up</div>
+      <h2 class="ko">FAQ</h2>
+      <h2 class="en" lang="en">FAQ</h2>
     </div>
     <div class="faq">
       <div class="qa">
-        <div class="qa-q">나무 사이를 타는 게 위험하지 않나?</div>
-        <p>스트로베리 필즈는 나무 간격이 넓고 면적이 커서 처음 배우기 좋은 곳으로 알려진 구역이다. 그리고 <strong>모든 라인이 정설 슬로프로 모여서</strong> 길을 잃을 수가 없다. 다만 트리런은 혼자 들어가지 않는 게 원칙이라, 항상 둘씩 붙어 다니는 걸로 한다.</p>
+        <div class="qa-q ko">나무 사이를 타는 게 위험하지 않나?</div>
+        <div class="qa-q en" lang="en">Isn't skiing between trees dangerous?</div>
+        <p class="ko">스트로베리 필즈는 나무 간격이 넓고 면적이 커서 처음 배우기 좋은 곳으로 알려진 구역이다. 그리고 <strong>모든 라인이 정설 슬로프로 모여서</strong> 길을 잃을 수가 없다. 다만 트리런은 혼자 들어가지 않는 게 원칙이라, 항상 둘씩 붙어 다니는 걸로 한다.</p>
+        <p class="en" lang="en">Strawberry Fields is widely spaced and large, and it has a reputation as a good place to learn. <strong>Every line funnels back to a groomed run</strong>, so getting lost isn't really possible. The one rule: never go into trees alone — always in pairs.</p>
       </div>
       <div class="qa">
-        <div class="qa-q">스키를 거의 못 타는데 강습을 받아야 하나?</div>
-        <p>강습은 이번 트립 요구사항이 아니다. 그래서 리조트도 “강습 자리가 있느냐”가 아니라 “<strong>눈이 확실하고, 처음이어도 탈 만한 트리런이 있느냐</strong>”로 골랐다. 물론 원하면 따로 예약할 수 있지만, 크리스마스 주간은 강습 자리가 빨리 마감된다는 점만 알아두면 된다.</p>
+        <div class="qa-q ko">정설만 타본 사람이 트리런을 해도 되나?</div>
+        <div class="qa-q en" lang="en">Can someone who has only skied groomers do this?</div>
+        <p class="ko">된다. <strong>원블랙 정설을 타는 사람이면 기술은 이미 있다.</strong> 없는 건 파우더 마일리지다. 파우더는 더 어려운 기술이 아니라 <em>다른</em> 기술이라 — 앞뒤 밸런스, 두 발을 같이 쓰는 것, 속도를 죽이지 않는 것 — 맞는 지형에서 하루 이틀이면 붙는다. 스트로베리 필즈가 정확히 그 지형이다. 강습은 이번 트립 요구사항이 아니고, 넣어도 되지만 필수는 아니다. <strong>강습보다 스키 폭이 먼저다</strong> — 아래 장비 항목을 본다.</p>
+        <p class="en" lang="en">Yes. <strong>If you ski single-black groomers, the technique is already there.</strong> What's missing is powder mileage. Powder isn't a harder skill, it's a <em>different</em> one — fore-aft balance, working both skis as a pair, not scrubbing off speed — and on the right terrain it takes a day or two. Strawberry Fields is exactly that terrain. Lessons were never a requirement for this trip; you can add one, but it isn't necessary. <strong>Ski width matters more than a lesson does</strong> — see the equipment question below.</p>
       </div>
       <div class="qa">
-        <div class="qa-q">사람이 그렇게 많다면서 왜 니세코인가?</div>
-        <p><strong>12월에 눈이 확실한 곳이기 때문이다.</strong> 니세코는 12월 내내 꾸준히 눈이 쌓여서 크리스마스면 대부분의 코스가 열린다. 다른 후보들은 트리런은 더 좋아도 12월 적설이 덜 확실한데, 눈이 안 오면 트리런 자체가 성립을 안 한다. 붐비는 건 참을 수 있지만 눈이 없는 건 못 참는다.</p>
+        <div class="qa-q ko">사람이 그렇게 많다면서 왜 니세코인가?</div>
+        <div class="qa-q en" lang="en">If it's that crowded, why Niseko?</div>
+        <p class="ko"><strong>12월에 눈이 확실한 곳이기 때문이다.</strong> 니세코는 12월 내내 꾸준히 눈이 쌓여서 크리스마스면 대부분의 코스가 열린다. 다른 후보들은 트리런은 더 좋아도 12월 적설이 덜 확실한데, 눈이 안 오면 트리런 자체가 성립을 안 한다. 붐비는 건 참을 수 있지만 눈이 없는 건 못 참는다.</p>
+        <p class="en" lang="en"><strong>Because it's the one place where December snow is a safe bet.</strong> Niseko builds steadily through December, so by Christmas most of the terrain is open. The other candidates have better trees but less certain December cover — and without snow there is no tree skiing at all. Crowds are survivable; no snow isn't.</p>
       </div>
       <div class="qa">
-        <div class="qa-q">루스츠가 트리런이 더 좋다면서 왜 하루만 가나?</div>
-        <p>루스츠는 <strong>맑은 날이 더 많고 그만큼 눈이 덜 온다.</strong> 12월은 적설량이 불확실한 유일한 달이라, 베이스를 루스츠로 잡으면 트립 전체가 그 도박 위에 놓인다. 하루 다녀오는 건 위험 없이 좋은 부분만 가져오는 방법이다. (덧붙여, 루스츠를 이미 타본 사람이 있다.)</p>
+        <div class="qa-q ko">루스츠가 트리런이 더 좋다면서 왜 하루만 가나?</div>
+        <div class="qa-q en" lang="en">If Rusutsu's trees are better, why only one day there?</div>
+        <p class="ko">루스츠는 <strong>맑은 날이 더 많고 그만큼 눈이 덜 온다.</strong> 12월은 적설량이 불확실한 유일한 달이라, 베이스를 루스츠로 잡으면 트립 전체가 그 도박 위에 놓인다. 하루 다녀오는 건 위험 없이 좋은 부분만 가져오는 방법이다. (덧붙여, 루스츠를 이미 타본 사람이 있다.)</p>
+        <p class="en" lang="en">Rusutsu <strong>gets more clear days, and correspondingly less snow.</strong> December is the one month where cover is uncertain, so basing there puts the whole trip on that bet. A day trip takes the good part without the risk. (Also, someone in the group has already skied Rusutsu.)</p>
       </div>
       <div class="qa">
-        <div class="qa-q">렌터카가 필요한가?</div>
-        <p>필수는 아니다. 신치토세–니세코는 공항 셔틀이 잘 다니고, 니세코 안에서는 마을 셔틀로 충분하다. <strong>루스츠 당일치기 하루만</strong> 차나 셔틀이 필요한데, 니세코–루스츠 셔틀 상품이 따로 있어서 그걸 쓰면 겨울 운전을 아예 안 해도 된다. 홋카이도 겨울 도로에 자신 없으면 이 쪽이 낫다.</p>
+        <div class="qa-q ko">렌터카가 필요한가?</div>
+        <div class="qa-q en" lang="en">Do we need a rental car?</div>
+        <p class="ko">필수는 아니다. 신치토세–니세코는 공항 셔틀이 잘 다니고, 니세코 안에서는 마을 셔틀로 충분하다. <strong>루스츠 당일치기 하루만</strong> 차나 셔틀이 필요한데, 니세코–루스츠 셔틀 상품이 따로 있어서 그걸 쓰면 겨울 운전을 아예 안 해도 된다. 홋카이도 겨울 도로에 자신 없으면 이 쪽이 낫다.</p>
+        <p class="en" lang="en">Not required. Airport shuttles run well between New Chitose and Niseko, and the village shuttle covers Niseko itself. <strong>Only the Rusutsu day</strong> needs a car or a shuttle, and there's a dedicated Niseko–Rusutsu shuttle service, which means you can skip winter driving entirely. If nobody is confident on Hokkaido winter roads, take that.</p>
       </div>
       <div class="qa">
-        <div class="qa-q">장비는 가져가나, 빌리나?</div>
-        <p>장비가 없는 쪽은 <strong>현지 렌탈이 낫다.</strong> 니세코 렌탈 품질은 좋고, 항공 수하물에서 스키백 하나가 사람당 10~20만원씩 붙는 걸 피할 수 있다. 자기 장비가 확실히 편한 사람만 가져가면 된다.</p>
+        <div class="qa-q ko">장비는 가져가나, 빌리나?</div>
+        <div class="qa-q en" lang="en">Bring gear, or rent it?</div>
+        <p class="ko"><strong>빌린다. 그리고 폭 넓은 걸로 빌린다.</strong> 기본 렌탈 세트는 정설용 폭이고, 니세코 눈에서 그건 잘 타는 사람도 못 타는 사람처럼 만든다. 니세코 렌탈 샵은 허리 <strong>105mm·118mm</strong>대 파우더 스키를 갖추고 있는데, 파우더가 처음인 사람에게는 이게 강습보다 효과가 크다. 자기 스키가 카빙 폭이면 가져오는 게 오히려 손해다. 덤으로 항공 스키백 비용(편도 사람당 10~20만원)도 안 든다.</p>
+        <p class="en" lang="en"><strong>Rent — and rent wide.</strong> Standard rental packages come at piste width, and in Niseko snow that makes a good skier feel incompetent for reasons that have nothing to do with their skiing. Niseko shops stock powder skis in the <strong>105mm and 118mm</strong> waist range, and for someone new to powder that does more than a lesson would. If your own skis are carving-width, bringing them is a net loss. It also saves the ski-bag fee on the flight (₩100–200k per person each way).</p>
       </div>
       <div class="qa">
-        <div class="qa-q">스키 안 타는 사람은 뭘 하나?</div>
-        <p>니세코 마을에 온천이 있고, 히라후 쪽은 식당과 상점이 모여 있어서 반나절 정도는 충분히 보낸다. 하루를 통째로 비운다면 오타루 당일치기가 무난하다.</p>
+        <div class="qa-q ko">스키 안 타는 사람은 뭘 하나?</div>
+        <div class="qa-q en" lang="en">What is there to do on a non-ski day?</div>
+        <p class="ko">니세코 마을에 온천이 있고, 히라후 쪽은 식당과 상점이 모여 있어서 반나절 정도는 충분히 보낸다. 하루를 통째로 비운다면 오타루 당일치기가 무난하다.</p>
+        <p class="en" lang="en">There are onsen in the Niseko villages, and the Hirafu side has the restaurants and shops clustered together, which fills half a day easily. For a whole day off, an Otaru day trip is the safe answer.</p>
       </div>
       <div class="qa">
-        <div class="qa-q">며칠짜리로 잡는 게 맞나?</div>
-        <p>위 일정은 <strong>5박 6일 제안</strong>이고 확정이 아니다. 이동에 첫날과 마지막 날이 통으로 들어가서 스키는 4일 남는다. 휴가가 더 되면 니세코 날을 늘리는 게 맞다 — 루스츠를 두 번 가는 것보다 눈 좋은 날을 더 많이 확보하는 쪽이 낫다.</p>
+        <div class="qa-q ko">며칠짜리로 잡는 게 맞나?</div>
+        <div class="qa-q en" lang="en">How many days should this be?</div>
+        <p class="ko">위 일정은 <strong>5박 6일 제안</strong>이고 확정이 아니다. 이동에 첫날과 마지막 날이 통으로 들어가서 스키는 4일 남는다. 휴가가 더 되면 니세코 날을 늘리는 게 맞다 — 루스츠를 두 번 가는 것보다 눈 좋은 날을 더 많이 확보하는 쪽이 낫다.</p>
+        <p class="en" lang="en">The itinerary above is a <strong>5 nights / 6 days proposal</strong>, not a decision. Travel eats the first and last day whole, which leaves four ski days. If there's more leave available, add Niseko days — more chances at good snow beats a second trip to Rusutsu.</p>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="section-head">
-      <div class="eyebrow">다음 단계 — 우선순위 순</div>
-      <h2>확정해야 할 것</h2>
+      <div class="eyebrow ko">다음 단계 — 우선순위 순</div>
+      <div class="eyebrow en" lang="en">Next steps — in priority order</div>
+      <h2 class="ko">확정해야 할 것</h2>
+      <h2 class="en" lang="en">What needs deciding</h2>
     </div>
     <ol class="checks">
-      <li><span class="hot">니세코 숙소 4인 — 지금</span> 무료 취소 조건으로 일단 잡아둔다. 이게 늦으면 나머지가 다 의미 없어진다</li>
-      <li><span class="hot">날짜를 12월 23일 이전으로 당길 수 있는지</span> — 리프트권이 ¥900 싸지고, 성수기 진입 자체를 하루 피한다</li>
-      <li>인천–신치토세 항공 4석 — 크리스마스 주간이라 좌석 블록이 관건</li>
-      <li>총 일수 확정 (위는 5박 6일 가정)</li>
-      <li>루스츠 이동 방법 — 셔틀 상품 vs 렌터카</li>
-      <li>렌탈 장비 예약 — 필요한 인원 확인</li>
+      <li class="ko"><span class="hot">니세코 숙소 4인 — 지금</span> 무료 취소 조건으로 일단 잡아둔다. 이게 늦으면 나머지가 다 의미 없어진다</li>
+      <li class="en" lang="en"><span class="hot">Niseko lodging for 4 — now</span>, on free-cancellation terms. If this slips, nothing else on the list matters</li>
+      <li class="ko"><span class="hot">날짜를 12월 23일 이전으로 당길 수 있는지</span> — 리프트권이 ¥900 싸지고, 성수기 진입 자체를 하루 피한다</li>
+      <li class="en" lang="en"><span class="hot">Whether the dates can move before 23 Dec</span> — the pass drops ¥900 and you dodge the first day of the peak band entirely</li>
+      <li class="ko">인천–신치토세 항공 4석 — 크리스마스 주간이라 좌석 블록이 관건</li>
+      <li class="en" lang="en">Four ICN–CTS seats — it's Christmas week, so a block of seats is the constraint</li>
+      <li class="ko">총 일수 확정 (위는 5박 6일 가정)</li>
+      <li class="en" lang="en">Total trip length (the plan above assumes 5 nights / 6 days)</li>
+      <li class="ko">루스츠 이동 방법 — 셔틀 상품 vs 렌터카</li>
+      <li class="en" lang="en">How to get to Rusutsu — shuttle service vs rental car</li>
+      <li class="ko">렌탈 장비 예약 — 인원 확인, 그리고 파우더 폭(105mm+) 재고는 크리스마스 주간에 제일 먼저 빠진다</li>
+      <li class="en" lang="en">Rental bookings — confirm who needs gear, and note that wide (105mm+) stock goes first in Christmas week</li>
     </ol>
   </section>
 
   <footer>
-    홋카이도 크리스마스 트립 · 니세코 베이스 + 루스츠 당일치기 · 4명<br>
+    <span class="ko">홋카이도 크리스마스 트립 · 니세코 베이스 + 루스츠 당일치기 · 4명<br>
     리프트권은 운영사 공시 기준 (2026-07-29 조회) · 니세코 2026-27 시즌, 루스츠 2025-26 시즌<br>
-    숙소·항공 미견적 · 일정은 확정 아님
+    숙소·항공 미견적 · 일정은 확정 아님</span>
+    <span class="en" lang="en">Hokkaido Christmas trip · Niseko base + Rusutsu day trip · party of 4<br>
+    Lift prices as published by the operators (checked 2026-07-29) · Niseko 2026-27 season, Rusutsu 2025-26 season<br>
+    Lodging and flights not quoted · itinerary not final</span>
   </footer>
 
 </div>
+</html>
