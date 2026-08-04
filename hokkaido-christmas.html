@@ -473,6 +473,17 @@
   .tbl-cmp td, .tbl-cmp tbody th { white-space: normal; }
   .tbl-cmp td { font-size: 0.8rem; line-height: 1.45; }
   .tbl-cmp td:last-child, .tbl-cmp th:last-child { white-space: nowrap; }
+
+  /* planning tables: prose in every column, so left-align and let it wrap */
+  .tbl-plan { table-layout: fixed; }
+  .tbl-plan th, .tbl-plan td {
+    text-align: left;
+    white-space: normal;
+    vertical-align: top;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+  .tbl-plan tbody th:first-child { white-space: nowrap; min-width: 0; }
   .tag-win-f { background: var(--ember-soft); color: var(--ember); }
   .tag-win-n { background: var(--ice-soft); color: var(--ice); }
   .tag-tie { background: var(--rule); color: var(--ink-3); }
@@ -1083,8 +1094,8 @@
         <span class="day-drive">2.5~3h</span>
       </div>
     </div>
-    <p class="note ko"><strong>3일차와 4일차는 고정이 아니다.</strong> 눈 온 다음 날을 스트로베리 필즈에 쓰고, 맑고 단단한 날을 루스츠에 쓰는 게 맞다. 아침에 정하면 된다. 5일 중 첫날과 마지막 날은 이동에 통으로 들어가서 <strong>스키는 3일</strong>이다.<br><br><strong>항공은 시간표 문제가 아니라 가격 문제다.</strong> 여기 한동안 “정오 전 착륙” 조건이 붙어 있었는데, 그건 야간 운전을 피하려는 것이었고 이 팀에는 필요 없는 제약이었다. 도착 시각만 놓고 보면 <strong>12편이 전부 된다</strong> — <strong>아래 표</strong>. 실제로 걸리는 건 렌터카 카운터 20:00 마감과 23일 저녁을 어디서 먹느냐다.<br><br>반나절을 더 타는 건 그다음 문제다. 니세코는 반일권이 없지만 <strong>12포인트권 ¥7,500</strong>이 있어서 몇 시간짜리에는 그게 맞다.</p>
-    <p class="note en" lang="en"><strong>Days 3 and 4 are not fixed.</strong> Spend the day after a snowfall on Strawberry Fields and a clear, firm day on Rusutsu. Decide it in the morning. The first and last of the five days go whole to travel, so <strong>three days are on snow</strong>.<br><br><strong>Flights are a price question, not a timetable one.</strong> This carried a "land before noon" rule for a while; it was about avoiding a night drive, and it is not a constraint this group needs. On arrival time alone, <strong>all twelve flights work</strong> — see <strong>the table below</strong>. What actually binds is the rental desk closing at 20:00 and where dinner on the 23rd comes from.<br><br>Winning back a half day comes second. Niseko sells no half-day pass, but the <strong>12-point ticket at ¥7,500</strong> is the right product for a few hours.</p>
+    <p class="note ko"><strong>3일차와 4일차는 고정이 아니다.</strong> 눈 온 다음 날을 스트로베리 필즈에 쓰고, 맑고 단단한 날을 루스츠에 쓰는 게 맞다. 아침에 정하면 된다. 5일 중 첫날과 마지막 날은 이동에 통으로 들어가서 <strong>스키는 3일</strong>이다.<br><br><strong>항공은 시간표 문제가 아니라 가격 문제다.</strong> 여기 한동안 “정오 전 착륙” 조건이 붙어 있었는데, 그건 야간 운전을 피하려는 것이었고 이 팀에는 필요 없는 제약이었다. 도착 시각만 놓고 보면 <strong>12편이 전부 된다</strong> — <strong>아래 표</strong>. 실제로 걸리는 건 <strong>숙소 체크인 마감</strong>과 23일 저녁을 어디서 먹느냐다 — 렌터카는 22:00 픽업으로 잡혔으니 카운터는 더 이상 변수가 아니다.<br><br>반나절을 더 타는 건 그다음 문제다. 니세코는 반일권이 없지만 <strong>12포인트권 ¥7,500</strong>이 있어서 몇 시간짜리에는 그게 맞다.</p>
+    <p class="note en" lang="en"><strong>Days 3 and 4 are not fixed.</strong> Spend the day after a snowfall on Strawberry Fields and a clear, firm day on Rusutsu. Decide it in the morning. The first and last of the five days go whole to travel, so <strong>three days are on snow</strong>.<br><br><strong>Flights are a price question, not a timetable one.</strong> This carried a "land before noon" rule for a while; it was about avoiding a night drive, and it is not a constraint this group needs. On arrival time alone, <strong>all twelve flights work</strong> — see <strong>the table below</strong>. What actually binds now is <strong>the lodging check-in cutoff</strong> and where dinner on the 23rd comes from — the car is booked with pickup to 22:00, so the counter is no longer a variable.<br><br>Winning back a half day comes second. Niseko sells no half-day pass, but the <strong>12-point ticket at ¥7,500</strong> is the right product for a few hours.</p>
     <div class="tbl">
       <table>
         <caption><span class="ko">12/23 인천 → 신치토세 · 착륙 +4시간 30분 = 안누푸리 (입국·렌터카 1시간 30분 + 운전 3시간) · 도착 시각으로는 전부 가능</span><span class="en" lang="en">23 Dec ICN → CTS · landing +4h30 = Annupuri (1h30 for immigration and the rental car, then a 3h drive) · on arrival time alone, all of them work</span></caption>
@@ -1180,13 +1191,13 @@
             <td>14:10</td>
             <td>17:00</td>
             <td>21:30</td>
-            <td><span class="tag tag-band ko">토요타 렌터카 마감 후</span><span class="tag tag-band en" lang="en">past the Toyota desk</span></td>
+            <td><span class="tag tag-band ko">체크인 마감 확인</span><span class="tag tag-band en" lang="en">check the check-in cutoff</span></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p class="note ko"><strong>이전 판은 “밝을 때 운전을 끝낸다”를 조건으로 걸고 후보를 7C 1501 하나로 좁혔다. 그 조건은 폴의 것이 아니라 내 것이었다.</strong> 홋카이도 밤길은 이미 여러 번 운전해 봤고, 22시 도착까지 괜찮다면 <strong>도착 시각이라는 축은 통째로 없어진다.</strong> 게다가 이전 표는 5편만 실었는데 실제로는 <strong>12편</strong>이고, 대한항공·아시아나가 “시간대가 아예 안 맞는다”고 쓴 것도 틀렸다 — OZ 174는 11:40 도착으로, 내가 만들어 낸 정오 기준조차 통과한다.<br><br><strong>진짜로 걸리는 건 해가 아니라 카운터 마감이다.</strong> 신치토세 <strong>토요타 렌터카는 11–3월 20:00 마감</strong>이고 닛폰이 22:00까지다. 지금 표에서 실제로 걸리는 건 ZE 623 하나지만, 지연되면 뒤쪽 편들이 다 여기에 닿는다. 그리고 <strong>숙소 체크인 마감 시각은 아직 모른다</strong> — 20시 넘겨 도착할 생각이면 이걸 먼저 확인해야 한다. 주방이 없으니 23일 저녁은 사 먹어야 하는데 안누푸리는 대부분 20시면 닫는다.<br><br><strong>그래서 추천이 바뀐다: KE 765 (10:05 → 12:50).</strong> 잘못된 조건 때문에 지난 판에서 아예 잘라냈던 편이다. 인천에 <strong>08:00</strong>까지만 가면 되고(05:30이 아니다), 대한항공은 <strong>무료 위탁 23kg 두 개</strong>라 LCC 15kg·스포츠장비 별도 문제가 통째로 사라지며, 안누푸리 17:20이면 저녁을 앉아서 먹는다.<br><br><strong>대신 항공권 값을 더 낸다.</strong> 7C 1501은 여전히 제일 싸고, 이제 그건 “05:30 기상과 15kg을 받고 돈을 아낀다”는 정직한 선택지다. 두 편 다 뽑아 보고 <strong>가격으로 정하면 된다</strong> — 이번엔 시간표가 정해 주지 않는다.<br><br><strong>⚠ OZ 편명으로는 예약하지 않는다.</strong> 아시아나는 <strong>2026년 12월 17일</strong> 대한항공에 흡수되어 소멸하고, OZ 편명은 KE로 바뀌며 스타얼라이언스에서 스카이팀으로 옮긴다. <strong>출발 6일 전</strong>이다.<br><br>돌아오는 편은 원래도 헐거웠다. <strong>7C 1504 (15:55 → 19:10)</strong>, <strong>KE 766 (14:05 → 17:05)</strong>, <strong>KE 770 (16:50 → 20:05)</strong> 다 된다.<br><br><em>시간표는 2차 출처(노선 위키·항공 검색) 기준이고, KE 769만 두 출처가 12:35/12:55로 갈린다. 크리스마스 주간에는 바뀔 수 있으니 확인하고 예약할 목록이지 예약 지시가 아니다. 렌터카 마감은 신치토세공항·토요타렌터카 공시.</em></p>
-    <p class="note en" lang="en"><strong>The previous revision made "finish the drive in daylight" a requirement and narrowed the list to 7C 1501 alone. That requirement was mine, not Paul's.</strong> He has driven the Hokkaido night plenty of times, and if arriving at 22:00 is fine then <strong>the arrival-time axis disappears entirely.</strong> Worse, that table listed five flights when there are <strong>twelve</strong>, and its claim that Korean Air and Asiana "do not fly at a usable hour" was simply wrong — OZ 174 lands at 11:40, which clears even the noon rule I had invented.<br><br><strong>What binds is the counter, not the sun.</strong> Toyota Rent-a-Car at New Chitose <strong>closes at 20:00 from 1 November to 31 March</strong>; Nippon runs to 22:00. Only ZE 623 is caught outright, but a delay pushes the later flights into it. And <strong>the lodging's check-in cutoff is still unknown</strong> — check that before planning to arrive after 20:00. With no kitchen, dinner on the 23rd has to be bought, and Annupuri largely shuts by 20:00.<br><br><strong>So the recommendation changes: KE 765 (10:05 → 12:50).</strong> The false constraint had cut it entirely. Incheon at <strong>08:00</strong> rather than 05:30, and Korean Air gives <strong>two free 23 kg bags</strong> — which retires the whole LCC problem of 15 kg with sports equipment charged separately. Annupuri at 17:20 means dinner sitting down.<br><br><strong>What it costs is the fare.</strong> 7C 1501 is still the cheapest, and it is now an honest trade rather than the only option: take the 05:30 start and 15 kg, keep the money. Price both and <strong>decide on price</strong> — the timetable no longer decides for you.<br><br><strong>⚠ Do not book an OZ flight number.</strong> Asiana is absorbed into Korean Air and ceases to exist on <strong>17 December 2026</strong>; OZ numbers become KE and the airline moves from Star Alliance to SkyTeam. That is <strong>six days before departure</strong>.<br><br>Coming home was always loose. <strong>7C 1504 (15:55 → 19:10)</strong>, <strong>KE 766 (14:05 → 17:05)</strong> and <strong>KE 770 (16:50 → 20:05)</strong> all work.<br><br><em>Times come from secondary sources (a route wiki and flight search); only KE 769 differs between them, at 12:35 vs 12:55. Christmas week can shift schedules, so this is a list to verify, not a booking instruction. Rental desk hours are as published by the airport and Toyota.</em></p>
+    <p class="note ko"><strong>이전 판은 “밝을 때 운전을 끝낸다”를 조건으로 걸고 후보를 7C 1501 하나로 좁혔다. 그 조건은 폴의 것이 아니라 내 것이었다.</strong> 홋카이도 밤길은 이미 여러 번 운전해 봤고, 22시 도착까지 괜찮다면 <strong>도착 시각이라는 축은 통째로 없어진다.</strong> 게다가 이전 표는 5편만 실었는데 실제로는 <strong>12편</strong>이고, 대한항공·아시아나가 “시간대가 아예 안 맞는다”고 쓴 것도 틀렸다 — OZ 174는 11:40 도착으로, 내가 만들어 낸 정오 기준조차 통과한다.<br><br><strong>카운터 마감도 이제 걸리지 않는다 — 차는 잡혔다.</strong> 신치토세 토요타는 11–3월 20:00 마감이라 한동안 이 페이지의 진짜 제약이었는데, <strong>22:00까지 픽업되는 조건으로 예약이 끝났다.</strong> 그래서 도착 시각으로 잘리는 편은 이제 하나도 없다. ZE 623(21:30 안누푸리)까지 포함해서다. 그리고 <strong>숙소 체크인 마감 시각은 아직 모른다</strong> — 20시 넘겨 도착할 생각이면 이걸 먼저 확인해야 한다. 주방이 없으니 23일 저녁은 사 먹어야 하는데 안누푸리는 대부분 20시면 닫는다.<br><br><strong>그래서 추천이 바뀐다: KE 765 (10:05 → 12:50).</strong> 잘못된 조건 때문에 지난 판에서 아예 잘라냈던 편이다. 인천에 <strong>08:00</strong>까지만 가면 되고(05:30이 아니다), 대한항공은 <strong>무료 위탁 23kg 두 개</strong>라 LCC 15kg·스포츠장비 별도 문제가 통째로 사라지며, 안누푸리 17:20이면 저녁을 앉아서 먹는다.<br><br><strong>대신 항공권 값을 더 낸다.</strong> 7C 1501은 여전히 제일 싸고, 이제 그건 “05:30 기상과 15kg을 받고 돈을 아낀다”는 정직한 선택지다. 두 편 다 뽑아 보고 <strong>가격으로 정하면 된다</strong> — 이번엔 시간표가 정해 주지 않는다.<br><br><strong>⚠ OZ 편명으로는 예약하지 않는다.</strong> 아시아나는 <strong>2026년 12월 17일</strong> 대한항공에 흡수되어 소멸하고, OZ 편명은 KE로 바뀌며 스타얼라이언스에서 스카이팀으로 옮긴다. <strong>출발 6일 전</strong>이다.<br><br>돌아오는 편은 원래도 헐거웠다. <strong>7C 1504 (15:55 → 19:10)</strong>, <strong>KE 766 (14:05 → 17:05)</strong>, <strong>KE 770 (16:50 → 20:05)</strong> 다 된다.<br><br><em>시간표는 2차 출처(노선 위키·항공 검색) 기준이고, KE 769만 두 출처가 12:35/12:55로 갈린다. 크리스마스 주간에는 바뀔 수 있으니 확인하고 예약할 목록이지 예약 지시가 아니다. 렌터카 마감은 신치토세공항·토요타렌터카 공시.</em></p>
+    <p class="note en" lang="en"><strong>The previous revision made "finish the drive in daylight" a requirement and narrowed the list to 7C 1501 alone. That requirement was mine, not Paul's.</strong> He has driven the Hokkaido night plenty of times, and if arriving at 22:00 is fine then <strong>the arrival-time axis disappears entirely.</strong> Worse, that table listed five flights when there are <strong>twelve</strong>, and its claim that Korean Air and Asiana "do not fly at a usable hour" was simply wrong — OZ 174 lands at 11:40, which clears even the noon rule I had invented.<br><br><strong>The counter no longer binds either — the car is booked.</strong> Toyota at New Chitose closes at 20:00 from 1 November to 31 March, which was this page's real constraint for a while; the reservation is now made <strong>with pickup available to 22:00</strong>. So nothing on the table is excluded on arrival time any more, ZE 623 included, at Annupuri 21:30. And <strong>the lodging's check-in cutoff is still unknown</strong> — check that before planning to arrive after 20:00. With no kitchen, dinner on the 23rd has to be bought, and Annupuri largely shuts by 20:00.<br><br><strong>So the recommendation changes: KE 765 (10:05 → 12:50).</strong> The false constraint had cut it entirely. Incheon at <strong>08:00</strong> rather than 05:30, and Korean Air gives <strong>two free 23 kg bags</strong> — which retires the whole LCC problem of 15 kg with sports equipment charged separately. Annupuri at 17:20 means dinner sitting down.<br><br><strong>What it costs is the fare.</strong> 7C 1501 is still the cheapest, and it is now an honest trade rather than the only option: take the 05:30 start and 15 kg, keep the money. Price both and <strong>decide on price</strong> — the timetable no longer decides for you.<br><br><strong>⚠ Do not book an OZ flight number.</strong> Asiana is absorbed into Korean Air and ceases to exist on <strong>17 December 2026</strong>; OZ numbers become KE and the airline moves from Star Alliance to SkyTeam. That is <strong>six days before departure</strong>.<br><br>Coming home was always loose. <strong>7C 1504 (15:55 → 19:10)</strong>, <strong>KE 766 (14:05 → 17:05)</strong> and <strong>KE 770 (16:50 → 20:05)</strong> all work.<br><br><em>Times come from secondary sources (a route wiki and flight search); only KE 769 differs between them, at 12:35 vs 12:55. Christmas week can shift schedules, so this is a list to verify, not a booking instruction. Rental desk hours are as published by the airport and Toyota.</em></p>
   </section>
 
   <section class="section">
@@ -1270,8 +1281,8 @@
       <li class="en" lang="en"><strong>The dates went to the snow — all three ski days are peak.</strong> Niseko's peak band is <strong>24 Dec – 28 Feb</strong> at ¥13,500 a day. Regular season (12–23 Dec) is ¥12,600, so this costs ¥900 a day — and <strong>choosing 23–27 Dec spent that ¥900 on snow.</strong> Late December builds base fast enough that a few days matters; see the “top section” question in the FAQ.</li>
       <li class="ko"><strong>숙소는 잡혔고, 조건까지 확인하고 나니 더 싸게 잡힌 것이 됐다.</strong> 4박 4인 ₩240만 = 하루 ₩60만, 1인 1박 <strong>₩15만</strong>(약 ¥15,900)이다. 여기에 <strong>조식과 관내 온천이 붙어 있다.</strong> 따로 사면 조식 ¥2,000, 온천 입욕 ¥1,000 수준이니 1인 1박 약 ₩2.8만이 값에 이미 들어 있는 셈이고, <strong>방값만 따지면 1인 1박 ₩12만·하루 ₩49만(약 $350)</strong>이 된다. 비교 기준으로, 히라후에서 4명 들어가는 2베드룸이 <strong>비수기</strong>에 1박 $388, 니세코 빌리지 일대 평균이 $338다. <strong>성수기 중에서도 제일 비싼 주에 비수기 가격을 냈다.</strong> (조식·온천 공제는 그 값어치를 따로 샀을 때의 추정이지, 숙소가 내역으로 준 숫자가 아니다.) 게다가 <strong>전액 환불</strong>이니 지금 위험은 비싸게 산 게 아니라 놓치는 쪽이다 — 잡아두고 그만 알아본다.</li>
       <li class="en" lang="en"><strong>The room is booked, and confirming the terms made it a better deal, not a worse one.</strong> ₩2.4M for four nights for four is ₩600k a night, <strong>₩150k per person per night</strong> (about ¥15,900) — and <strong>breakfast and an in-house onsen are inside that number.</strong> Bought separately those run about ¥2,000 and ¥1,000, roughly ₩28k per person per night already paid for, which puts the <strong>room-only rate near ₩120k per person per night — ₩490k a night for the unit, about $350.</strong> For comparison, a two-bedroom in Hirafu that sleeps four runs about $388 a night <strong>off-peak</strong>, and the Niseko Village area averages $338. <strong>That is an off-peak rate in the most expensive week of the season.</strong> (The deduction estimates what those inclusions cost on their own; it is not a breakdown the property provided.) It is also <strong>fully refundable</strong>, so the risk now is losing it, not overpaying — hold it and stop shopping.</li>
-      <li class="ko"><strong>주방이 없다 — 저녁 네 끼가 전부 외식이다.</strong> 조식이 포함이라 아침은 해결됐지만, 12/23·24·25·26 저녁은 전부 나가서 먹어야 하고 <strong>물러설 자리가 없다.</strong> 안누푸리는 식당이 적고 12월 25일은 니세코에서 예약이 제일 어려운 날이라, 이 조합은 <strong>예약을 미룰 수 없게 만든다.</strong> 위 식비 구간은 이걸 이미 반영한 값이다 — 조식 4회를 빼서 내렸지, 자취로 아끼는 걸 계산에 넣지 않았다.</li>
-      <li class="en" lang="en"><strong>No kitchen — all four dinners are eaten out.</strong> Breakfast is covered, but 23, 24, 25 and 26 December all mean going out, with <strong>no fallback</strong>. Annupuri is thin on restaurants and 25 December is the hardest night of the year to get a table in Niseko, so the two facts together mean <strong>the reservation cannot wait.</strong> The food band above already accounts for this: it came down because breakfast is included, not because anything gets self-catered.</li>
+      <li class="ko"><strong>주방이 없다 — 저녁 네 끼가 전부 외식이다.</strong> 조식이 포함이라 아침은 해결됐지만, 12/23·24·25·26 저녁은 전부 나가서 먹어야 하고 <strong>물러설 자리가 없다.</strong> 안누푸리는 히라후보다 식당이 훨씬 적다. 다만 <strong>지금 예약할 수 있는 게 아니다</strong> — 이 지역 대부분은 <strong>한 달 전부터</strong> 예약을 받는다. 그래서 지금 할 일은 예약이 아니라 <strong>네 끼의 계획을 세우고 창구가 열리는 날을 잡아두는 것</strong>이다 — <strong>아래 저녁 섹션</strong>. 위 식비 구간은 이걸 이미 반영한 값이다 — 조식 4회를 빼서 내렸지, 자취로 아끼는 걸 계산에 넣지 않았다.</li>
+      <li class="en" lang="en"><strong>No kitchen — all four dinners are eaten out.</strong> Breakfast is covered, but 23, 24, 25 and 26 December all mean going out, with <strong>no fallback</strong>. Annupuri is far thinner on restaurants than Hirafu. But <strong>this is not something that can be booked now</strong> — most places in the region take reservations only <strong>a month out</strong>. So the job today is not to book: it is to <strong>plan the four nights and diarise the dates the windows open</strong> — see <strong>the dinner section below</strong>. The food band above already accounts for this: it came down because breakfast is included, not because anything gets self-catered.</li>
       <li class="ko"><strong>숙소 성수기는 리프트권 성수기보다 먼저 시작한다.</strong> 숙소 성수기는 <strong>12월 21일</strong>부터고, 리프트권 성수기(12/24)보다 <strong>사흘 먼저</strong>다. 23~27일은 둘 다에 들어간다. 다음 트립을 위해 기억해둘 것 — 날짜가 움직일 수 있을 때 달력이 실제로 매기는 가격은 리프트권이 아니라 방이다.</li>
       <li class="en" lang="en"><strong>The lodging peak starts before the lift-pass peak.</strong> Lodging goes peak on <strong>21 Dec</strong>, three days ahead of the 24 Dec pass band, and 23–27 Dec sits inside both. Worth keeping for the next trip: when dates are movable, the room is what the calendar is really pricing, not the pass.</li>
     </ul>
@@ -1285,8 +1296,8 @@
       <h3 class="en" lang="en">The room is booked. Flights are the urgent thing now</h3>
       <p class="ko"><strong>안누푸리 4박 4인, ₩240만, 전액 환불 조건으로 확보됐다.</strong> 이 트립에서 제일 위험했던 항목이 닫혔고, 환불 가능이라 위험은 위쪽으로만 열려 있다 — 더 나은 걸 찾으면 바꾸면 되고, 못 찾아도 잃는 게 없다.</p>
       <p class="en" lang="en"><strong>Annupuri, four nights, four people, ₩2.4M, fully refundable.</strong> The riskiest item on this trip is now closed, and because it cancels free the exposure only runs one way — a better find can replace it, and finding nothing costs nothing.</p>
-      <p class="ko">남은 순서는 <strong>항공 → 렌터카 → 나머지 전부</strong>다. 크리스마스 주간 인천–신치토세 4석은 방만큼이나 빨리 없어진다. 시간대 제약은 풀렸으니 이제 <strong>가격으로 고르면 된다</strong> — 편한 쪽이 <strong>KE 765</strong>, 싼 쪽이 <strong>7C 1501</strong>이다.</p>
-      <p class="en" lang="en">What is left runs <strong>flights → car → everything else.</strong> Four ICN–CTS seats in Christmas week go about as fast as the room did. The timing constraint is gone, so <strong>pick on price</strong> — <strong>KE 765</strong> for the comfortable version, <strong>7C 1501</strong> for the cheap one.</p>
+      <p class="ko">숙소와 렌터카가 닫혔으니 <strong>남은 큰 건은 항공 하나</strong>다. 크리스마스 주간 인천–신치토세 4석은 방만큼이나 빨리 없어진다. 시간대 제약은 풀렸으니 이제 <strong>가격으로 고르면 된다</strong> — 편한 쪽이 <strong>KE 765</strong>, 싼 쪽이 <strong>7C 1501</strong>이다.</p>
+      <p class="en" lang="en">With the room and the car both closed, <strong>flights are the one big item left.</strong> Four ICN–CTS seats in Christmas week go about as fast as the room did. The timing constraint is gone, so <strong>pick on price</strong> — <strong>KE 765</strong> for the comfortable version, <strong>7C 1501</strong> for the cheap one.</p>
     </div>
   </section>
 
@@ -1365,20 +1376,112 @@
 
   <section class="section">
     <div class="section-head">
+      <div class="eyebrow ko">주방이 없다 · 저녁 네 끼</div>
+      <div class="eyebrow en" lang="en">No kitchen · four dinners</div>
+      <h2 class="ko">저녁은 계획만 세운다 — 예약 창구는 아직 안 열렸다</h2>
+      <h2 class="en" lang="en">Plan the dinners now; the booking windows are not open yet</h2>
+    </div>
+    <div class="section-body">
+      <p class="ko">숙소에 주방이 없어서 <strong>12/23·24·25·26 저녁 네 끼가 전부 외식</strong>이고 물러설 자리가 없다. 그런데 <strong>지금 예약할 수는 없다</strong> — 이 지역 식당 대부분은 <strong>한 달 전부터</strong> 예약을 받는다. 그러니 지금 하는 일은 후보를 정해 두는 것이고, 예약은 창구가 열리는 날 한다.</p>
+      <p class="en" lang="en">With no kitchen, <strong>all four dinners — 23, 24, 25 and 26 December — are eaten out</strong>, with no fallback. But <strong>they cannot be booked today</strong>: most restaurants in the region open reservations only <strong>a month ahead</strong>. So the work now is to choose candidates, and to book when the window opens.</p>
+      <div class="tbl">
+        <table class="tbl-plan">
+          <caption><span class="ko">네 끼 — 상황이 다르니 성격도 다르게 잡는다</span><span class="en" lang="en">Four nights, four different problems</span></caption>
+          <colgroup>
+            <col style="width:11%"><col style="width:24%">
+            <col style="width:34%"><col style="width:31%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col"><span class="ko">날짜</span><span class="en" lang="en">Date</span></th>
+              <th scope="col"><span class="ko">그날의 조건</span><span class="en" lang="en">Condition</span></th>
+              <th scope="col"><span class="ko">후보</span><span class="en" lang="en">Candidates</span></th>
+              <th scope="col"><span class="ko">예약</span><span class="en" lang="en">Booking</span></th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row"><span class="ko">12/23</span><span class="en" lang="en">23 Dec</span></th>
+            <td><span class="ko">도착일. KE 765면 17:20, 늦은 편이면 20시 이후</span><span class="en" lang="en">Arrival. 17:20 on KE 765; after 20:00 on the late flights</span></td>
+            <td><span class="ko">코비토(스시·라멘) · 카라비나(이자카야) · 타지마할(인도)</span><span class="en" lang="en">Kobito (sushi, ramen) · Karabina (izakaya) · Taj Mahal (Indian)</span></td>
+            <td><span class="ko">예약 없이 가는 밤으로 둔다. 20시 넘겨 도착하면 이치세코 편의점</span><span class="en" lang="en">Leave this one unbooked. Past 20:00, it is the Ichiseko konbini</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="ko">12/24</span><span class="en" lang="en">24 Dec</span></th>
+            <td><span class="ko">크리스마스 이브 — <strong>일본에서는 이 밤이 제일 붐빈다</strong></span><span class="en" lang="en">Christmas Eve — <strong>in Japan this is the busier night of the two</strong></span></td>
+            <td><span class="ko">모쿠노쇼(카이세키) · 아나베야(나베·사시미) · 모쿠모쿠테이(야키니쿠)</span><span class="en" lang="en">Moku no Sho (kaiseki) · A-nabeya (nabe, sashimi) · Moku-Moku Tei (yakiniku)</span></td>
+            <td><span class="ko">예약 필수. 전화 창구가 열리는 날 첫 번째로 건다</span><span class="en" lang="en">Booking required. First call on the day the phone window opens</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="ko">12/25</span><span class="en" lang="en">25 Dec</span></th>
+            <td><span class="ko">크리스마스 — 외국인 비중이 높은 니세코에서는 이쪽도 어렵다</span><span class="en" lang="en">Christmas Day — hard too, in a resort whose clientele is largely foreign</span></td>
+            <td><span class="ko">스시신(미슐랭, 안누푸리) · 라쿠이치 소바(12석 규모, 전화) · 카미무라(히라후, 온라인)</span><span class="en" lang="en">Sushi Shin (Michelin, Annupuri) · Rakuichi Soba (about 12 seats, phone) · Kamimura (Hirafu, online)</span></td>
+            <td><span class="ko">제일 어려운 한 끼. 카미무라를 원하면 <strong>9월</strong>에 움직여야 한다</span><span class="en" lang="en">The hard one. If it is to be Kamimura, that means moving in <strong>September</strong></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="ko">12/26</span><span class="en" lang="en">26 Dec</span></th>
+            <td><span class="ko">루스츠 다녀온 밤 — 1시간 운전해서 늦게 돌아온다</span><span class="en" lang="en">Back from Rusutsu — an hour's drive, arriving late</span></td>
+            <td><span class="ko">타지마할 · P.I.C(버거) · 숙소 인근에서 늦게까지 여는 곳</span><span class="en" lang="en">Taj Mahal · P.I.C (burgers) · whatever near the lodging stays open late</span></td>
+            <td><span class="ko">늦은 시각이 조건이다. 문 닫는 시각을 먼저 확인하고 고른다</span><span class="en" lang="en">The constraint is the hour, not the food. Check closing times first</span></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note ko"><strong>“12월 25일이 제일 어렵다”는 건 절반만 맞다.</strong> 일본에서 크리스마스의 외식 성수기는 <strong>24일 이브</strong>이고, 니세코는 손님의 상당수가 외국인이라 <strong>25일도 같이 어렵다.</strong> 둘 중 하나를 고르는 문제가 아니라 <strong>네 밤을 다 계획해야 하는</strong> 문제다.<br><br><strong>매일 한 명은 술을 안 마신다.</strong> 안누푸리 식당은 걸어갈 수 있는 거리에 몰려 있지 않고, 일본은 음주운전 무관용이다. 차례를 미리 정해두는 편이 낫다.</p>
+      <p class="note en" lang="en"><strong>"25 December is the hardest night" is half right.</strong> In Japan the Christmas restaurant peak is <strong>the 24th</strong>, and in Niseko — where a large share of the guests are foreign — <strong>the 25th is hard as well.</strong> It is not a choice between them; <strong>all four nights need a plan.</strong><br><br><strong>Someone is not drinking, every night.</strong> Annupuri's restaurants are not clustered within walking distance and Japan is zero-tolerance on drink-driving. Easier to agree the rota in advance than at the table.</p>
+      <div class="tbl">
+        <table class="tbl-plan">
+          <caption><span class="ko">예약 창구는 하나가 아니라 둘이다</span><span class="en" lang="en">There are two booking windows, not one</span></caption>
+          <colgroup>
+            <col style="width:15%"><col style="width:19%"><col style="width:66%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col"><span class="ko">창구</span><span class="en" lang="en">Channel</span></th>
+              <th scope="col"><span class="ko">언제 열리나</span><span class="en" lang="en">Opens</span></th>
+              <th scope="col"><span class="ko">해당하는 곳</span><span class="en" lang="en">Where it applies</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span class="ko">온라인</span><span class="en" lang="en">Online</span></th>
+              <td><span class="ko"><strong>9월부터</strong></span><span class="en" lang="en"><strong>from September</strong></span></td>
+              <td><span class="ko">카미무라 · 아부차 · 아스페르주 · 방방 · 니세코 피자 · 더 반 · 류나베</span><span class="en" lang="en">Kamimura · Abucha · Asperges · Bang Bang · Niseko Pizza · The Barn · Ryunabe</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="ko">전화</span><span class="en" lang="en">Phone</span></th>
+              <td><span class="ko"><strong>11월 중순부터</strong></span><span class="en" lang="en"><strong>from mid-November</strong></span></td>
+              <td><span class="ko">린 이자카야 · 하나요시 스시 · 라쿠이치 소바 · 안누푸리 대부분</span><span class="en" lang="en">Rin Izakaya · Hanayoshi Sushi · Rakuichi Soba · most of Annupuri</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="ko">취소 수수료</span><span class="en" lang="en">Cancellation</span></th>
+              <td><span class="ko">24~48시간 이내</span><span class="en" lang="en">within 24–48 h</span></td>
+              <td><span class="ko">1인당 <strong>¥3,000</strong> 안팎이 일반적이다 — 인원이 흔들릴 것 같으면 예약 수를 줄여 잡는다</span><span class="en" lang="en">around <strong>¥3,000 a head</strong> is typical — if the headcount might move, book fewer tables, not more</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note ko"><strong>순서가 하나 걸린다.</strong> 전화 예약이 11월 중순에 열리는데, <strong>숙소 무료 취소 마감이 11/25</strong>다. 거점을 후라노로 바꿀 가능성이 조금이라도 남아 있다면 <strong>거점을 먼저 확정하고 저녁을 잡는다</strong> — 순서가 반대면 니세코 예약을 잡아놓고 취소하는 상황이 된다. 위 정면 비교가 그 결정을 위한 것이다.<br><br><em>9월·11월이라는 두 창구는 Powderlife의 니세코 예약 안내 기준이고, 특정 시즌의 공식 날짜가 아니라 매년 반복되는 패턴이다. 노리는 집이 있으면 그 집에 직접 확인한다. 안누푸리 식당 목록과 전화번호는 SamuraiSnow 기준(2026-08-04 조회).</em></p>
+      <p class="note en" lang="en"><strong>One ordering trap.</strong> The phone window opens in mid-November, and <strong>the lodging cancels free until 25 November.</strong> If there is any chance of moving the base to Furano, <strong>settle the base first and book dinners second</strong> — the other order means holding Niseko tables you then cancel. That is what the head-to-head above is for.<br><br><em>The September / mid-November windows come from Powderlife's Niseko booking guide and describe the recurring pattern, not a published date for one season. Confirm with any restaurant that matters. The Annupuri list and phone numbers are per SamuraiSnow, retrieved 2026-08-04.</em></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
       <div class="eyebrow ko">다음 단계 — 우선순위 순</div>
       <div class="eyebrow en" lang="en">Next steps — in priority order</div>
       <h2 class="ko">확정해야 할 것</h2>
       <h2 class="en" lang="en">What needs deciding</h2>
     </div>
     <ol class="checks">
-      <li class="ko"><s>안누푸리 숙소 4인 · 4박 — 예약 및 조건 확인</s> — <strong>완료.</strong> ₩240만, 전액 환불. 확인된 것: <strong>조식 포함 · 주차 보장 · 침대 4개 · 관내 온천 · 주방 없음.</strong> 넷은 좋은 쪽이고 마지막 하나만 제약이다 — 저녁을 자체 해결할 수단이 없다는 뜻이라, 아래 12/25 항목이 그만큼 급해진다</li>
-      <li class="en" lang="en"><s>Annupuri lodging for 4, 4 nights — booked and terms confirmed</s> — <strong>done.</strong> ₩2.4M, fully refundable. Confirmed: <strong>breakfast included · parking guaranteed · four beds · in-house onsen · no kitchen.</strong> Four of those are upside and only the last is a constraint — there is no way to solve an evening in-house, which is what makes the 25 Dec item below urgent</li>
+      <li class="ko"><s>안누푸리 숙소 4인 · 4박 — 예약 및 조건 확인</s> — <strong>완료.</strong> ₩240만, 전액 환불. 확인된 것: <strong>조식 포함 · 주차 보장 · 침대 4개 · 관내 온천 · 주방 없음.</strong> 넷은 좋은 쪽이고 마지막 하나만 제약이다 — 저녁 네 끼를 전부 사 먹어야 한다는 뜻이고, 물러설 자리가 없다</li>
+      <li class="en" lang="en"><s>Annupuri lodging for 4, 4 nights — booked and terms confirmed</s> — <strong>done.</strong> ₩2.4M, fully refundable. Confirmed: <strong>breakfast included · parking guaranteed · four beds · in-house onsen · no kitchen.</strong> Four of those are upside and only the last is a constraint — all four dinners are bought, with no fallback</li>
       <li class="ko"><span class="hot">인천–신치토세 항공 4석</span> — 도착 시각 제약은 없다. 편한 쪽은 <strong>KE 765 (10:05 → 12:50)</strong> — 인천 08:00, 무료 위탁 23kg 두 개. 싼 쪽은 <strong>7C 1501 (07:20 → 10:00)</strong> — 인천 05:30에 15kg, 그리고 Basic 말고 <strong>Standard</strong>로 (Basic은 무료 수하물 0kg). 오는 편은 14:00 이후 아무거나. <strong>OZ 편명으로는 잡지 않는다 — 12/17에 KE로 바뀐다</strong></li>
       <li class="en" lang="en"><span class="hot">Four ICN–CTS seats</span> — arrival time is not a constraint. Comfortable: <strong>KE 765 (10:05 → 12:50)</strong>, Incheon at 08:00 and two free 23 kg bags. Cheap: <strong>7C 1501 (07:20 → 10:00)</strong>, Incheon at 05:30 with 15 kg, and book <strong>Standard</strong> not Basic (Basic carries 0 kg). Back on anything after 14:00. <strong>Do not book an OZ number — it becomes KE on 17 Dec</strong></li>
-      <li class="ko">렌터카 예약 — 신치토세 픽업, <strong>4WD SUV 또는 밴</strong>. 4명 + 스키 장비는 소형차에 안 들어간다. 스노타이어는 겨울 홋카이도 기본 포함이다</li>
-      <li class="en" lang="en">Reserve the car — New Chitose pickup, <strong>4WD SUV or van</strong>. Four people plus ski gear does not fit in a compact. Snow tyres come standard for a Hokkaido winter</li>
-      <li class="ko"><span class="hot">12월 25일 저녁</span> — 니세코에서 제일 잡기 어려운 예약인데, <strong>주방이 없다고 확인되면서 대안이 사라졌다.</strong> 안누푸리는 식당이 적고 누군가는 운전해야 한다(일본은 음주운전 무관용). 지금 예약한다. 겸사겸사 <strong>루스츠 다녀오는 날 저녁</strong>도 미리 정해두는 게 좋다 — 늦게 돌아와서 문 연 데를 찾는 상황은 피한다</li>
-      <li class="en" lang="en"><span class="hot">Dinner on 25 December</span> — the hardest reservation of the year in Niseko, and <strong>confirming there is no kitchen removed the alternative.</strong> Annupuri is thin on restaurants and someone has to stay sober to drive (Japan is zero-tolerance). Book it now. While you are at it, settle <strong>the Rusutsu evening</strong> too — getting back late and then hunting for somewhere still open is the avoidable version of this problem</li>
+      <li class="ko"><s>렌터카 예약 — 신치토세 픽업</s> — <strong>완료.</strong> 픽업은 <strong>22:00까지</strong> 가능한 조건이라, 이 페이지가 한동안 붙들고 있던 <strong>“토요타 카운터 20:00 마감”이라는 제약이 사라졌다.</strong> 도착 시각으로 걸리는 항공편은 이제 없다. 남은 확인은 두 가지 — <strong>차급이 스키 4세트를 감당하는지</strong>(각자 장비를 가져가면 170~180cm 스키가 실내에 안 들어가는 SUV가 많다. 렌탈 인원이 정해져야 답이 나온다)와, <strong>실제 지불액</strong>이다. 아래 비용표의 렌터카 줄은 아직 추정치다</li>
+      <li class="en" lang="en"><s>Reserve the car — New Chitose pickup</s> — <strong>done.</strong> Pickup runs to <strong>22:00</strong>, which retires the <strong>"Toyota desk closes at 20:00" constraint</strong> this page was built around. No flight is now excluded on arrival time. Two things still to confirm: <strong>whether the class booked takes four sets of skis</strong> — if people bring their own, 170–180 cm skis will not lie flat inside many SUVs, and that answer waits on the rental headcount — and <strong>what it actually cost</strong>. The car line in the cost table below is still an estimate</li>
+      <li class="ko"><span class="hot">저녁 네 끼 — 11월 알림</span> — <strong>지금은 예약이 안 된다.</strong> 이 지역 대부분이 한 달 전부터 받기 때문에 12/23~26 저녁의 전화 예약 창구는 <strong>11월 하순</strong>에 열린다. 지금 할 일은 후보를 정해두는 것뿐이고 — <strong>위 저녁 섹션</strong> — 달력에 <strong>11/20</strong>을 찍어두는 것이다. <strong>단, 온라인 예약을 받는 집은 9월에 이미 열린다</strong>(카미무라 등). 그쪽을 노린다면 11월까지 기다리면 늦는다</li>
+      <li class="en" lang="en"><span class="hot">Four dinners — a November reminder</span> — <strong>these cannot be booked yet.</strong> Most of the region takes reservations a month out, so the phone window for 23–26 Dec opens in <strong>late November</strong>. Today's job is only to pick the candidates — <strong>the dinner section above</strong> — and put <strong>20 Nov</strong> in the calendar. <strong>But the online-booking places open in September</strong> (Kamimura and others). If one of those is wanted, waiting until November loses it</li>
       <li class="ko">루스츠 리프트권은 <strong>온라인으로</strong> — 창구보다 1인당 ¥4,200 싸다</li>
       <li class="en" lang="en">Buy the Rusutsu pass <strong>online</strong> — ¥4,200 a head cheaper than the counter</li>
       <li class="ko">렌탈 장비 예약 — 인원 확인, 그리고 파우더 폭(105mm+) 재고는 크리스마스 주간에 제일 먼저 빠진다</li>
