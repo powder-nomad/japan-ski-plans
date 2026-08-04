@@ -469,6 +469,13 @@
     vertical-align: 0.1em;
     font-weight: 600;
   }
+  /* head-to-head table: let the verdict column survive a narrow screen */
+  .tbl-cmp td, .tbl-cmp tbody th { white-space: normal; }
+  .tbl-cmp td { font-size: 0.8rem; line-height: 1.45; }
+  .tbl-cmp td:last-child, .tbl-cmp th:last-child { white-space: nowrap; }
+  .tag-win-f { background: var(--ember-soft); color: var(--ember); }
+  .tag-win-n { background: var(--ice-soft); color: var(--ice); }
+  .tag-tie { background: var(--rule); color: var(--ink-3); }
   .tag-quoted { background: var(--ice-soft); color: var(--ice); }
   .tag-band { background: var(--ember-soft); color: var(--ember); }
   .muted { color: var(--ink-3); }
@@ -915,15 +922,126 @@
     <ul class="rules">
       <li class="ko"><strong>키로로 — 다시 후보로. 당일치기로.</strong> 이전 판에서 “바람으로 곤돌라가 멈추면 산이 통째로 잠긴다”고 썼는데 <strong>사실이 아니다.</strong> 키로로는 리프트가 10기다 — 곤돌라 2기에 체어 8기, 그중 후드 달린 고속 체어들은 위쪽이 묶여 있는 동안 바람을 피한 트리 라인을 계속 돌 수 있게 만든 설비다. 트리런 구역은 스키장 경계 <em>안</em>에 표시된 입구로 들어간다(비콘 필요한 게이트와는 별개). 니세코에서 <strong>50분</strong>, 성수기 1일권 <strong>¥8,800</strong> — 니세코 유나이티드 ¥13,500 대비 넷이서 하루 약 ¥19,000 차이다.</li>
       <li class="en" lang="en"><strong>Kiroro — back in, as a day trip.</strong> The previous version said that when wind stops the gondola the whole mountain locks up. <strong>That is not true.</strong> Kiroro runs ten lifts — two gondolas and eight chairs — and the hooded detachable chairs exist precisely so you can keep lapping sheltered tree lines while the top is on hold. Its Tree Run Areas are entered through marked gates <em>inside</em> the ski area boundary, which is a different thing from the beacon-required backcountry gates. <strong>50 minutes</strong> from Niseko, and a peak day pass is <strong>¥8,800</strong> against Niseko United's ¥13,500 — about ¥19,000 a day across the four of us.</li>
-      <li class="ko"><strong>후라노 — 여전히 빠지지만, 이유가 바뀌었다.</strong> 규정 때문이라고 썼던 건 낡은 정보였다. 후라노는 트리 스키 전면 금지에서 <strong>니세코식 게이트 방식</strong>으로 이미 바꿨다 — 새 눈이 오면 닫고, 패트롤이 안정됐다고 판단하면 연다. 폴이 후라노에서 5일 타는 동안 패트롤에게 제지당한 적이 없다. 진짜 이유는 <strong>거리</strong>다: 안누푸리에서 약 200km, 편도 3시간. 당일치기로 성립하지 않는다. (게이트 안쪽에 눈사태 관리 프로그램은 없다.)</li>
-      <li class="en" lang="en"><strong>Furano — still out, but not for the reason given.</strong> The regulations line was out of date. Furano has already moved from a blanket tree-skiing ban to a <strong>Niseko-style gate system</strong> — closed after new snow, opened once patrol is satisfied it has settled. Paul skied five days there and was never once stopped. The reason it is actually out is <strong>distance</strong>: about 200 km from Annupuri, three hours each way. That is not a day trip. (Note that there is no avalanche-control programme behind those gates.)</li>
+      <li class="ko"><strong>후라노 — 여전히 빠지지만, 이유가 바뀌었다.</strong> 규정 때문이라고 썼던 건 낡은 정보였다. 후라노는 트리 스키 전면 금지에서 <strong>니세코식 게이트 방식</strong>으로 이미 바꿨다 — 새 눈이 오면 닫고, 패트롤이 안정됐다고 판단하면 연다. 폴이 후라노에서 5일 타는 동안 패트롤에게 제지당한 적이 없다. 진짜 이유는 <strong>거리</strong>다: 안누푸리에서 약 200km, 편도 3시간. 당일치기로 성립하지 않는다. <strong>거점으로는 얘기가 완전히 다르고, 실제로 만만치 않은 후보다 — 바로 아래에서 정면으로 붙여놨다.</strong> (게이트 안쪽에 눈사태 관리 프로그램은 없다.)</li>
+      <li class="en" lang="en"><strong>Furano — still out, but not for the reason given.</strong> The regulations line was out of date. Furano has already moved from a blanket tree-skiing ban to a <strong>Niseko-style gate system</strong> — closed after new snow, opened once patrol is satisfied it has settled. Paul skied five days there and was never once stopped. The reason it is actually out is <strong>distance</strong>: about 200 km from Annupuri, three hours each way. That is not a day trip. <strong>As a base it is a different question entirely, and a serious contender — the head-to-head is directly below.</strong> (Note that there is no avalanche-control programme behind those gates.)</li>
       <li class="ko"><strong>모이와 — 아예 검토조차 안 했었다.</strong> 예약한 안누푸리 숙소에서 <strong>차로 5분</strong>인데 이 문서에 한 번도 안 나왔다. 리프트 3기, 코스 8개, 그리고 이 그룹에 중요한 점: 넓게 벌어진 나무 사이가 <em>경계 안쪽</em>이라 게이트도 비콘도 필요 없다. 대신 싸지는 않다 — 정규 시즌 1일권 ¥13,000이고 니세코 유나이티드 패스에 포함되지 않는다. 돈이 아니라 <strong>한산함</strong>을 사는 선택지다.</li>
       <li class="en" lang="en"><strong>Moiwa — never even considered.</strong> It is a <strong>five-minute drive</strong> from the lodging we booked and it appears nowhere in this document. Three lifts, eight courses, and the part that matters for this group: its widely-spaced trees are <em>inside</em> the boundary, so no gate and no beacon requirement. It is not cheap, though — ¥13,000 a day in regular season and not included in the Niseko United pass. It buys quiet, not money.</li>
     </ul>
-    <p class="note ko"><strong>“더 나은 곳”은 눈으로는 없다.</strong> 홋카이도 12개 지역의 12/23 적설을 16시즌치로 재봤다 — 후라노·카무이·테이네·키로로·루스츠 모두 니세코와 <strong>통계적으로 구별되지 않는다.</strong> 게다가 눈이 얇았던 시즌은 <strong>지역 전체가 같이</strong> 얇았다(2021, 2025). 목적지를 옮겨도 이 리스크는 분산되지 않는다. 확실히 나은 곳은 아사히다케(해발 1,300m대, 16시즌 중 0회)뿐인데, 거긴 로프웨이지 스키장이 아니다.</p>
-    <p class="note en" lang="en"><strong>On snow, there is no better place.</strong> We re-measured 23 Dec base depth across twelve Hokkaido areas over sixteen seasons: Furano, Kamui, Teine, Kiroro and Rusutsu are all <strong>statistically indistinguishable</strong> from Niseko. And the thin seasons arrive <strong>region-wide at once</strong> (2021, 2025) — so moving the destination does not diversify this risk. The only area that clearly beats Niseko is Asahidake at ~1,300 m, zero thin seasons in sixteen, and that is a ropeway rather than a ski resort.</p>
+    <p class="note ko"><strong>당일치기로 갈아탈 만한 곳은 눈으로는 없다.</strong> 홋카이도 12개 지역의 12/23 적설을 16시즌치로 재봤는데, <strong>눈이 얇을 위험</strong>으로는 후라노·카무이·테이네·키로로·루스츠 모두 니세코와 <strong>구별되지 않는다</strong>(니세코 자체가 지점에 따라 2~4회로 흔들린다). 단, <strong>평년 적설 깊이</strong>는 다른 질문이고 거기서는 후라노가 실제로 앞선다 — 거점을 옮기는 얘기라면 아래 정면 비교를 보라. 게다가 눈이 얇았던 시즌은 <strong>지역 전체가 같이</strong> 얇았다(2021, 2025). 목적지를 옮겨도 이 리스크는 분산되지 않는다. 확실히 나은 곳은 아사히다케(해발 1,300m대, 16시즌 중 0회)뿐인데, 거긴 로프웨이지 스키장이 아니다.</p>
+    <p class="note en" lang="en"><strong>On snow, nothing here is worth switching the day trip for.</strong> We re-measured 23 Dec base depth across twelve Hokkaido areas over sixteen seasons. On the <strong>risk of a thin season</strong>, Furano, Kamui, Teine, Kiroro and Rusutsu are all <strong>indistinguishable</strong> from Niseko — Niseko’s own four points swing between 2 and 4, which is the noise floor. <strong>Typical base depth</strong> is a separate question, though, and Furano does win it — if the subject is moving the base rather than picking a day trip, see the head-to-head below. And the thin seasons arrive <strong>region-wide at once</strong> (2021, 2025) — so moving the destination does not diversify this risk. The only area that clearly beats Niseko is Asahidake at ~1,300 m, zero thin seasons in sixteen, and that is a ropeway rather than a ski resort.</p>
     <p class="note ko">가격과 시즌 구간은 2025-26 공시 기준이다. 2026-27 요금은 9월에 나온다.</p>
     <p class="note en" lang="en">Prices and season bands are the published 2025-26 figures; 2026-27 rates are released in September.</p>
+  </section>
+
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow ko">거점 재검토 · 11/25까지 무료 취소</div>
+      <div class="eyebrow en" lang="en">The base, re-opened · free cancellation to 25 Nov</div>
+      <h2 class="ko">거점을 아직 안 정했다고 치고 — 니세코 vs 후라노</h2>
+      <h2 class="en" lang="en">As if the base were still open — Niseko vs Furano</h2>
+    </div>
+    <div class="prose">
+      <p class="ko">숙소는 <strong>11/25까지 무료 취소</strong>다. 그러니까 거점은 아직 진짜로 열려 있는 변수고, 이 비교는 이미 잡아둔 예약 쪽으로 기울여 쓰지 않았다. <strong>결론부터: 후라노가 더 많은 항목에서 이긴다.</strong> 11개 중 후라노 5, 니세코 3, 무승부 3이다.</p>
+      <p class="en" lang="en">The lodging is <strong>free to cancel until 25 Nov</strong>, so the base is genuinely still a live variable, and this comparison is not weighted toward the booking we happen to be holding. <strong>Result first: Furano wins more rows.</strong> Of eleven, Furano takes five, Niseko three, and three are ties.</p>
+    </div>
+
+    <div class="tbl tbl-cmp">
+      <table>
+        <caption><span class="ko">후라노 거점 vs 니세코 거점 · 적설은 ERA5 재분석 16시즌, 리조트당 4개 지점</span><span class="en" lang="en">A Furano base vs a Niseko base · snow figures are ERA5 reanalysis, 16 seasons, four grid points per resort</span></caption>
+        <thead>
+          <tr>
+            <th scope="col"><span class="ko">기준</span><span class="en" lang="en">Axis</span></th>
+            <th scope="col"><span class="ko">후라노</span><span class="en" lang="en">Furano</span></th>
+            <th scope="col"><span class="ko">니세코</span><span class="en" lang="en">Niseko</span></th>
+            <th scope="col"><span class="ko">우세</span><span class="en" lang="en">Edge</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><span class="ko">12/23 적설 중앙값 (16시즌)</span><span class="en" lang="en">Median 23 Dec base (16 seasons)</span></th>
+            <td><span class="ko">0.51 m</span><span class="en" lang="en">0.51 m</span></td>
+            <td><span class="ko">0.45 m</span><span class="en" lang="en">0.45 m</span></td>
+            <td><span class="tag tag-win-f ko">후라노</span><span class="tag tag-win-f en" lang="en">Furano</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="ko">얇은 시즌 빈도</span><span class="en" lang="en">Thin seasons</span></th>
+            <td><span class="ko">2/16</span><span class="en" lang="en">2/16</span></td>
+            <td><span class="ko">2–4/16</span><span class="en" lang="en">2–4/16</span></td>
+            <td><span class="tag tag-tie ko">무승부</span><span class="tag tag-tie en" lang="en">Tie</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="ko">측정 지점 표고 (보정용)</span><span class="en" lang="en">Grid elevation (the confound)</span></th>
+            <td><span class="ko">173–231 m</span><span class="en" lang="en">173–231 m</span></td>
+            <td><span class="ko">218–783 m</span><span class="en" lang="en">218–783 m</span></td>
+            <td><span class="tag tag-win-f ko">후라노</span><span class="tag tag-win-f en" lang="en">Furano</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="ko">12/23까지 누적 강설</span><span class="en" lang="en">Cumulative snowfall to 23 Dec</span></th>
+            <td><span class="ko">88 cm</span><span class="en" lang="en">88 cm</span></td>
+            <td><span class="ko">88 cm</span><span class="en" lang="en">88 cm</span></td>
+            <td><span class="tag tag-tie ko">무승부</span><span class="tag tag-tie en" lang="en">Tie</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="ko">1일권 (성수기)</span><span class="en" lang="en">Day pass (peak)</span></th>
+            <td><span class="ko">¥7,500–8,000</span><span class="en" lang="en">¥7,500–8,000</span></td>
+            <td><span class="ko">¥13,500</span><span class="en" lang="en">¥13,500</span></td>
+            <td><span class="tag tag-win-f ko">후라노</span><span class="tag tag-win-f en" lang="en">Furano</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="ko">공항 → 숙소</span><span class="en" lang="en">Airport → lodging</span></th>
+            <td><span class="ko">2시간10분–2시간40분</span><span class="en" lang="en">2h10–2h40</span></td>
+            <td><span class="ko">2시간30분–3시간30분</span><span class="en" lang="en">2.5–3.5h</span></td>
+            <td><span class="tag tag-win-f ko">후라노</span><span class="tag tag-win-f en" lang="en">Furano</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="ko">숙소 가격</span><span class="en" lang="en">Lodging price</span></th>
+            <td><span class="ko">비슷하거나 조금 낮음</span><span class="en" lang="en">similar or slightly lower</span></td>
+            <td><span class="ko">₩240만 (확정)</span><span class="en" lang="en">₩2.4M (booked)</span></td>
+            <td><span class="tag tag-tie ko">무승부</span><span class="tag tag-tie en" lang="en">Tie</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="ko">주방</span><span class="en" lang="en">Kitchen</span></th>
+            <td><span class="ko">있음 (아파트)</span><span class="en" lang="en">yes (apartments)</span></td>
+            <td><span class="ko">없음</span><span class="en" lang="en">none</span></td>
+            <td><span class="tag tag-win-f ko">후라노</span><span class="tag tag-win-f en" lang="en">Furano</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="ko">초보가 쓸 수 있는 경계 안쪽 트리</span><span class="en" lang="en">In-bounds tree terrain a beginner can use</span></th>
+            <td><span class="ko">없음 (게이트 사이드컨트리뿐)</span><span class="en" lang="en">none (gated sidecountry only)</span></td>
+            <td><span class="ko">스트로베리 필즈</span><span class="en" lang="en">Strawberry Fields</span></td>
+            <td><span class="tag tag-win-n ko">니세코</span><span class="tag tag-win-n en" lang="en">Niseko</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="ko">당일치기 파우더 대안</span><span class="en" lang="en">Backup powder options within reach</span></th>
+            <td><span class="ko">카무이 하나</span><span class="en" lang="en">Kamui, and only Kamui</span></td>
+            <td><span class="ko">루스츠 · 키로로 · 모이와</span><span class="en" lang="en">Rusutsu · Kiroro · Moiwa</span></td>
+            <td><span class="tag tag-win-n ko">니세코</span><span class="tag tag-win-n en" lang="en">Niseko</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="ko">도착 시점 오픈 상태</span><span class="en" lang="en">Open by the time we land</span></th>
+            <td><span class="ko">기타노미네 12/20 전후</span><span class="en" lang="en">Kitanomine ~20 Dec</span></td>
+            <td><span class="ko">12월 초 전 구역</span><span class="en" lang="en">whole area from early December</span></td>
+            <td><span class="tag tag-win-n ko">니세코</span><span class="tag tag-win-n en" lang="en">Niseko</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="rules">
+      <li class="ko"><strong>후라노의 눈 우위는 진짜다.</strong> 이 비교에서 대부분의 차이는 격자 노이즈에 묻혀 사라졌는데, 이 항목은 <strong>4개 지점 구간이 서로 겹치지 않는</strong> 몇 안 되는 경우다. 누적 강설이 88cm로 <em>같은데</em> 남아 있는 눈이 더 깊다 — 후라노는 받은 눈을 더 잘 붙들고 있다는 뜻이고, 측정 지점이 니세코보다 <strong>45~552m 낮은데도</strong> 그렇다. 표고는 후라노에 불리하게 작용하는데 결과가 저러면 신호로 봐야 한다.</li>
+      <li class="en" lang="en"><strong>Furano's snow advantage is real.</strong> Most differences in this whole comparison dissolved into grid noise; this is one of the few where the <strong>four-point ranges do not overlap.</strong> Cumulative snowfall is the <em>same</em> 88 cm and the retained base is deeper — Furano holds on to what it gets — and it does that from grid points <strong>45–552 m lower</strong> than Niseko's. Elevation is working against Furano here, which makes the result a signal rather than an artefact.</li>
+      <li class="ko"><strong>그런데 항목들의 무게가 같지 않다.</strong> 이 여행은 두 명을 처음으로 파우더에 넣어보려고 가는 거다. 후라노에는 <strong>초보가 쓸 수 있는 경계 안쪽 트리 지형이 없다</strong> — 게이트 사이드컨트리뿐이고 그 안쪽엔 눈사태 관리 프로그램이 없다. 5일 타본 사람에게는 문제가 아니지만, 첫날 데뷔 장소로는 아니다. 그러면 두 사람의 파우더 경험 전부가 <strong>카무이 한 곳</strong>에, 그것도 후기 하나에 걸린다.</li>
+      <li class="en" lang="en"><strong>But the rows are not equal weight.</strong> This trip exists to put two people into powder for the first time. Furano has <strong>no in-bounds tree terrain a beginner can use</strong> — only gated sidecountry, with no avalanche-control programme behind the gates. That is fine for someone with five days there and wrong as a debut venue. Which leaves both beginners' entire powder experience resting on <strong>Kamui alone</strong>, on a single first-hand review.</li>
+      <li class="ko"><strong>그래서 산 것: 여분.</strong> 니세코 거점은 같은 사람들에게 <strong>독립적으로 확인된 선택지 두 개</strong>를 준다. 한 번 사고 마는 여행에서는 최적점보다 여분이 낫다. 대신 치른 값은 리프트권 약 <strong>¥66,000</strong>(스키 3일·4인)과 적설 <strong>6cm</strong>다. 그게 거래의 전부고, 숨길 이유가 없다.</li>
+      <li class="en" lang="en"><strong>What that buys: redundancy.</strong> A Niseko base gives the same two people <strong>two independently documented options.</strong> On a trip you buy once, redundancy beats a marginal optimum. The price of it is about <strong>¥66,000</strong> in lift passes across three ski days for four, and <strong>6 cm</strong> of base. That is the whole trade, stated plainly.</li>
+      <li class="ko"><strong>이 답을 뒤집는 조건.</strong> 넷 다 오프피스트 경험이 있었다면 <strong>추천은 후라노 + 카무이로 뒤집힌다.</strong> 눈도 돈도 공항도 주방도 후라노가 이기니까. 결정을 가른 건 눈이 아니라 <strong>일행 구성</strong>이다 — 2·3차 여행은 구성이 다르니 그때 다시 계산해야 한다.</li>
+      <li class="en" lang="en"><strong>The condition that flips this.</strong> If all four had off-piste mileage, <strong>the recommendation flips to Furano plus Kamui</strong> — it wins on snow, money, airport and kitchen. What decided this was not the snow but <strong>who is going.</strong> Trips 2 and 3 have a different group, so the sum has to be redone there rather than inherited.</li>
+    </ul>
+    <p class="note ko">카무이는 아직 미해결이고 자료가 서로 어긋난다. 폴의 지인은 트리런 구역이 <em>너무 쉽다</em>고 했고(이 그룹엔 오히려 좋다), 파우더하운즈는 지정 트리런을 <strong>더블 블랙</strong>에 조릿대가 있고 표고차가 짧다고 쓴다. 카무이 공식 사이트에는 트리런 언급이 아예 없다. 등급만으로는 못 가른다 — 일본 스키장은 책임 문제로 비압설 지형을 전부 최고 난이도로 매긴다. 실제로 갈리는 질문은 <strong>그 지인이 언제 탔느냐</strong>다. 카무이 측정 표고는 이 비교에서 제일 낮은 99~241m고 조릿대는 묻혀야 지형이 되니까, 2월의 쉬운 트리는 12/23에 대해 알려주는 게 별로 없다.</p>
+    <p class="note en" lang="en">Kamui is unresolved and the sources conflict. Paul's friend, first-hand: the tree zones are <em>too easy</em> — which would actually suit this group. Powderhounds: the designated tree runs are <strong>double black</strong>, carry bamboo grass, and are short on vertical. Kamui's own site mentions tree runs nowhere. The grading does not settle it — Japanese resorts put all ungroomed terrain at the top of the scale for liability. The question that decides it is <strong>when the friend skied it</strong>: Kamui sits on the lowest grid elevation in this comparison, 99–241 m, and bamboo has to be buried before the terrain works — so easy trees in February say little about 23 December.</p>
+    <p class="note ko">적설 숫자는 실측이 아니라 ERA5 재분석 격자값이고, 리조트당 4개 지점의 중앙값이다. 지점 하나로는 같은 산 안에서도 결론이 뒤집혔기 때문에 구간으로만 읽어야 한다. 리프트권은 2025-26 공시 기준 — 후라노는 날짜별 변동 요금이라 ¥7,500~8,000 사이로 움직인다.</p>
+    <p class="note en" lang="en">The snow figures are ERA5 reanalysis grid values, not measurements, taken as the median of four points per resort. A single point flipped the answer within one mountain, so read these as ranges only. Lift prices are the published 2025-26 figures; Furano prices dynamically, so it moves between ¥7,500 and ¥8,000.</p>
   </section>
 
   <section class="section">
@@ -1195,8 +1313,8 @@
       <div class="qa">
         <div class="qa-q ko">사람이 그렇게 많다면서 왜 니세코인가?</div>
         <div class="qa-q en" lang="en">If it's that crowded, why Niseko?</div>
-        <p class="ko"><strong>적설이 가장 든든한 축이고, 이미 예약이 잡혀 있기 때문이다.</strong> 니세코는 12월 내내 꾸준히 눈이 쌓여서 크리스마스면 대부분의 코스가 열린다. 다만 16시즌치를 재보니 <strong>키로로·후라노·카무이·테이네·루스츠도 이 점에서는 니세코와 구별되지 않는다.</strong> 그리고 눈이 얇은 해는 지역 전체가 같이 얇아서, 목적지를 바꿔도 그 위험은 그대로 따라온다. 붐비는 건 참을 수 있지만 눈이 없는 건 못 참는다.</p>
-        <p class="en" lang="en"><strong>Because its base is among the most dependable, and because we already hold the booking.</strong> Niseko builds steadily through December, so by Christmas most of the terrain is open. But measured across sixteen seasons, <strong>Kiroro, Furano, Kamui, Teine and Rusutsu are indistinguishable from it on exactly this point.</strong> And a thin year is thin region-wide, so changing destination carries the risk along with it. Crowds are survivable; no snow isn't.</p>
+        <p class="ko"><strong>눈 때문이 아니다 — 처음 파우더를 타는 두 명 때문이다.</strong> 얇은 시즌 위험으로는 키로로·후라노·카무이·테이네·루스츠 모두 니세코와 구별되지 않고, 평년 적설 깊이만 놓고 보면 <strong>후라노가 오히려 앞선다.</strong> 위의 정면 비교에서 항목 수로는 후라노가 더 많이 이긴다. 그런데도 니세코인 이유는 하나다: <strong>초보가 게이트도 비콘도 없이 들어갈 수 있는 경계 안쪽 트리 지형이 있고, 그런 선택지가 하나가 아니라 둘이다.</strong> 그리고 눈이 얇은 해는 지역 전체가 같이 얇아서 목적지를 바꿔도 그 위험은 따라온다. 붐비는 건 참을 수 있지만 눈이 없는 건 못 참는다.</p>
+        <p class="en" lang="en"><strong>Not for the snow — for the two people skiing powder for the first time.</strong> On the risk of a thin season, Kiroro, Furano, Kamui, Teine and Rusutsu are all indistinguishable from Niseko, and on typical base depth <strong>Furano actually beats it</strong> — in the head-to-head above, Furano wins more rows than Niseko does. Niseko is still the answer for one reason: <strong>it has in-bounds tree terrain two beginners can ski without a gate or a beacon, and it has two such options rather than one.</strong> And a thin year is thin region-wide, so changing destination carries the risk along rather than escaping it. Crowds are survivable; no snow isn't.</p>
       </div>
       <div class="qa">
         <div class="qa-q ko">루스츠가 트리런이 더 좋다면서 왜 하루만 가나?</div>
